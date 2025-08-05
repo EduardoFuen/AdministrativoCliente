@@ -31,6 +31,12 @@ const ReceptionList = () => { const theme = useTheme();
 
   const { listPurchase } = useSelector((state) => state.purchase);
 
+  const [lista, setLista] = useState (listPurchase)
+  console.log (lista[3].Warehouse)
+    useEffect (() =>{
+      setLista (listPurchase)
+  },[])
+  
   useEffect(() => {
     dispatch(getPurchaseList());
     dispatch(getProducts());
@@ -46,6 +52,7 @@ const ReceptionList = () => { const theme = useTheme();
     history(`/purchase/view/${id}`);
   };
 
+  const filtrar = () => {history("src\pages\apps\filtroTales\filter.tsx")}
 
   const columns = useMemo(
     () => [
@@ -184,7 +191,8 @@ const ReceptionList = () => { const theme = useTheme();
   );
 
   let list: Purchase[] = listPurchase && listPurchase.length > 0 ? listPurchase : [];
-
+let indice = listPurchase.length
+console.log(indice)
   return (
     <MainCard content={false}>
       <ScrollX>
@@ -206,6 +214,7 @@ const ReceptionList = () => { const theme = useTheme();
           totalRows={totalPages} */
         />
       </ScrollX>
+      <button onClick={filtrar}>filtrar</button>
     </MainCard>
   );
 };
