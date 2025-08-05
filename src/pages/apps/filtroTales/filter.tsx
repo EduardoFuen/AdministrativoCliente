@@ -8,7 +8,7 @@ const { listPurchase } = useSelector((state) => state.purchase);
 
 
   return (
-    <div> HOLA </div>
+    <div> HOLA est fil </div>
   )
 }
 
