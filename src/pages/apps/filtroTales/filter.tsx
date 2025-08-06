@@ -1,10 +1,22 @@
-import React from 'react'
-import { useSelector } from 'store';
+import { useEffect, useState } from 'react'
+import data2 from "./data2.json"
 
 
 const filter = () => {
 
-const { listPurchase } = useSelector((state) => state.purchase);
+
+interface Lista {
+  BusinessName :  string;
+  CreatedAt: string;
+  Total: number;
+}
+const [data, setData] = useState <Lista[]> ([])
+
+ useEffect (() =>{
+      setData (data2)
+  },[])
+
+console.log (data)
 
 
   return (
