@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Chip, Stack, Tooltip, Typography, CircularProgress, Box } from '@mui/material';
+import { Chip, Stack, Tooltip, Typography, CircularProgress, Box, Button } from '@mui/material';
 // third-party
 import NumberFormat from 'react-number-format';
 // project import
@@ -22,6 +22,10 @@ import { deletePurchase, getPurchaseList, resetItemsPurchase } from 'store/reduc
 import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
+
+
+
+
 
 // ==============================|| RECEPTION - LIST VIEW ||============================== //
 
@@ -195,7 +199,11 @@ let indice = listPurchase.length
 console.log(indice)
   return (
     <MainCard content={false}>
+  
       <ScrollX>
+        <Box sx={{ display: 'flex', justifyContent: 'right' }}> 
+            <Button variant='contained' sx={{marginTop: 2, marginRight: 3}} onClick={filtrar}> Filtrar </Button>
+        </Box>
         <ReactTable
           columns={columns}
           data={list as []}
@@ -214,7 +222,7 @@ console.log(indice)
           totalRows={totalPages} */
         />
       </ScrollX>
-      <button onClick={filtrar}>filtrar</button>
+      
     </MainCard>
   );
 };
