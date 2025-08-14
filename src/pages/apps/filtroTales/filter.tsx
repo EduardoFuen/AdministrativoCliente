@@ -1,27 +1,48 @@
-import { useEffect, useState } from 'react'
+
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import data2 from "./data2.json"
+import { useSelector } from 'react-redux';
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import React from "react";
+import { DatePicker } from '@mui/x-date-pickers';
+import { TextField } from '@mui/material';
 
 
-const filter = () => {
+
+const Filter = () => {
 
 
-interface Lista {
-  BusinessName :  string;
-  CreatedAt: string;
-  Total: number;
-}
-const [data, setData] = useState <Lista[]> ([])
+ const [dataForm, setDataForm] = React.useState<{
+        dateFrom: Date | null,
+        dateTo: Date | null,
+        selected: string | number
+    }>({
+      dateFrom: new Date(),
+      dateTo: new Date(),
+      selected: -1
+    })
 
- useEffect (() =>{
-      setData (data2)
-  },[])
+const  lista  = useSelector(() => data2);
 
-console.log (data)
+
+
+console.log (lista)
 
 
   return (
-    <div> HOLA est fil </div>
+   <LocalizationProvider dateAdapter={AdapterDateFns}>  
+    <DatePicker
+                disableFuture
+                label='Date From'
+                value={dataForm.dateFrom}
+                inputFormat= "dd/MM/yyyy"
+                onChange={(newValue: Date | null) => {
+                  setDataForm({ ...dataForm, dateFrom: newValue })
+                }}
+               renderInput={(params) => <TextField {...params}  />}
+              />
+   </LocalizationProvider>
   )
 }
 
-export default filter
+export default Filter

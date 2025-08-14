@@ -32,6 +32,8 @@ const AppProviderEdit = Loadable(lazy(() => import('pages/apps/provider/editProd
 const AppReceptionList = Loadable(lazy(() => import('pages/apps/reception/reception-list')));
 const AppReceptionView = Loadable(lazy(() => import('pages/apps/reception/viewReception')));
 
+const AppFilter = Loadable(lazy(() => import('pages/apps/filtroTales/filter')));
+
 const UserList = Loadable(lazy(() => import('pages/auth/listUser')));
 
 const SupplierList = Loadable(lazy(() => import('pages/apps/supplier/supplier-list')));
@@ -72,6 +74,10 @@ const MainRoutes = {
             {
               path: 'reception',
               element: <AppReceptionList />
+            },
+              {
+              path: 'filter',
+              element: <AppFilter />
             },
             {
               path: 'cambios',

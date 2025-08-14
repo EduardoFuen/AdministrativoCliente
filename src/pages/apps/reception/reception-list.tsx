@@ -56,7 +56,7 @@ const ReceptionList = () => { const theme = useTheme();
     history(`/purchase/view/${id}`);
   };
 
-  const filtrar = () => {history("src\pages\apps\filtroTales\filter.tsx")}
+  const filtrar = () => {history("/filter")}
 
   const columns = useMemo(
     () => [
