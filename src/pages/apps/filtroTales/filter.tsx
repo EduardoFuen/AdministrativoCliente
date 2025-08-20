@@ -2,42 +2,21 @@
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import data2 from "./data2.json"
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import React from "react";
 import { DatePicker } from '@mui/x-date-pickers';
 import { Grid, TextField } from '@mui/material';
 import {Button} from "@mui/material"
+import { useFilterContext } from 'contexts/Filter.context';
+import React from 'react';
+import { Purchase } from 'types/purchase';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
-interface Article {
-  id: string | number;
-  name: string;
-  quantity: number;
-  price: number;
-}
 
-interface ReceptionData {
-  ID?: string | number;
-  SupplierID?: number;
-  Supplier?: { name: string };
-  Warehouse?: object;
-  WarehouseID?: number;
-  Notes?: string;
-  Discount?: string | number;
-  DiscountEarliyPay?: number;
-  SubTotal?: number;
-  DiscountGlobal?: number;
-  SubtotalWithDiscount?: number;
-  CreatedAd?: string;
-  Total?: number;
-  Tax?: number;
-  Status?: number;
-  Articles?: Article[];
-  detailsReption?: any;
-}
 
-const filterByRange = (data: ReceptionData[], property: keyof ReceptionData, range: { min: number, max: number }): ReceptionData[] => {
+
+export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number, max: number }): Purchase[] => {
   if (!Array.isArray(data) || !range || typeof range.min !== 'number' || typeof range.max !== 'number') {
     console.error("Los argumentos de entrada no son válidos.");
     return [];
@@ -57,12 +36,15 @@ const filterByRange = (data: ReceptionData[], property: keyof ReceptionData, ran
   });
 };
 
-export default function Filter() {
-  const jsonData: ReceptionData[] = data2
+export function Filter() {
+  const datos: Purchase[] = data2
+const history = useNavigate();
+const filtrar = () => {history("/filter/list")}
+
+  const { lista, setLista } = useFilterContext()
 
   
-
- const [dataForm, setDataForm] = React.useState<{
+  const [dataForm, setDataForm] = React.useState<{
         dateFrom: Date | null,
         dateTo: Date | null,
         
@@ -71,16 +53,18 @@ export default function Filter() {
       dateTo: new Date(),
       
     })
-    const [data, setData] = React.useState<ReceptionData[]>(jsonData);
+    const [data, setData] = React.useState<Purchase[]>(datos);
   const [min, setMin] = React.useState<number>(new Date("2024-01-01").getTime());
   const [max, setMax] = React.useState<number>(new Date("2025-06-20").getTime());
   React.useEffect(() => {
-    const filteredData = filterByRange(jsonData, 'CreatedAd', { min, max });
+    const filteredData = filterByRange(datos, 'CreatedAd', { min, max });
     setData(filteredData)
+    setLista (data)
   
   }, [min, max]);
-   console.log (data)
-console.log (min,max)
+
+console.log (lista)
+
   return (
     <>
 
@@ -119,7 +103,7 @@ console.log (min,max)
               />
   </Grid>
   <Grid item xs = {8}>
-  <Button variant='contained' > Filtrar </Button>
+  <Button variant='contained' onClick={filtrar} > Filtrar </Button>
 </Grid>
 </Grid>
 
@@ -129,3 +113,4 @@ console.log (min,max)
   )
 }
 
+export default Filter

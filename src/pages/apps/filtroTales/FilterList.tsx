@@ -22,6 +22,7 @@ import { deletePurchase, getPurchaseList, resetItemsPurchase } from 'store/reduc
 import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
+import { useFilterContext } from 'contexts/Filter.context';
 
 
 
@@ -33,8 +34,22 @@ import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 const ReceptionList = () => { const theme = useTheme();
   const dispatch = useDispatch();
   const history = useNavigate();
+  
 
-  const { listPurchase } = useSelector((state) => state.purchase);
+
+ const context = useFilterContext ();
+
+  // Asegúrate de que el contexto no es nulo antes de usarlo
+  if (!context) {
+    throw new Error("El componente debe estar dentro de un FilterProvider.");
+  }
+
+  // Ahora, desestructura la propiedad 'lista' del objeto de contexto
+  const { lista } = context;
+
+
+
+  const  listPurchase  = useSelector(() => lista);
 
 
 

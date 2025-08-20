@@ -33,6 +33,7 @@ const AppReceptionList = Loadable(lazy(() => import('pages/apps/reception/recept
 const AppReceptionView = Loadable(lazy(() => import('pages/apps/reception/viewReception')));
 
 const AppFilter = Loadable(lazy(() => import('pages/apps/filtroTales/filter')));
+const AppFilterList = Loadable(lazy(() => import('pages/apps/filtroTales/FilterList')));
 
 const UserList = Loadable(lazy(() => import('pages/auth/listUser')));
 
@@ -78,6 +79,10 @@ const MainRoutes = {
               {
               path: 'filter',
               element: <AppFilter />
+            },
+            {
+              path: 'filter/list',
+              element: <AppFilterList />
             },
             {
               path: 'cambios',

@@ -1,1345 +1,1566 @@
 [
   {
-    "ID": "1",
+    "ID": 1,
     "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor A"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 1.",
-    "Discount": 30,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 200,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 170,
-    "CreatedAd": "2024-05-01T10:00:00Z",
-    "Total": 195.5,
-    "Tax": 25.5,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 10,
-        "name": "Artículo 10",
-        "quantity": 25,
-        "price": 8
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 1"
-    }
-  },
-  {
-    "ID": "2",
-    "SupplierID": 102,
-    "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 2.",
-    "Discount": 45,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 500,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 455,
-    "CreatedAd": "2024-05-02T10:00:00Z",
-    "Total": 523.25,
-    "Tax": 68.25,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 20,
-        "name": "Artículo 20",
-        "quantity": 10,
-        "price": 20
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 2"
-    }
-  },
-  {
-    "ID": "3",
-    "SupplierID": 103,
-    "Supplier": {
-      "name": "Proveedor C"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 3.",
-    "Discount": 20,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 800,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 780,
-    "CreatedAd": "2024-05-03T10:00:00Z",
-    "Total": 897,
-    "Tax": 117,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 30,
-        "name": "Artículo 30",
-        "quantity": 30,
-        "price": 15
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 3"
-    }
-  },
-  {
-    "ID": "4",
-    "SupplierID": 104,
-    "Supplier": {
-      "name": "Proveedor D"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 4.",
-    "Discount": 10,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 350,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 340,
-    "CreatedAd": "2024-05-04T10:00:00Z",
-    "Total": 391,
-    "Tax": 51,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 40,
-        "name": "Artículo 40",
-        "quantity": 12,
-        "price": 25
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 4"
-    }
-  },
-  {
-    "ID": "5",
-    "SupplierID": 105,
-    "Supplier": {
-      "name": "Proveedor E"
-    },
-    "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 5.",
+    "Notes": "Notas para la recepción 1",
     "Discount": 5,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 900,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 895,
-    "CreatedAd": "2024-05-05T10:00:00Z",
-    "Total": 1029.25,
-    "Tax": 134.25,
+    "DiscountEarliyPay": 10,
+    "SubTotal": 500.00,
+    "DiscountGlobal": 25.00,
+    "SubtotalWithDiscount": 475.00,
+    "CreatedAd": "2023-10-26T10:00:00Z",
+    "Total": 510.00,
+    "Tax": 35.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 50,
-        "name": "Artículo 50",
-        "quantity": 5,
-        "price": 100
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 5"
-    }
-  },
-  {
-    "ID": "6",
-    "SupplierID": 101,
-    "Supplier": {
-      "name": "Proveedor A"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 6.",
-    "Discount": 25,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 450,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 425,
-    "CreatedAd": "2024-05-06T10:00:00Z",
-    "Total": 488.75,
-    "Tax": 63.75,
-    "Status": 2,
-    "Articles": [
+        "ID": 1001,
+        "ProductID": 2001,
+        "Count": 10,
+        "BasePrice": "50.00"
+      },
       {
-        "id": 60,
-        "name": "Artículo 60",
-        "quantity": 15,
-        "price": 30
+        "ID": 1002,
+        "ProductID": 2002,
+        "Count": 5,
+        "BasePrice": "10.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 6"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "7",
+    "ID": 2,
     "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 7.",
-    "Discount": 40,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 700,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 660,
-    "CreatedAd": "2024-05-07T10:00:00Z",
-    "Total": 759,
-    "Tax": 99,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 70,
-        "name": "Artículo 70",
-        "quantity": 20,
-        "price": 40
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 7"
-    }
-  },
-  {
-    "ID": "8",
-    "SupplierID": 103,
-    "Supplier": {
-      "name": "Proveedor C"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 8.",
+    "Notes": "Notas para la recepción 2",
+    "Discount": "10%",
+    "DiscountEarliyPay": 5,
+    "SubTotal": 750.00,
+    "DiscountGlobal": 75.00,
+    "SubtotalWithDiscount": 675.00,
+    "CreatedAd": "2023-10-25T15:30:00Z",
+    "Total": 700.00,
+    "Tax": 25.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1003,
+        "ProductID": 2003,
+        "Count": 20,
+        "BasePrice": "30.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": "abc3",
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
+    },
+    "Warehouse": {
+      "name": "Almacén Principal"
+    },
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 3",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 200.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 200.00,
+    "CreatedAd": "2023-10-24T08:45:00Z",
+    "Total": 215.00,
+    "Tax": 15.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1004,
+        "ProductID": 2004,
+        "Count": 5,
+        "BasePrice": "40.00"
+      },
+      {
+        "ID": 1005,
+        "ProductID": 2005,
+        "Count": 10,
+        "BasePrice": "10.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 4,
+    "SupplierID": 103,
+    "Supplier": {
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 1",
     "Discount": 15,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 120,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 105,
-    "CreatedAd": "2024-05-08T10:00:00Z",
-    "Total": 120.75,
-    "Tax": 15.75,
-    "Status": 2,
+    "DiscountEarliyPay": 15,
+    "SubTotal": 1200.00,
+    "DiscountGlobal": 180.00,
+    "SubtotalWithDiscount": 1020.00,
+    "CreatedAd": "2023-10-23T12:20:00Z",
+    "Total": 1100.00,
+    "Tax": 80.00,
+    "Status": 3,
     "Articles": [
       {
-        "id": 80,
-        "name": "Artículo 80",
-        "quantity": 8,
-        "price": 10
+        "ID": 1006,
+        "ProductID": 2006,
+        "Count": 50,
+        "BasePrice": "20.00"
       }
     ],
     "detailsReption": {
-      "receiver": "Receptor 8"
+      "paymentMethod": "Credit Card"
     }
   },
   {
-    "ID": "9",
+    "ID": 5,
     "SupplierID": 104,
     "Supplier": {
-      "name": "Proveedor D"
+      "id": 104,
+      "BusinessName": "Proveedor D"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Regional"
     },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 9.",
-    "Discount": 50,
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 5",
+    "Discount": "5%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 600,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 550,
-    "CreatedAd": "2024-05-09T10:00:00Z",
-    "Total": 632.5,
-    "Tax": 82.5,
+    "SubTotal": 90.00,
+    "DiscountGlobal": 4.50,
+    "SubtotalWithDiscount": 85.50,
+    "CreatedAd": "2023-10-22T09:10:00Z",
+    "Total": 95.00,
+    "Tax": 9.50,
     "Status": 1,
     "Articles": [
       {
-        "id": 90,
-        "name": "Artículo 90",
-        "quantity": 5,
-        "price": 50
+        "ID": 1007,
+        "ProductID": 2007,
+        "Count": 10,
+        "BasePrice": "9.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 9"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "10",
-    "SupplierID": 105,
+    "ID": 6,
+    "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor E"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 10.",
+    "Notes": "Notas para la recepción 6",
     "Discount": 10,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 250,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 240,
-    "CreatedAd": "2024-05-10T10:00:00Z",
-    "Total": 276,
-    "Tax": 36,
+    "DiscountEarliyPay": 10,
+    "SubTotal": 600.00,
+    "DiscountGlobal": 60.00,
+    "SubtotalWithDiscount": 540.00,
+    "CreatedAd": "2023-10-21T11:20:00Z",
+    "Total": 560.00,
+    "Tax": 20.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 100,
-        "name": "Artículo 100",
-        "quantity": 10,
-        "price": 20
+        "ID": 1008,
+        "ProductID": 2008,
+        "Count": 15,
+        "BasePrice": "40.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 10"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "11",
-    "SupplierID": 101,
+    "ID": 7,
+    "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor A"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 11.",
-    "Discount": 30,
+    "Notes": "Notas para la recepción 7",
+    "Discount": "20%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 550,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 520,
-    "CreatedAd": "2024-05-11T10:00:00Z",
-    "Total": 598,
-    "Tax": 78,
+    "SubTotal": 150.00,
+    "DiscountGlobal": 30.00,
+    "SubtotalWithDiscount": 120.00,
+    "CreatedAd": "2023-10-20T14:55:00Z",
+    "Total": 130.00,
+    "Tax": 10.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 110,
-        "name": "Artículo 110",
-        "quantity": 18,
-        "price": 30
+        "ID": 1009,
+        "ProductID": 2009,
+        "Count": 5,
+        "BasePrice": "30.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 11"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "12",
-    "SupplierID": 102,
-    "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 12.",
-    "Discount": 20,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 750,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 730,
-    "CreatedAd": "2024-05-12T10:00:00Z",
-    "Total": 839.5,
-    "Tax": 109.5,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 120,
-        "name": "Artículo 120",
-        "quantity": 8,
-        "price": 80
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 12"
-    }
-  },
-  {
-    "ID": "13",
+    "ID": "abc8",
     "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor C"
+      "id": 103,
+      "BusinessName": "Proveedor C"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 13.",
-    "Discount": 10,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 300,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 290,
-    "CreatedAd": "2024-05-13T10:00:00Z",
-    "Total": 333.5,
-    "Tax": 43.5,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 130,
-        "name": "Artículo 130",
-        "quantity": 20,
-        "price": 10
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 13"
-    }
-  },
-  {
-    "ID": "14",
-    "SupplierID": 104,
-    "Supplier": {
-      "name": "Proveedor D"
-    },
-    "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 14.",
-    "Discount": 5,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 850,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 845,
-    "CreatedAd": "2024-05-14T10:00:00Z",
-    "Total": 971.75,
-    "Tax": 126.75,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 140,
-        "name": "Artículo 140",
-        "quantity": 10,
-        "price": 90
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 14"
-    }
-  },
-  {
-    "ID": "15",
-    "SupplierID": 105,
-    "Supplier": {
-      "name": "Proveedor E"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Central"
     },
     "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 15.",
-    "Discount": 25,
+    "Notes": "Notas para la recepción 8",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 500,
+    "SubTotal": 450.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 475,
-    "CreatedAd": "2024-05-15T10:00:00Z",
-    "Total": 546.25,
-    "Tax": 71.25,
+    "SubtotalWithDiscount": 450.00,
+    "CreatedAd": "2023-10-19T10:30:00Z",
+    "Total": 470.00,
+    "Tax": 20.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1010,
+        "ProductID": 2010,
+        "Count": 10,
+        "BasePrice": "45.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 9,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 1",
+    "Discount": 8,
+    "DiscountEarliyPay": 8,
+    "SubTotal": 180.00,
+    "DiscountGlobal": 14.40,
+    "SubtotalWithDiscount": 165.60,
+    "CreatedAd": "2023-10-18T13:40:00Z",
+    "Total": 175.00,
+    "Tax": 9.40,
     "Status": 1,
     "Articles": [
       {
-        "id": 150,
-        "name": "Artículo 150",
-        "quantity": 35,
-        "price": 10
+        "ID": 1011,
+        "ProductID": 2011,
+        "Count": 10,
+        "BasePrice": "18.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 15"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "16",
+    "ID": 10,
     "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor A"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 16.",
-    "Discount": 50,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 700,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 650,
-    "CreatedAd": "2024-05-16T10:00:00Z",
-    "Total": 747.5,
-    "Tax": 97.5,
+    "Notes": "Notas para la recepción 10",
+    "Discount": 5,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 320.00,
+    "DiscountGlobal": 16.00,
+    "SubtotalWithDiscount": 304.00,
+    "CreatedAd": "2023-10-17T09:00:00Z",
+    "Total": 315.00,
+    "Tax": 11.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 160,
-        "name": "Artículo 160",
-        "quantity": 10,
-        "price": 60
+        "ID": 1012,
+        "ProductID": 2012,
+        "Count": 8,
+        "BasePrice": "40.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 16"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "17",
+    "ID": 11,
     "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor B"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 17.",
-    "Discount": 10,
+    "Notes": "Notas para la recepción 11",
+    "Discount": "15%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 200,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 190,
-    "CreatedAd": "2024-05-17T10:00:00Z",
-    "Total": 218.5,
-    "Tax": 28.5,
+    "SubTotal": 800.00,
+    "DiscountGlobal": 120.00,
+    "SubtotalWithDiscount": 680.00,
+    "CreatedAd": "2023-10-16T16:00:00Z",
+    "Total": 720.00,
+    "Tax": 40.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 170,
-        "name": "Artículo 170",
-        "quantity": 15,
-        "price": 15
+        "ID": 1013,
+        "ProductID": 2013,
+        "Count": 10,
+        "BasePrice": "80.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 17"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "18",
+    "ID": 12,
     "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor C"
+      "id": 103,
+      "BusinessName": "Proveedor C"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Central"
     },
     "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 18.",
-    "Discount": 40,
+    "Notes": "Notas para la recepción 12",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 900,
+    "SubTotal": 250.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 860,
-    "CreatedAd": "2024-05-18T10:00:00Z",
-    "Total": 989,
-    "Tax": 129,
+    "SubtotalWithDiscount": 250.00,
+    "CreatedAd": "2023-10-15T11:00:00Z",
+    "Total": 265.00,
+    "Tax": 15.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 180,
-        "name": "Artículo 180",
-        "quantity": 5,
-        "price": 80
+        "ID": 1014,
+        "ProductID": 2014,
+        "Count": 5,
+        "BasePrice": "50.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 18"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "19",
+    "ID": "abc13",
     "SupplierID": 104,
     "Supplier": {
-      "name": "Proveedor D"
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 1",
+    "Discount": 12,
+    "DiscountEarliyPay": 12,
+    "SubTotal": 600.00,
+    "DiscountGlobal": 72.00,
+    "SubtotalWithDiscount": 528.00,
+    "CreatedAd": "2023-10-14T08:00:00Z",
+    "Total": 550.00,
+    "Tax": 22.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1015,
+        "ProductID": 2015,
+        "Count": 20,
+        "BasePrice": "30.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 14,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 19.",
-    "Discount": 20,
+    "Notes": "Notas para la recepción 14",
+    "Discount": "10%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 400,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 380,
-    "CreatedAd": "2024-05-19T10:00:00Z",
-    "Total": 437,
-    "Tax": 57,
-    "Status": 1,
+    "SubTotal": 450.00,
+    "DiscountGlobal": 45.00,
+    "SubtotalWithDiscount": 405.00,
+    "CreatedAd": "2023-10-13T14:30:00Z",
+    "Total": 420.00,
+    "Tax": 15.00,
+    "Status": 3,
     "Articles": [
       {
-        "id": 190,
-        "name": "Artículo 190",
-        "quantity": 10,
-        "price": 35
+        "ID": 1016,
+        "ProductID": 2016,
+        "Count": 10,
+        "BasePrice": "45.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 19"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "20",
-    "SupplierID": 105,
+    "ID": 15,
+    "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor E"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 20.",
+    "Notes": "Notas para la recepción 15",
     "Discount": 5,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 600,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 595,
-    "CreatedAd": "2024-05-20T10:00:00Z",
-    "Total": 684.25,
-    "Tax": 89.25,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 200,
-        "name": "Artículo 200",
-        "quantity": 25,
-        "price": 20
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 20"
-    }
-  },
-  {
-    "ID": "21",
-    "SupplierID": 101,
-    "Supplier": {
-      "name": "Proveedor A"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 21.",
-    "Discount": 35,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 150,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 115,
-    "CreatedAd": "2024-05-21T10:00:00Z",
-    "Total": 132.25,
-    "Tax": 17.25,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 300.00,
+    "DiscountGlobal": 15.00,
+    "SubtotalWithDiscount": 285.00,
+    "CreatedAd": "2023-10-12T10:00:00Z",
+    "Total": 295.00,
+    "Tax": 10.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 210,
-        "name": "Artículo 210",
-        "quantity": 8,
-        "price": 15
+        "ID": 1017,
+        "ProductID": 2017,
+        "Count": 6,
+        "BasePrice": "50.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 21"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "22",
-    "SupplierID": 102,
+    "ID": 16,
+    "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor B"
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 16",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 75.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 75.00,
+    "CreatedAd": "2023-10-11T15:30:00Z",
+    "Total": 85.00,
+    "Tax": 10.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1018,
+        "ProductID": 2018,
+        "Count": 3,
+        "BasePrice": "25.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 17,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 1",
+    "Discount": 10,
+    "DiscountEarliyPay": 10,
+    "SubTotal": 1200.00,
+    "DiscountGlobal": 120.00,
+    "SubtotalWithDiscount": 1080.00,
+    "CreatedAd": "2023-10-10T09:45:00Z",
+    "Total": 1150.00,
+    "Tax": 70.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1019,
+        "ProductID": 2019,
+        "Count": 10,
+        "BasePrice": "120.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 18,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 22.",
+    "Notes": "Notas para la recepción 18",
+    "Discount": "5%",
+    "DiscountEarliyPay": 0,
+    "SubTotal": 800.00,
+    "DiscountGlobal": 40.00,
+    "SubtotalWithDiscount": 760.00,
+    "CreatedAd": "2023-10-09T13:20:00Z",
+    "Total": 780.00,
+    "Tax": 20.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1020,
+        "ProductID": 2020,
+        "Count": 16,
+        "BasePrice": "50.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 19,
+    "SupplierID": 102,
+    "Supplier": {
+      "id": 102,
+      "BusinessName": "Proveedor B"
+    },
+    "Warehouse": {
+      "name": "Almacén Secundario"
+    },
+    "WarehouseID": 2,
+    "Notes": "Notas para la recepción 19",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 50.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 50.00,
+    "CreatedAd": "2023-10-08T11:00:00Z",
+    "Total": 60.00,
+    "Tax": 10.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1021,
+        "ProductID": 2021,
+        "Count": 5,
+        "BasePrice": "10.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 20,
+    "SupplierID": 103,
+    "Supplier": {
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 20",
+    "Discount": 8,
+    "DiscountEarliyPay": 8,
+    "SubTotal": 300.00,
+    "DiscountGlobal": 24.00,
+    "SubtotalWithDiscount": 276.00,
+    "CreatedAd": "2023-10-07T16:45:00Z",
+    "Total": 290.00,
+    "Tax": 14.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1022,
+        "ProductID": 2022,
+        "Count": 10,
+        "BasePrice": "30.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 21,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 11",
+    "Discount": "12%",
+    "DiscountEarliyPay": 0,
+    "SubTotal": 950.00,
+    "DiscountGlobal": 114.00,
+    "SubtotalWithDiscount": 836.00,
+    "CreatedAd": "2023-10-06T12:00:00Z",
+    "Total": 880.00,
+    "Tax": 44.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1023,
+        "ProductID": 2023,
+        "Count": 5,
+        "BasePrice": "190.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 22,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
+    },
+    "Warehouse": {
+      "name": "Almacén Principal"
+    },
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 22",
+    "Discount": 7,
+    "DiscountEarliyPay": 7,
+    "SubTotal": 1500.00,
+    "DiscountGlobal": 105.00,
+    "SubtotalWithDiscount": 1395.00,
+    "CreatedAd": "2023-10-05T09:00:00Z",
+    "Total": 1450.00,
+    "Tax": 55.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1024,
+        "ProductID": 2024,
+        "Count": 30,
+        "BasePrice": "50.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 23,
+    "SupplierID": 102,
+    "Supplier": {
+      "id": 102,
+      "BusinessName": "Proveedor B"
+    },
+    "Warehouse": {
+      "name": "Almacén Secundario"
+    },
+    "WarehouseID": 2,
+    "Notes": "Notas para la recepción 23",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 220.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 220.00,
+    "CreatedAd": "2023-10-04T14:30:00Z",
+    "Total": 240.00,
+    "Tax": 20.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1025,
+        "ProductID": 2025,
+        "Count": 11,
+        "BasePrice": "20.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 24,
+    "SupplierID": 103,
+    "Supplier": {
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 24",
+    "Discount": "10%",
+    "DiscountEarliyPay": 10,
+    "SubTotal": 400.00,
+    "DiscountGlobal": 40.00,
+    "SubtotalWithDiscount": 360.00,
+    "CreatedAd": "2023-10-03T10:00:00Z",
+    "Total": 380.00,
+    "Tax": 20.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1026,
+        "ProductID": 2026,
+        "Count": 4,
+        "BasePrice": "100.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 25,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 10",
+    "Discount": 5,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 60.00,
+    "DiscountGlobal": 3.00,
+    "SubtotalWithDiscount": 57.00,
+    "CreatedAd": "2023-10-02T15:00:00Z",
+    "Total": 65.00,
+    "Tax": 8.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1027,
+        "ProductID": 2027,
+        "Count": 6,
+        "BasePrice": "10.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 26,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
+    },
+    "Warehouse": {
+      "name": "Almacén Principal"
+    },
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 26",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 1000.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 1000.00,
+    "CreatedAd": "2023-10-01T11:00:00Z",
+    "Total": 1050.00,
+    "Tax": 50.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1028,
+        "ProductID": 2028,
+        "Count": 10,
+        "BasePrice": "100.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 27,
+    "SupplierID": 102,
+    "Supplier": {
+      "id": 102,
+      "BusinessName": "Proveedor B"
+    },
+    "Warehouse": {
+      "name": "Almacén Secundario"
+    },
+    "WarehouseID": 2,
+    "Notes": "Notas para la recepción 27",
     "Discount": 15,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 700,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 685,
-    "CreatedAd": "2024-05-22T10:00:00Z",
-    "Total": 787.75,
-    "Tax": 102.75,
-    "Status": 2,
+    "DiscountEarliyPay": 15,
+    "SubTotal": 350.00,
+    "DiscountGlobal": 52.50,
+    "SubtotalWithDiscount": 297.50,
+    "CreatedAd": "2023-09-30T14:30:00Z",
+    "Total": 320.00,
+    "Tax": 22.50,
+    "Status": 1,
     "Articles": [
       {
-        "id": 220,
-        "name": "Artículo 220",
-        "quantity": 10,
-        "price": 70
+        "ID": 1029,
+        "ProductID": 2029,
+        "Count": 7,
+        "BasePrice": "50.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 22"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "23",
+    "ID": 28,
     "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor C"
+      "id": 103,
+      "BusinessName": "Proveedor C"
     },
     "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 23.",
-    "Discount": 25,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 450,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 425,
-    "CreatedAd": "2024-05-23T10:00:00Z",
-    "Total": 488.75,
-    "Tax": 63.75,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 230,
-        "name": "Artículo 230",
-        "quantity": 12,
-        "price": 30
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 23"
-    }
-  },
-  {
-    "ID": "24",
-    "SupplierID": 104,
-    "Supplier": {
-      "name": "Proveedor D"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Central"
     },
     "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 24.",
-    "Discount": 50,
+    "Notes": "Notas para la recepción 28",
+    "Discount": "8%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 800,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 750,
-    "CreatedAd": "2024-05-24T10:00:00Z",
-    "Total": 862.5,
-    "Tax": 112.5,
+    "SubTotal": 80.00,
+    "DiscountGlobal": 6.40,
+    "SubtotalWithDiscount": 73.60,
+    "CreatedAd": "2023-09-29T09:00:00Z",
+    "Total": 80.00,
+    "Tax": 6.40,
     "Status": 2,
     "Articles": [
       {
-        "id": 240,
-        "name": "Artículo 240",
-        "quantity": 15,
-        "price": 50
+        "ID": 1030,
+        "ProductID": 2030,
+        "Count": 4,
+        "BasePrice": "20.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 24"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "25",
-    "SupplierID": 105,
+    "ID": 29,
+    "SupplierID": 104,
     "Supplier": {
-      "name": "Proveedor E"
+      "id": 104,
+      "BusinessName": "Proveedor D"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Regional"
     },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 25.",
-    "Discount": 10,
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 12",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 250,
+    "SubTotal": 2000.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 240,
-    "CreatedAd": "2024-05-25T10:00:00Z",
-    "Total": 276,
-    "Tax": 36,
+    "SubtotalWithDiscount": 2000.00,
+    "CreatedAd": "2023-09-28T16:00:00Z",
+    "Total": 2100.00,
+    "Tax": 100.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 250,
-        "name": "Artículo 250",
-        "quantity": 8,
-        "price": 25
+        "ID": 1031,
+        "ProductID": 2031,
+        "Count": 2,
+        "BasePrice": "1000.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 25"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "26",
+    "ID": 30,
     "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor A"
-    },
-    "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 26.",
-    "Discount": 20,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 550,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 530,
-    "CreatedAd": "2024-05-26T10:00:00Z",
-    "Total": 609.5,
-    "Tax": 79.5,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 260,
-        "name": "Artículo 260",
-        "quantity": 10,
-        "price": 50
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 26"
-    }
-  },
-  {
-    "ID": "27",
-    "SupplierID": 102,
-    "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 27.",
-    "Discount": 30,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 800,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 770,
-    "CreatedAd": "2024-05-27T10:00:00Z",
-    "Total": 885.5,
-    "Tax": 115.5,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 270,
-        "name": "Artículo 270",
-        "quantity": 15,
-        "price": 40
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 27"
-    }
-  },
-  {
-    "ID": "28",
-    "SupplierID": 103,
-    "Supplier": {
-      "name": "Proveedor C"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 28.",
-    "Discount": 15,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 300,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 285,
-    "CreatedAd": "2024-05-28T10:00:00Z",
-    "Total": 327.75,
-    "Tax": 42.75,
+    "Notes": "Notas para la recepción 30",
+    "Discount": "10%",
+    "DiscountEarliyPay": 10,
+    "SubTotal": 120.00,
+    "DiscountGlobal": 12.00,
+    "SubtotalWithDiscount": 108.00,
+    "CreatedAd": "2023-09-27T11:30:00Z",
+    "Total": 115.00,
+    "Tax": 7.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 280,
-        "name": "Artículo 280",
-        "quantity": 10,
-        "price": 30
+        "ID": 1032,
+        "ProductID": 2032,
+        "Count": 3,
+        "BasePrice": "40.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 28"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "29",
-    "SupplierID": 104,
+    "ID": 31,
+    "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor D"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 29.",
+    "Notes": "Notas para la recepción 31",
     "Discount": 5,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 900,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 895,
-    "CreatedAd": "2024-05-29T10:00:00Z",
-    "Total": 1029.25,
-    "Tax": 134.25,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 700.00,
+    "DiscountGlobal": 35.00,
+    "SubtotalWithDiscount": 665.00,
+    "CreatedAd": "2023-09-26T14:00:00Z",
+    "Total": 680.00,
+    "Tax": 15.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 290,
-        "name": "Artículo 290",
-        "quantity": 5,
-        "price": 100
+        "ID": 1033,
+        "ProductID": 2033,
+        "Count": 7,
+        "BasePrice": "100.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 29"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "30",
-    "SupplierID": 105,
-    "Supplier": {
-      "name": "Proveedor E"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 30.",
-    "Discount": 40,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 600,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 560,
-    "CreatedAd": "2024-05-30T10:00:00Z",
-    "Total": 644,
-    "Tax": 84,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 300,
-        "name": "Artículo 300",
-        "quantity": 25,
-        "price": 25
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 30"
-    }
-  },
-  {
-    "ID": "31",
-    "SupplierID": 101,
-    "Supplier": {
-      "name": "Proveedor A"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 31.",
-    "Discount": 20,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 200,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 180,
-    "CreatedAd": "2024-05-31T10:00:00Z",
-    "Total": 207,
-    "Tax": 27,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 310,
-        "name": "Artículo 310",
-        "quantity": 10,
-        "price": 18
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 31"
-    }
-  },
-  {
-    "ID": "32",
-    "SupplierID": 102,
-    "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Secundario"
-    },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 32.",
-    "Discount": 30,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 500,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 470,
-    "CreatedAd": "2024-06-01T10:00:00Z",
-    "Total": 540.5,
-    "Tax": 70.5,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 320,
-        "name": "Artículo 320",
-        "quantity": 15,
-        "price": 25
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 32"
-    }
-  },
-  {
-    "ID": "33",
+    "ID": 32,
     "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor C"
+      "id": 103,
+      "BusinessName": "Proveedor C"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Central"
     },
     "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 33.",
-    "Discount": 10,
+    "Notes": "Notas para la recepción 32",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 700,
+    "SubTotal": 900.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 690,
-    "CreatedAd": "2024-06-02T10:00:00Z",
-    "Total": 793.5,
-    "Tax": 103.5,
+    "SubtotalWithDiscount": 900.00,
+    "CreatedAd": "2023-09-25T09:30:00Z",
+    "Total": 950.00,
+    "Tax": 50.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1034,
+        "ProductID": 2034,
+        "Count": 15,
+        "BasePrice": "60.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 33,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 11",
+    "Discount": "10%",
+    "DiscountEarliyPay": 10,
+    "SubTotal": 20.00,
+    "DiscountGlobal": 2.00,
+    "SubtotalWithDiscount": 18.00,
+    "CreatedAd": "2023-09-24T12:00:00Z",
+    "Total": 20.00,
+    "Tax": 2.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 330,
-        "name": "Artículo 330",
-        "quantity": 20,
-        "price": 35
+        "ID": 1035,
+        "ProductID": 2035,
+        "Count": 2,
+        "BasePrice": "10.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 33"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "34",
-    "SupplierID": 104,
+    "ID": 34,
+    "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor D"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 34.",
-    "Discount": 50,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 900,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 850,
-    "CreatedAd": "2024-06-03T10:00:00Z",
-    "Total": 977.5,
-    "Tax": 127.5,
+    "Notes": "Notas para la recepción 34",
+    "Discount": 8,
+    "DiscountEarliyPay": 8,
+    "SubTotal": 400.00,
+    "DiscountGlobal": 32.00,
+    "SubtotalWithDiscount": 368.00,
+    "CreatedAd": "2023-09-23T08:00:00Z",
+    "Total": 380.00,
+    "Tax": 12.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 340,
-        "name": "Artículo 340",
-        "quantity": 5,
-        "price": 100
+        "ID": 1036,
+        "ProductID": 2036,
+        "Count": 8,
+        "BasePrice": "50.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 34"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "35",
-    "SupplierID": 105,
+    "ID": 35,
+    "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor E"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 35.",
-    "Discount": 5,
+    "Notes": "Notas para la recepción 35",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 300,
+    "SubTotal": 550.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 295,
-    "CreatedAd": "2024-06-04T10:00:00Z",
-    "Total": 339.25,
-    "Tax": 44.25,
+    "SubtotalWithDiscount": 550.00,
+    "CreatedAd": "2023-09-22T15:30:00Z",
+    "Total": 580.00,
+    "Tax": 30.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 350,
-        "name": "Artículo 350",
-        "quantity": 10,
-        "price": 20
+        "ID": 1037,
+        "ProductID": 2037,
+        "Count": 11,
+        "BasePrice": "50.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 35"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "36",
-    "SupplierID": 101,
-    "Supplier": {
-      "name": "Proveedor A"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 36.",
-    "Discount": 25,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 600,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 575,
-    "CreatedAd": "2024-06-05T10:00:00Z",
-    "Total": 661.25,
-    "Tax": 86.25,
-    "Status": 2,
-    "Articles": [
-      {
-        "id": 360,
-        "name": "Artículo 360",
-        "quantity": 25,
-        "price": 25
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 36"
-    }
-  },
-  {
-    "ID": "37",
-    "SupplierID": 102,
-    "Supplier": {
-      "name": "Proveedor B"
-    },
-    "Warehouse": {
-      "name": "Almacén Principal"
-    },
-    "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 37.",
-    "Discount": 40,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 150,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 110,
-    "CreatedAd": "2024-06-06T10:00:00Z",
-    "Total": 126.5,
-    "Tax": 16.5,
-    "Status": 1,
-    "Articles": [
-      {
-        "id": 370,
-        "name": "Artículo 370",
-        "quantity": 8,
-        "price": 10
-      }
-    ],
-    "detailsReption": {
-      "receiver": "Receptor 37"
-    }
-  },
-  {
-    "ID": "38",
+    "ID": 36,
     "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor C"
+      "id": 103,
+      "BusinessName": "Proveedor C"
     },
     "Warehouse": {
-      "name": "Almacén Secundario"
+      "name": "Almacén Central"
     },
-    "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 38.",
-    "Discount": 15,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 700,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 685,
-    "CreatedAd": "2024-06-07T10:00:00Z",
-    "Total": 787.75,
-    "Tax": 102.75,
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 36",
+    "Discount": "5%",
+    "DiscountEarliyPay": 5,
+    "SubTotal": 180.00,
+    "DiscountGlobal": 9.00,
+    "SubtotalWithDiscount": 171.00,
+    "CreatedAd": "2023-09-21T10:00:00Z",
+    "Total": 180.00,
+    "Tax": 9.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 380,
-        "name": "Artículo 380",
-        "quantity": 10,
-        "price": 60
+        "ID": 1038,
+        "ProductID": 2038,
+        "Count": 6,
+        "BasePrice": "30.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 38"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "39",
+    "ID": 37,
     "SupplierID": 104,
     "Supplier": {
-      "name": "Proveedor D"
+      "id": 104,
+      "BusinessName": "Proveedor D"
     },
     "Warehouse": {
-      "name": "Almacén Principal"
+      "name": "Almacén Regional"
     },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 39.",
-    "Discount": 20,
-    "DiscountEarliyPay": 0,
-    "SubTotal": 450,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 430,
-    "CreatedAd": "2024-06-08T10:00:00Z",
-    "Total": 494.5,
-    "Tax": 64.5,
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 11",
+    "Discount": 10,
+    "DiscountEarliyPay": 10,
+    "SubTotal": 1200.00,
+    "DiscountGlobal": 120.00,
+    "SubtotalWithDiscount": 1080.00,
+    "CreatedAd": "2023-09-20T14:00:00Z",
+    "Total": 1150.00,
+    "Tax": 70.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 390,
-        "name": "Artículo 390",
-        "quantity": 15,
-        "price": 30
+        "ID": 1039,
+        "ProductID": 2039,
+        "Count": 20,
+        "BasePrice": "60.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 39"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "40",
-    "SupplierID": 105,
+    "ID": 38,
+    "SupplierID": 101,
     "Supplier": {
-      "name": "Proveedor E"
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
     "WarehouseID": 1,
-    "Notes": "Notas de recepción para el pedido 40.",
-    "Discount": 5,
+    "Notes": "Notas para la recepción 38",
+    "Discount": "15%",
     "DiscountEarliyPay": 0,
-    "SubTotal": 850,
-    "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 845,
-    "CreatedAd": "2024-06-09T10:00:00Z",
-    "Total": 971.75,
-    "Tax": 126.75,
-    "Status": 2,
+    "SubTotal": 2000.00,
+    "DiscountGlobal": 300.00,
+    "SubtotalWithDiscount": 1700.00,
+    "CreatedAd": "2023-09-19T09:30:00Z",
+    "Total": 1800.00,
+    "Tax": 100.00,
+    "Status": 3,
     "Articles": [
       {
-        "id": 400,
-        "name": "Artículo 400",
-        "quantity": 10,
-        "price": 90
+        "ID": 1040,
+        "ProductID": 2040,
+        "Count": 10,
+        "BasePrice": "200.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 40"
-    }
+    "detailsReption": null
   },
   {
-    "ID": "41",
-    "SupplierID": 101,
+    "ID": 39,
+    "SupplierID": 102,
     "Supplier": {
-      "name": "Proveedor A"
+      "id": 102,
+      "BusinessName": "Proveedor B"
     },
     "Warehouse": {
       "name": "Almacén Secundario"
     },
     "WarehouseID": 2,
-    "Notes": "Notas de recepción para el pedido 41.",
-    "Discount": 50,
+    "Notes": "Notas para la recepción 39",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 500,
+    "SubTotal": 500.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 450,
-    "CreatedAd": "2024-06-10T10:00:00Z",
-    "Total": 517.5,
-    "Tax": 67.5,
+    "SubtotalWithDiscount": 500.00,
+    "CreatedAd": "2023-09-18T16:00:00Z",
+    "Total": 530.00,
+    "Tax": 30.00,
     "Status": 1,
     "Articles": [
       {
-        "id": 410,
-        "name": "Artículo 410",
-        "quantity": 25,
-        "price": 15
+        "ID": 1041,
+        "ProductID": 2041,
+        "Count": 5,
+        "BasePrice": "100.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 41"
-    }
+    "detailsReption": {}
   },
   {
-    "ID": "42",
-    "SupplierID": 102,
+    "ID": 40,
+    "SupplierID": 103,
     "Supplier": {
-      "name": "Proveedor B"
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 40",
+    "Discount": 5,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 70.00,
+    "DiscountGlobal": 3.50,
+    "SubtotalWithDiscount": 66.50,
+    "CreatedAd": "2023-09-17T11:00:00Z",
+    "Total": 70.00,
+    "Tax": 3.50,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1042,
+        "ProductID": 2042,
+        "Count": 10,
+        "BasePrice": "7.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 41,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes":"Notas para la recepción 11",
+    "Discount": "8%",
+    "DiscountEarliyPay": 0,
+    "SubTotal": 300.00,
+    "DiscountGlobal": 24.00,
+    "SubtotalWithDiscount": 276.00,
+    "CreatedAd": "2023-09-16T15:00:00Z",
+    "Total": 290.00,
+    "Tax": 14.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1043,
+        "ProductID": 2043,
+        "Count": 15,
+        "BasePrice": "20.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 42,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
     },
     "Warehouse": {
       "name": "Almacén Principal"
     },
-    "WarehouseID": 3,
-    "Notes": "Notas de recepción para el pedido 42.",
-    "Discount": 10,
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 42",
+    "Discount": 0,
     "DiscountEarliyPay": 0,
-    "SubTotal": 900,
+    "SubTotal": 80.00,
     "DiscountGlobal": 0,
-    "SubtotalWithDiscount": 890,
-    "CreatedAd": "17357492024-07-10T10:00:00Z874000",
-    "Total": 1023.5,
-    "Tax": 133.5,
+    "SubtotalWithDiscount": 80.00,
+    "CreatedAd": "2023-09-15T10:30:00Z",
+    "Total": 85.00,
+    "Tax": 5.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1044,
+        "ProductID": 2044,
+        "Count": 4,
+        "BasePrice": "20.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 43,
+    "SupplierID": 102,
+    "Supplier": {
+      "id": 102,
+      "BusinessName": "Proveedor B"
+    },
+    "Warehouse": {
+      "name": "Almacén Secundario"
+    },
+    "WarehouseID": 2,
+    "Notes": "Notas para la recepción 43",
+    "Discount": 10,
+    "DiscountEarliyPay": 10,
+    "SubTotal": 1500.00,
+    "DiscountGlobal": 150.00,
+    "SubtotalWithDiscount": 1350.00,
+    "CreatedAd": "2023-09-14T14:00:00Z",
+    "Total": 1425.00,
+    "Tax": 75.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1045,
+        "ProductID": 2045,
+        "Count": 30,
+        "BasePrice": "50.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 44,
+    "SupplierID": 103,
+    "Supplier": {
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 44",
+    "Discount": "5%",
+    "DiscountEarliyPay": 0,
+    "SubTotal": 40.00,
+    "DiscountGlobal": 2.00,
+    "SubtotalWithDiscount": 38.00,
+    "CreatedAd": "2023-09-13T09:00:00Z",
+    "Total": 45.00,
+    "Tax": 7.00,
     "Status": 2,
     "Articles": [
       {
-        "id": 420,
-        "name": "Artículo 420",
-        "quantity": 10,
-        "price": 85
+        "ID": 1046,
+        "ProductID": 2046,
+        "Count": 4,
+        "BasePrice": "10.00"
       }
     ],
-    "detailsReption": {
-      "receiver": "Receptor 42"
-    }
-  }]
+    "detailsReption": null
+  },
+  {
+    "ID": 45,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 11",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 650.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 650.00,
+    "CreatedAd": "2023-09-12T16:30:00Z",
+    "Total": 700.00,
+    "Tax": 50.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1047,
+        "ProductID": 2047,
+        "Count": 13,
+        "BasePrice": "50.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 46,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
+    },
+    "Warehouse": {
+      "name": "Almacén Principal"
+    },
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 46",
+    "Discount": "12%",
+    "DiscountEarliyPay": 12,
+    "SubTotal": 2200.00,
+    "DiscountGlobal": 264.00,
+    "SubtotalWithDiscount": 1936.00,
+    "CreatedAd": "2023-09-11T10:00:00Z",
+    "Total": 2050.00,
+    "Tax": 114.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1048,
+        "ProductID": 2048,
+        "Count": 22,
+        "BasePrice": "100.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 47,
+    "SupplierID": 102,
+    "Supplier": {
+      "id": 102,
+      "BusinessName": "Proveedor B"
+    },
+    "Warehouse": {
+      "name": "Almacén Secundario"
+    },
+    "WarehouseID": 2,
+    "Notes": "Notas para la recepción 47",
+    "Discount": 8,
+    "DiscountEarliyPay": 8,
+    "SubTotal": 100.00,
+    "DiscountGlobal": 8.00,
+    "SubtotalWithDiscount": 92.00,
+    "CreatedAd": "2023-09-10T14:30:00Z",
+    "Total": 100.00,
+    "Tax": 8.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1049,
+        "ProductID": 2049,
+        "Count": 10,
+        "BasePrice": "10.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 48,
+    "SupplierID": 103,
+    "Supplier": {
+      "id": 103,
+      "BusinessName": "Proveedor C"
+    },
+    "Warehouse": {
+      "name": "Almacén Central"
+    },
+    "WarehouseID": 3,
+    "Notes": "Notas para la recepción 48",
+    "Discount": 0,
+    "DiscountEarliyPay": 0,
+    "SubTotal": 30.00,
+    "DiscountGlobal": 0,
+    "SubtotalWithDiscount": 30.00,
+    "CreatedAd": "2023-09-09T09:00:00Z",
+    "Total": 35.00,
+    "Tax": 5.00,
+    "Status": 3,
+    "Articles": [
+      {
+        "ID": 1050,
+        "ProductID": 2050,
+        "Count": 6,
+        "BasePrice": "5.00"
+      }
+    ],
+    "detailsReption": null
+  },
+  {
+    "ID": 49,
+    "SupplierID": 104,
+    "Supplier": {
+      "id": 104,
+      "BusinessName": "Proveedor D"
+    },
+    "Warehouse": {
+      "name": "Almacén Regional"
+    },
+    "WarehouseID": 4,
+    "Notes": "Notas para la recepción 1",
+    "Discount": "10%",
+    "DiscountEarliyPay": 10,
+    "SubTotal": 480.00,
+    "DiscountGlobal": 48.00,
+    "SubtotalWithDiscount": 432.00,
+    "CreatedAd": "2023-09-08T16:00:00Z",
+    "Total": 450.00,
+    "Tax": 18.00,
+    "Status": 1,
+    "Articles": [
+      {
+        "ID": 1051,
+        "ProductID": 2051,
+        "Count": 8,
+        "BasePrice": "60.00"
+      }
+    ],
+    "detailsReption": {}
+  },
+  {
+    "ID": 50,
+    "SupplierID": 101,
+    "Supplier": {
+      "id": 101,
+      "BusinessName": "Proveedor A"
+    },
+    "Warehouse": {
+      "name": "Almacén Principal"
+    },
+    "WarehouseID": 1,
+    "Notes": "Notas para la recepción 50",
+    "Discount": 5,
+    "DiscountEarliyPay": 5,
+    "SubTotal": 1000.00,
+    "DiscountGlobal": 50.00,
+    "SubtotalWithDiscount": 950.00,
+    "CreatedAd": "2023-09-07T11:00:00Z",
+    "Total": 1000.00,
+    "Tax": 50.00,
+    "Status": 2,
+    "Articles": [
+      {
+        "ID": 1052,
+        "ProductID": 2052,
+        "Count": 20,
+        "BasePrice": "50.00"
+      }
+    ],
+    "detailsReption": null
+  }
+]
