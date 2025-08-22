@@ -194,8 +194,8 @@ const ReceptionList = () => { const theme = useTheme();
   );
 
   let list: Purchase[] = listPurchase && listPurchase.length > 0 ? listPurchase : [];
-let indice = listPurchase.length
-console.log(indice)
+
+
   return (
     <MainCard content={false}>
   

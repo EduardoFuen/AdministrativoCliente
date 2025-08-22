@@ -39,7 +39,7 @@ export type Purchase = {
   SubTotal?: number;
   DiscountGlobal?: number;
   SubtotalWithDiscount?: number;
-  CreatedAd?: string;
+  CreatedAt?: string;
   Total?: number;
   Tax?: number;
   Status?: number;

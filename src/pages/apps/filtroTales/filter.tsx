@@ -1,6 +1,5 @@
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import data2 from "./data2.json"
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from '@mui/x-date-pickers';
 import { Grid, TextField } from '@mui/material';
@@ -9,6 +8,7 @@ import { useFilterContext } from 'contexts/Filter.context';
 import React from 'react';
 import { Purchase } from 'types/purchase';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'store';
 
 
 
@@ -37,7 +37,8 @@ export const filterByRange = (data: Purchase[], property: keyof Purchase, range:
 };
 
 export function Filter() {
-  const datos: Purchase[] = data2
+   const { listPurchase } = useSelector((state) => state.purchase);
+  
 const history = useNavigate();
 const filtrar = () => {history("/filter/list")}
 
@@ -53,18 +54,19 @@ const filtrar = () => {history("/filter/list")}
       dateTo: new Date(),
       
     })
-    const [data, setData] = React.useState<Purchase[]>(datos);
+    const [data, setData] = React.useState<Purchase[]>(listPurchase);
   const [min, setMin] = React.useState<number>(new Date("2024-01-01").getTime());
   const [max, setMax] = React.useState<number>(new Date("2025-06-20").getTime());
   React.useEffect(() => {
-    const filteredData = filterByRange(datos, 'CreatedAd', { min, max });
+    const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
     setData(filteredData)
     setLista (data)
   
   }, [min, max]);
 
 console.log (lista)
-
+console.log (min)
+console.log (max)
   return (
     <>
 

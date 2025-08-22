@@ -2,7 +2,7 @@ import { useMemo, useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Chip, Stack, Tooltip, Typography, CircularProgress, Box, Button } from '@mui/material';
+import { Chip, Stack, Tooltip, Typography, CircularProgress, Box, Button} from '@mui/material';
 // third-party
 import NumberFormat from 'react-number-format';
 // project import
@@ -23,6 +23,7 @@ import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 import { useFilterContext } from 'contexts/Filter.context';
+import { format } from 'date-fns';
 
 
 
@@ -77,35 +78,41 @@ const ReceptionList = () => { const theme = useTheme();
       {
         Header: () => (
           <Stack direction="row" spacing={1.5} alignItems="center" justifyContent="center" sx={{ textAlign: 'center', width: 90 }}>
-            #
+            Cliente
           </Stack>
         ),
-        accessor: 'NumberOrder',
-        Cell: ({  }: any) => {
-          return (
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <Stack spacing={0}>
-                <Typography variant="subtitle1" className="font-size">
-                  {'Total Diario'}
-                </Typography>
-              </Stack>
-            </Stack>
+        accessor: 'BusinessName',
+         Cell: ({ value }: any) => {
+           return (
+             <Stack direction="row" spacing={1.5} alignItems="center">
+               <Stack spacing={0}>
+                 <Typography variant="subtitle1" className="font-size">
+                 {value || 'N/A'}
+          </Typography>
+        </Stack>
+      </Stack>
           );
         }
       },
       {
-        Header: 'Fecha OC',
-        accessor: 'CreatedAt',
-        Cell: ({ value }: any) => {
-          return (
-            <Stack direction="row" spacing={1.5} alignItems="center">
-              <Stack spacing={0}>
-                <Typography className="cell-center font-size">{value || ''}</Typography>
-              </Stack>
-            </Stack>
-          );
-        }
-      },
+  Header: 'Fecha OC',
+  accessor: 'CreatedAt',
+  Cell: ({ value }: any) => {
+ 
+    if (!value) {
+      return null;
+    }
+    const date = new Date(value);
+    const formattedDate = format(date, 'dd/MM/yyyy');
+    return (
+      <Stack direction="row" spacing={1.5} alignItems="center">
+        <Stack spacing={0}>
+          <Typography className="cell-center font-size">{formattedDate}</Typography>
+        </Stack>
+      </Stack>
+    );
+  }
+},
       {
         Header: 'Sin verificar',
         accessor: 'Total1',
@@ -209,15 +216,38 @@ const ReceptionList = () => { const theme = useTheme();
   );
 
   let list: Purchase[] = listPurchase && listPurchase.length > 0 ? listPurchase : [];
-let indice = listPurchase.length
-console.log(indice)
+const sumaTotal = list.reduce((acumulador, pedido) => {
+  return (acumulador + (pedido.Total ?? 0));
+}, 0);
+
+console.log(list)
   return (
     <MainCard content={false}>
   
       <ScrollX>
-        <Box sx={{ display: 'flex', justifyContent: 'right' }}> 
-            <Button variant='contained' sx={{marginTop: 2, marginRight: 3}} onClick={filtrar}> Filtrar </Button>
-        </Box>
+         <Box 
+      sx={{ 
+        display: 'flex',
+        justifyContent: 'flex-end', 
+        alignItems: 'center', // Alinea los elementos verticalmente
+        gap: 3, // Espacio uniforme entre los elementos
+        marginTop: 1,
+        marginRight: 3 // Añade un relleno interno
+      }}
+    >
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Typography variant="h5" component="h2">
+          Total de la Compra:
+        </Typography>
+        <Typography variant="h5" color="primary">
+          ${sumaTotal.toFixed(2)}
+        </Typography>
+      </Box>
+      <Button variant='contained' onClick={filtrar}>
+        Filtrar
+      </Button>
+    </Box>
+        
         <ReactTable
           columns={columns}
           data={list as []}
