@@ -5,7 +5,7 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { Grid, TextField } from '@mui/material';
 import {Button} from "@mui/material"
 import { useFilterContext } from 'contexts/Filter.context';
-import React from 'react';
+import React, { useState } from 'react';
 import { Purchase } from 'types/purchase';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'store';
@@ -13,106 +13,122 @@ import { useSelector } from 'store';
 
 
 
-
-
-
-export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number, max: number }): Purchase[] => {
-  if (!Array.isArray(data) || !range || typeof range.min !== 'number' || typeof range.max !== 'number') {
-    console.error("Los argumentos de entrada no son válidos.");
-    return [];
-  }
-
-   return data.filter(item => {
-    const value = item[property];
-
+const parseDDMMYYYY = (dateString: string): Date | null => {
+    // Usa una expresión regular para manejar ambos separadores
+    const parts = dateString.split(/[\/-]/);
     
-    const numericValue = typeof value === 'string' ? new Date(value).getTime() : typeof value === 'number' ? value : undefined;
-
-    if (typeof numericValue !== 'number') {
-      return false;
+    if (parts.length !== 3) {
+        return null; 
     }
 
-    return numericValue >= range.min && numericValue <= range.max;
-  });
+    const day = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const year = parseInt(parts[2], 10);
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+        return null;
+    }
+    
+    const dateObject = new Date(Date.UTC(year, month - 1, day));
+    
+    if (dateObject.getUTCFullYear() !== year || dateObject.getUTCMonth() !== month - 1 || dateObject.getUTCDate() !== day) {
+        return null;
+    }
+    
+    return dateObject;
 };
 
+
+// Tu función de filtro, usando solo la función de parseo robusta
+export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number, max: number }): Purchase[] => {
+    return data.filter(item => {
+        const value = item[property];
+        let numericValue: number | undefined;
+
+        if (typeof value === 'string') {
+            const customDate = parseDDMMYYYY(value);
+            
+            if (customDate) {
+                numericValue = customDate.getTime();
+            }
+        } else if (typeof value === 'number') {
+            numericValue = value;
+        }
+
+        if (typeof numericValue !== 'number') {
+            return false;
+        }
+
+        return numericValue >= range.min && numericValue <= range.max;
+    });
+};
 export function Filter() {
-   const { listPurchase } = useSelector((state) => state.purchase);
-  
-const history = useNavigate();
-const filtrar = () => {history("/filter/list")}
-
-  const { lista, setLista } = useFilterContext()
-
-  
-  const [dataForm, setDataForm] = React.useState<{
+    const { listPurchase } = useSelector((state) => state.purchase);
+    const history = useNavigate();
+    const { setLista } = useFilterContext();
+    
+    
+    const [dataForm, setDataForm] = useState<{
         dateFrom: Date | null,
         dateTo: Date | null,
-        
     }>({
-      dateFrom: new Date(),
-      dateTo: new Date(),
-      
-    })
-    const [data, setData] = React.useState<Purchase[]>(listPurchase);
-  const [min, setMin] = React.useState<number>(new Date("2024-01-01").getTime());
-  const [max, setMax] = React.useState<number>(new Date("2025-06-20").getTime());
-  React.useEffect(() => {
-    const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
-    setData(filteredData)
-    setLista (data)
-  
-  }, [min, max]);
+        dateFrom: new Date(),
+        dateTo: new Date(),
+    });
 
-console.log (lista)
-console.log (min)
-console.log (max)
-  return (
-    <>
-
-<LocalizationProvider dateAdapter={AdapterDateFns}>  
-    <Grid container spacing={3}>
-  <Grid item xs={8}>
-      <DatePicker
-                disableFuture
-                label='Desde'
-                value={dataForm.dateFrom}
-                
-                inputFormat= "dd/MM/yyyy"
-                onChange={(newValue: Date | null) => {
-                  setDataForm({ ...dataForm, dateFrom: newValue })
-                  const newMin = newValue ? newValue.getTime() : 0;
-                  setMin(newMin);
-                }}
-               renderInput={(params) => <TextField {...params} />}
-              />
-
+   
+    const handleFilter = () => {
+   
+    const fromDate = dataForm.dateFrom;
+    const toDate = dataForm.dateTo;
     
-  </Grid>
-  <Grid item xs={8}>
-      <DatePicker
-                disableFuture
-                label='Hasta'
-                value={dataForm.dateTo}
-                minDate={dataForm.dateFrom === null ? undefined : dataForm.dateFrom}
-                inputFormat= "dd/MM/yyyy"
-                onChange={(newValue: Date | null) => {
-                  setDataForm({ ...dataForm, dateTo: newValue })
-                  const newMax = newValue ? newValue.getTime() : 0;
-                  setMax(newMax);
-                }}
-               renderInput={(params) => <TextField {...params} />}
-              />
-  </Grid>
-  <Grid item xs = {8}>
-  <Button variant='contained' onClick={filtrar} > Filtrar </Button>
-</Grid>
-</Grid>
-
-</LocalizationProvider>
-
-   </>
-  )
+   
+    const min = fromDate ? new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()).getTime() : 0;
+    
+   
+    const max = toDate ? new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999).getTime() : Infinity;
+    
+  
+    const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
+    setLista(filteredData);
+    console.log(min,max)
+    
+    history("/filter/list");
+    console.log(listPurchase)
+};
+      return (
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <Grid container spacing={3}>
+                <Grid item xs={8}>
+                    <DatePicker
+                        disableFuture
+                        label='Desde'
+                        value={dataForm.dateFrom}
+                        onChange={(newValue: Date | null) => {
+                            setDataForm({ ...dataForm, dateFrom: newValue });
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </Grid>
+                <Grid item xs={8}>
+                    <DatePicker
+                        disableFuture
+                        label='Hasta'
+                        value={dataForm.dateTo}
+                        // Aquí está la solución: si dataForm.dateFrom es null, se usa undefined
+                        minDate={dataForm.dateFrom ?? undefined} 
+                        onChange={(newValue: Date | null) => {
+                            setDataForm({ ...dataForm, dateTo: newValue });
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                    />
+                </Grid>
+                <Grid item xs={8}>
+                    <Button variant='contained' onClick={handleFilter}>Filtrar</Button>
+                </Grid>
+            </Grid>
+        </LocalizationProvider>
+    );
 }
 
-export default Filter
+export default Filter;

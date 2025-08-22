@@ -15,7 +15,7 @@ import { newDataExport } from 'utils/PurchaseTransform';
 import { getProducts } from 'store/reducers/product';
 
 //import { useSelector, useDispatch, store } from 'store';
-import { useSelector, useDispatch } from 'store';
+import { useDispatch } from 'store';
 import { deletePurchase, getPurchaseList, resetItemsPurchase } from 'store/reducers/purcharse';
 
 // types
@@ -23,7 +23,7 @@ import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 import { useFilterContext } from 'contexts/Filter.context';
-import { format } from 'date-fns';
+
 
 
 
@@ -50,7 +50,7 @@ const ReceptionList = () => { const theme = useTheme();
 
 
 
-  const  listPurchase  = useSelector(() => lista);
+  
 
 
 
@@ -99,15 +99,11 @@ const ReceptionList = () => { const theme = useTheme();
   accessor: 'CreatedAt',
   Cell: ({ value }: any) => {
  
-    if (!value) {
-      return null;
-    }
-    const date = new Date(value);
-    const formattedDate = format(date, 'dd/MM/yyyy');
+  
     return (
       <Stack direction="row" spacing={1.5} alignItems="center">
         <Stack spacing={0}>
-          <Typography className="cell-center font-size">{formattedDate}</Typography>
+          <Typography className="cell-center font-size">{value}</Typography>
         </Stack>
       </Stack>
     );
@@ -215,12 +211,12 @@ const ReceptionList = () => { const theme = useTheme();
     [theme]
   );
 
-  let list: Purchase[] = listPurchase && listPurchase.length > 0 ? listPurchase : [];
+  let list: Purchase[] = lista && lista.length > 0 ? lista : [];
 const sumaTotal = list.reduce((acumulador, pedido) => {
   return (acumulador + (pedido.Total ?? 0));
 }, 0);
 
-console.log(list)
+console.log(lista)
   return (
     <MainCard content={false}>
   
