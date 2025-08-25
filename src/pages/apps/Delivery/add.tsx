@@ -51,7 +51,7 @@ function AddDelivery() {
     NameContact: Yup.string().max(255).required('Nombre es requerido'),
     PhoneContact: Yup.string()
     .matches(/^[0-9]+$/, 'El teléfono solo debe contener dígitos') 
-    .length(10, 'El número de teléfono debe tener al menos 10 dígitos')
+    .length(11, 'Por favor, revise el numero de telefono')
     .required('El número de teléfono es requerido'),
 });
 
