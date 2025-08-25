@@ -11,40 +11,40 @@ import { useSelector, useDispatch } from 'store';
 
 // project import
 import ReactTable from 'components/ReactTable';
-import SupplierView from './view';
+import DeliveryView from './view';
 import IconButton from 'components/@extended/IconButton';
 import MainCard from 'components/MainCard';
 import ScrollX from 'components/ScrollX';
-import Import from './ImportSupplier';
-import { getSupplierList, deleteSupplier } from 'store/reducers/supplier';
+import Import from './ImportDelivery';
 import { DefaultSupplier } from 'config';
-import { SupplierExport } from 'utils/SupplierTransform';
+import { DeliveryExport } from 'utils/DeliveryTransform';
 
 // assets
 import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
+import { deleteDelivery, getDeliveryList } from 'store/reducers/delivery';
+
 
 // ==============================|| SUPPLIER - LIST ||============================== //
 
-const SupplierListPage = () => {
+const DeliveryListPage = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const history = useNavigate();
   const [addImport, setActiveImport] = useState<boolean>(false);
 
   useEffect(() => {
-    dispatch(getSupplierList());
+    dispatch(getDeliveryList());
   }, [dispatch]);
 
-  const { supplierList } = useSelector((state) => state.supplier);
-  const data = (supplierList.length >= 0 && SupplierExport(supplierList)) || [];
+  const { deliveryList } = useSelector((state) => state.delivery);
+  const data = (deliveryList.length >= 0 && DeliveryExport(deliveryList)) || [];
 
-  const handleEditSupplier = (id: any) => {
-    history(`/supplier/edit/${id}`);
+  const handleEditDelivery = (id: any) => {
+    history(`/delivery/edit/${id}`);
   };
 
-
-  const handleAddSupplier = () => {
-    history(`/supplier/add`);
+  const handleAddDelivery = () => {
+    history(`/delivery/add`);
   };
 
   const handleImport = () => {
@@ -53,36 +53,19 @@ const SupplierListPage = () => {
 
   const columns = useMemo(
     () => [
+      
+     
       {
-        Header: 'Codigo',
-        accessor: 'Code',
-        className: 'cell-center font-size'
-      },
-      {
-        Header: 'RIF',
-        accessor: 'Rif',
-        className: 'cell-center font-size'
-      },
-      {
-        Header: 'Descripción',
-        accessor: 'BusinessName',
+        Header: 'Nombre',
         className: 'cell-center font-size',
-      },
-      {
-        Header: 'Email',
-        className: 'cell-center font-size',
-        accessor: 'EmailContact'
+        accessor: 'NameContact'
       },
       {
         Header: 'Teléfono',
         className: 'cell-center font-size',
         accessor: 'PhoneContact',
       },
-      {
-        Header: 'Nombre Contacto',
-        className: 'cell-center font-size',
-        accessor: 'NameContact'
-      },
+    
       {
         Header: 'Acciones',
         className: 'cell-center font-size',
@@ -100,7 +83,7 @@ const SupplierListPage = () => {
                   color="primary"
                   onClick={(e: any) => {
                     e.stopPropagation();
-                    handleEditSupplier(row?.original?.sk);
+                    handleEditDelivery(row?.original?.sk);
                   }}
                 >
                   <EditTwoTone twoToneColor={theme.palette.primary.main} />
@@ -112,7 +95,7 @@ const SupplierListPage = () => {
                   onClick={async (e: any) => {
                     e.stopPropagation();
                     setIsLoading(true);
-                    await dispatch(deleteSupplier(row?.original?.sk));
+                    await dispatch(deleteDelivery(row?.original?.sk));
                     setIsLoading(false);
                   }}
                 >
@@ -134,22 +117,20 @@ const SupplierListPage = () => {
     [theme]
   );
 
-  const renderRowSubComponent = useCallback(({ row }: any) => <SupplierView data={supplierList[row.id]} />, [supplierList]);
+  const renderRowSubComponent = useCallback(({ row }: any) => <DeliveryView data={deliveryList[row.id]} />, [deliveryList]);
 
   return (
     <MainCard content={false}>
-       
       <ScrollX>
-        
         <ReactTable
           columns={columns}
           handleImport={handleImport}
-          handleAdd={handleAddSupplier}
-          data={supplierList as []}
+          handleAdd={handleAddDelivery}
+          data={deliveryList as []}
           getHeaderProps={(column: any) => column.getSortByToggleProps()}
           renderRowSubComponent={renderRowSubComponent}
           TitleButton="Agregar"
-          FileName="Proveedores"
+          FileName="Deliverys"
           dataExport={data as []}
           FileNameTemplate="Descargar Plantilla"
           download
@@ -163,4 +144,4 @@ const SupplierListPage = () => {
   );
 };
 
-export default SupplierListPage;
+export default DeliveryListPage;

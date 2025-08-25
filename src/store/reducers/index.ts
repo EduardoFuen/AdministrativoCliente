@@ -20,6 +20,7 @@ import activeSubst from './activeSubst';
 import purchase from './purcharse';
 import inventory from './inventory';
 import reception from './reception';
+import delivery from './delivery';
 
 import { REDUCERVERSION } from 'config';
 
@@ -51,6 +52,14 @@ const reducers = combineReducers({
       keyPrefix: REDUCERVERSION
     },
     reception
+  ),
+    delivery: persistReducer(
+    {
+      key: 'delivery',
+      storage,
+      keyPrefix: REDUCERVERSION
+    },
+    delivery
   ),
   substances: persistReducer(
     {
