@@ -14,7 +14,7 @@ import { useSelector } from 'store';
 
 
 const parseDDMMYYYY = (dateString: string): Date | null => {
-    // Usa una expresión regular para manejar ambos separadores
+   
     const parts = dateString.split(/[\/-]/);
     
     if (parts.length !== 3) {
@@ -39,7 +39,7 @@ const parseDDMMYYYY = (dateString: string): Date | null => {
 };
 
 
-// Tu función de filtro, usando solo la función de parseo robusta
+
 export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number, max: number }): Purchase[] => {
     return data.filter(item => {
         const value = item[property];
@@ -77,24 +77,25 @@ export function Filter() {
     });
 
    
-    const handleFilter = () => {
+const handleFilter = () => {
    
+    if (!dataForm.dateFrom || !dataForm.dateTo) {
+        alert("Ambos campos, 'Desde' y 'Hasta', son necesarios.");
+        return; 
+    }
+
     const fromDate = dataForm.dateFrom;
     const toDate = dataForm.dateTo;
     
    
-    const min = fromDate ? new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()).getTime() : 0;
+    const min = new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()).getTime();
     
-   
-    const max = toDate ? new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999).getTime() : Infinity;
+    const max = new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999).getTime();
     
-  
     const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
     setLista(filteredData);
-    console.log(min,max)
     
     history("/filter/list");
-    console.log(listPurchase)
 };
       return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -115,7 +116,6 @@ export function Filter() {
                         disableFuture
                         label='Hasta'
                         value={dataForm.dateTo}
-                        // Aquí está la solución: si dataForm.dateFrom es null, se usa undefined
                         minDate={dataForm.dateFrom ?? undefined} 
                         onChange={(newValue: Date | null) => {
                             setDataForm({ ...dataForm, dateTo: newValue });

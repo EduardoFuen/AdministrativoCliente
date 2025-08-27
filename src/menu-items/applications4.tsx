@@ -212,7 +212,7 @@ const applications4: NavItemType = {
       mainUrl: '/cambios'
     },
      {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Delivery',
       url: '/delivery',
@@ -220,7 +220,7 @@ const applications4: NavItemType = {
       mainTitle: 'Delivery'
     },
      {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Add Delivery',
       url: 'delivery/add',
@@ -230,7 +230,7 @@ const applications4: NavItemType = {
       mainUrl: '/delivery'
     },
     {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Editar Delivery',
       url: 'delivery/edit/:id',

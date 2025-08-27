@@ -191,7 +191,7 @@ const applications: NavItemType = {
       mainUrl: '/cambios'
     },
      {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Delivery',
       url: '/delivery',
@@ -199,7 +199,7 @@ const applications: NavItemType = {
       mainTitle: 'Delivery'
     },
      {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Add Delivery',
       url: 'delivery/add',
@@ -209,7 +209,7 @@ const applications: NavItemType = {
       mainUrl: '/delivery'
     },
     {
-      id: 'edit',
+      id: 'delivery',
       type: 'item',
       title: 'Editar Delivery',
       url: 'delivery/edit/:id',
