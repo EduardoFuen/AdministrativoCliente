@@ -80,7 +80,7 @@ export function Filter() {
 const handleFilter = () => {
    
     if (!dataForm.dateFrom || !dataForm.dateTo) {
-        alert("Ambos campos, 'Desde' y 'Hasta', son necesarios.");
+        alert("'Desde' y 'Hasta', son necesarios.");
         return; 
     }
 
@@ -130,5 +130,34 @@ const handleFilter = () => {
         </LocalizationProvider>
     );
 }
-
 export default Filter;
+
+
+ 
+
+export function findTopComprador(lista: Purchase[]) {
+  if (lista.length === 0) {
+    return null;
+  }
+
+  const contador: { [key: string]: number } = {};
+  let compradorMasFrecuente: string | null = null;
+  let maxCount = 0;
+
+  lista.forEach(venta => {
+    
+    
+      const nombreComprador = venta.BusinessName;
+      
+      
+      contador[nombreComprador] = (contador[nombreComprador] || 0) + 1;
+
+      if (contador[nombreComprador] > maxCount) {
+        maxCount = contador[nombreComprador];
+        compradorMasFrecuente = nombreComprador;
+      
+    }
+  });
+
+  return compradorMasFrecuente;
+}

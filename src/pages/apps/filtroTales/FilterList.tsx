@@ -23,6 +23,7 @@ import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 import { useFilterContext } from 'contexts/Filter.context';
+import { findTopComprador } from './filter';
 
 
 
@@ -38,22 +39,15 @@ const ReceptionList = () => { const theme = useTheme();
   
 
 
- const context = useFilterContext ();
-
-  // Asegúrate de que el contexto no es nulo antes de usarlo
-  if (!context) {
-    throw new Error("El componente debe estar dentro de un FilterProvider.");
-  }
-
-  // Ahora, desestructura la propiedad 'lista' del objeto de contexto
-  const { lista } = context;
+const context = useFilterContext ();
+const { lista } = context;
 
 
-
+const topComprador = findTopComprador(lista)
   
+console.log (lista)
 
-
-
+console.log (topComprador)
 
   
   useEffect(() => {
@@ -216,7 +210,7 @@ const sumaTotal = list.reduce((acumulador, pedido) => {
   return (acumulador + (pedido.Total ?? 0));
 }, 0);
 
-console.log(lista)
+
   return (
     <MainCard content={false}>
   
@@ -225,10 +219,10 @@ console.log(lista)
       sx={{ 
         display: 'flex',
         justifyContent: 'flex-end', 
-        alignItems: 'center', // Alinea los elementos verticalmente
-        gap: 3, // Espacio uniforme entre los elementos
+        alignItems: 'center',
+        gap: 3, 
         marginTop: 1,
-        marginRight: 3 // Añade un relleno interno
+        marginRight: 3 
       }}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
