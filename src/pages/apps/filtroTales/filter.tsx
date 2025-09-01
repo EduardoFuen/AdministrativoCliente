@@ -161,3 +161,30 @@ export function findTopComprador(lista: Purchase[]) {
 
   return compradorMasFrecuente;
 }
+
+export function findTopVenta(lista: Purchase[]): Purchase | null {
+  if (lista.length === 0) {
+    return null;
+  }
+
+ 
+  const primeraVentaValida = lista.find(venta => typeof venta.Total === 'number');
+
+  if (!primeraVentaValida) {
+    return null;
+  }
+
+  let topVenta: Purchase = primeraVentaValida;
+
+ 
+  for (let i = 0; i < lista.length; i++) {
+    const ventaActual = lista[i];
+
+    
+    if (typeof ventaActual.Total === 'number' && ventaActual.Total > (topVenta.Total ?? -Infinity)) {
+      topVenta = ventaActual;
+    }
+  }
+
+  return topVenta;
+}

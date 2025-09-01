@@ -23,7 +23,7 @@ import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 import { useFilterContext } from 'contexts/Filter.context';
-import { findTopComprador } from './filter';
+import { findTopComprador, findTopVenta } from './filter';
 
 
 
@@ -45,10 +45,11 @@ const { lista } = context;
 
 const topComprador = findTopComprador(lista)
   
-console.log (lista)
+
 
 console.log (topComprador)
-
+const topVenta = findTopVenta (lista)
+console.log (topVenta?.Total)
   
   useEffect(() => {
     dispatch(getPurchaseList());
@@ -218,26 +219,48 @@ const sumaTotal = list.reduce((acumulador, pedido) => {
          <Box 
       sx={{ 
         display: 'flex',
-        justifyContent: 'flex-end', 
+        justifyContent: 'space-between', 
         alignItems: 'center',
         gap: 3, 
-        marginTop: 1,
-        marginRight: 3 
+        marginTop: 4,
+        marginBottom: -2
       }}
     >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
         <Typography variant="h5" component="h2">
-          Total de la Compra:
+          Total de las Ventas: 
         </Typography>
         <Typography variant="h5" color="primary">
           ${sumaTotal.toFixed(2)}
         </Typography>
+
+        <br />
+        
+         <Typography variant="h5" component="h2">
+          Top Venta:
+        </Typography>
+        <Typography variant="h5" color="primary">
+          ${topVenta?.Total}
+        </Typography>
+
+        <br />
+
+         <Typography variant="h5" component="h2">
+          Comprador mas Frecuente: 
+        </Typography>
+        <Typography variant="h5" color="primary">
+          {topComprador}
+        </Typography>
+
+
       </Box>
-      <Button variant='contained' onClick={filtrar}>
+      
+    </Box>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1, marginRight: 3, marginTop: 2 }}>
+        <Button variant='contained' onClick={filtrar}>
         Filtrar
       </Button>
-    </Box>
-        
+      </Box>
         <ReactTable
           columns={columns}
           data={list as []}
