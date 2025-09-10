@@ -127,9 +127,9 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Proveedor</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Proveedor</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -138,18 +138,18 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Persona de Contacto</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Persona de Contacto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('ContactName')}
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Telefono</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Telefono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('PhoneNumber')}
 
                         placeholder="Ingresar Codigo Correlativo"
@@ -157,9 +157,9 @@ function AddNewProduct() {
                       />
                     </Grid>
                       <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Dirreccion</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Dirreccion</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Adress')}
 
                         placeholder="Ingresar Codigo Correlativo"

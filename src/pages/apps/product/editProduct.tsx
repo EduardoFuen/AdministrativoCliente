@@ -100,9 +100,9 @@ function UpdateProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -113,9 +113,9 @@ function UpdateProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Referencia</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Referencia</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Sku')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}
@@ -124,9 +124,9 @@ function UpdateProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Precio</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Precio</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Price')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}

@@ -101,9 +101,9 @@ const { cambios } = useSelector((state) => state.store);
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Dolar</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Dolar</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Base')}
                         error={Boolean(touched.Base && errors.Base)}
                         helperText={touched.Base && errors.Base}
@@ -118,7 +118,7 @@ const { cambios } = useSelector((state) => state.store);
                     <Grid item xs={6}>
                       <InputLabel sx={{ mb: 1, opacity: 0.5 }}>BCV</InputLabel>
                           <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('BCV')}
                         error={Boolean(touched.BCV && errors.BCV)}
                         helperText={touched.BCV && errors.BCV}

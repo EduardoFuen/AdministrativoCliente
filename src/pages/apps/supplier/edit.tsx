@@ -120,9 +120,9 @@ console.log(touched)
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Razón Social</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Razón Social</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         error={Boolean(touched.BusinessName && errors.BusinessName)}
                         helperText={
                           !Boolean(touched.BusinessName && errors.BusinessName) ? '' : String(touched.BusinessName && errors.BusinessName)
@@ -133,9 +133,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>RIF</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>RIF</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('Rif')}
                         error={Boolean(touched.Rif && errors.Rif)}
                         helperText={Boolean(touched.Rif && errors.Rif) ? String(touched.Rif && errors.Rif) : ''}
@@ -144,9 +144,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Direccion Empresa</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Direccion Empresa</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('DesT')}
                         error={Boolean(touched.DesT && errors.DesT)}
                         helperText={Boolean(touched.DesT && errors.DesT) ? String(touched.DesT && errors.DesT) : ''}
@@ -155,9 +155,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Latitud (GOOGLEMAPS)</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Latitud (GOOGLEMAPS)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('Zona')}
                         error={Boolean(touched.Zona && errors.Zona)}
                         helperText={Boolean(touched.Zona && errors.Zona) ? String(touched.Zona && errors.Zona) : ''}
@@ -166,9 +166,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Longitud (GOOGLEMAPS)</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Longitud (GOOGLEMAPS)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('ZonaDes')}
                         error={Boolean(touched.ZonaDes && errors.ZonaDes)}
                         helperText={Boolean(touched.ZonaDes && errors.ZonaDes) ? String(touched.ZonaDes && errors.ZonaDes) : ''}
@@ -187,9 +187,9 @@ console.log(touched)
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre de Contacto</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Nombre de Contacto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('NameContact')}
                         error={Boolean(touched.NameContact && errors.NameContact)}
                         helperText={
@@ -200,9 +200,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Teléfono</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Teléfono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('PhoneContact')}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={
@@ -213,9 +213,9 @@ console.log(touched)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Email</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Email</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         type="email"
                         placeholder="Ingresar Email"
                         fullWidth

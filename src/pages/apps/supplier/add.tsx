@@ -95,9 +95,9 @@ function AddSupplier() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Razón Social</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Razón Social</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('BusinessName')}
                         error={Boolean(touched.BusinessName && errors.BusinessName)}
                         helperText={touched.BusinessName && errors.BusinessName}
@@ -106,7 +106,7 @@ function AddSupplier() {
                       />
                     </Grid>
                                      <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Tipo Cliente</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Tipo Cliente</InputLabel>
                       <Select
                         fullWidth
                         {...getFieldProps('PaymenTerm')}
@@ -130,7 +130,7 @@ function AddSupplier() {
 
                   <Grid container spacing={1} direction="row">
                       <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>-</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>-</InputLabel>
                         <Select
                         fullWidth
                         {...getFieldProps('rif2')}
@@ -150,9 +150,9 @@ function AddSupplier() {
                       </Select>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Documento</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Documento</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('Rif')}
                         placeholder="Ingresar Documento"
                         fullWidth
@@ -160,9 +160,9 @@ function AddSupplier() {
                     </Grid>
    
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Direccion Empresa</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Direccion Empresa</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('DesT')}
                         placeholder="Ingresar Destino Tipo"
                         fullWidth
@@ -170,9 +170,9 @@ function AddSupplier() {
                     </Grid>
 
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Días de Credito</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Días de Credito</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         placeholder="Ingresar Días pronto pago"
                         fullWidth
                         {...getFieldProps('DaysPayment')}
@@ -181,7 +181,7 @@ function AddSupplier() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                    <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Contribuyente Especial</InputLabel>
+                    <InputLabel sx={{ mb: 1, opacity: 1 }}>Contribuyente Especial</InputLabel>
                       <Select
                         fullWidth
                         {...getFieldProps('PaymenTerm')}
@@ -202,9 +202,9 @@ function AddSupplier() {
                       {touched.PaymenTerm && <FormHelperText error>{formik.errors.PaymenTerm} </FormHelperText>}
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Credito Maximo</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Credito Maximo</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('credit')}
                         placeholder="credito"
                         fullWidth
@@ -222,9 +222,9 @@ function AddSupplier() {
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Teléfono</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Teléfono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('PhoneContact')}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={touched.PhoneContact && errors.PhoneContact}
@@ -233,9 +233,9 @@ function AddSupplier() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Email</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Email</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         type="email"
                         placeholder="Ingresar Email"
                         fullWidth
@@ -245,45 +245,45 @@ function AddSupplier() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre Completo</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Nombre Completo</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('Vendedor')}
                         placeholder="Ingresar Nombre"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Direccion</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Direccion</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('VendedorDir')}
                         placeholder="Ingresar Direccion"
                         fullWidth
                       />
                     </Grid>
                                         <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Latitud (GOOGLEMAPS)</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Latitud (GOOGLEMAPS)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('Zona')}
                         placeholder="Ingresar Latitud"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Longitud (GOOGLEMAPS)</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Longitud (GOOGLEMAPS)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('ZonaDes')}
                         placeholder="Ingresar Longitud"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Telefono Alternativo</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Telefono Alternativo</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                         {...getFieldProps('VendedorDes')}
                         placeholder="Ingresar Telefono"
                         fullWidth

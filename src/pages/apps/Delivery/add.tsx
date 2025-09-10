@@ -97,9 +97,9 @@ function AddDelivery() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre del Delivery</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Nombre del Delivery</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('NameContact')}
                         error={Boolean(touched.NameContact && errors.NameContact)}
                         helperText={touched.NameContact && errors.NameContact}
@@ -109,9 +109,9 @@ function AddDelivery() {
                     </Grid>
 
                      <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Numero de telefono</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Numero de telefono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('PhoneContact')}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={touched.PhoneContact && errors.PhoneContact}

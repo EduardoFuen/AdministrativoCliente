@@ -134,9 +134,9 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -147,18 +147,18 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Cantidad a comprar</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Cantidad a comprar</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Quantity')}
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Codigo</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Codigo</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         {...getFieldProps('Sku')}
 
                         placeholder="Ingresar Codigo Correlativo"
@@ -175,7 +175,7 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Proveedor</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Proveedor</InputLabel>
                       <TextField
                         placeholder="Seleccionar Maker"
                         fullWidth

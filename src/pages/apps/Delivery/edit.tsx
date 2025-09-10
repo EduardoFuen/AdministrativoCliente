@@ -105,9 +105,9 @@ console.log(touched)
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Nombre y Apellido</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Nombre y Apellido</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         error={Boolean(touched.NameContact && errors.NameContact)}
                         helperText={
                           !Boolean(touched.NameContact && errors.NameContact) ? '' : String(touched.NameContact && errors.NameContact)
@@ -119,9 +119,9 @@ console.log(touched)
                     </Grid>
 
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Numero Telefonico</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Numero Telefonico</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={
                           !Boolean(touched.PhoneContact && errors.PhoneContact) ? '' : String(touched.PhoneContact && errors.PhoneContact)

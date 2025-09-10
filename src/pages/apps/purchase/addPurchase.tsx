@@ -122,7 +122,7 @@ function AddPurchase() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={4}>
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Cliente</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Cliente</InputLabel>
                       <Autocomplete
                         id="supplier-list"
                         renderOption={(props, option) => {
@@ -171,9 +171,9 @@ function AddPurchase() {
                     }}
                   >
                     <Grid item xs={5} >
-                      <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Notas</InputLabel>
+                      <InputLabel sx={{ mb: 1,  }}>Notas</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                        sx={{ '& .MuiOutlinedInput-input': {  } }}
                         multiline
                         rows={2}
                         placeholder="Ingresar Nota de compras"

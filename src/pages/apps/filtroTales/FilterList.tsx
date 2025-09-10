@@ -31,6 +31,7 @@ import { findTopComprador, findTopVenta } from './filter';
 
 
 
+
 // ==============================|| RECEPTION - LIST VIEW ||============================== //
 
 const ReceptionList = () => { const theme = useTheme();
@@ -216,46 +217,41 @@ const sumaTotal = list.reduce((acumulador, pedido) => {
     <MainCard content={false}>
   
       <ScrollX>
-         <Box 
-      sx={{ 
-        display: 'flex',
-        justifyContent: 'space-between', 
-        alignItems: 'center',
-        gap: 3, 
-        marginTop: 4,
-        marginBottom: -2
-      }}
-    >
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+         
+      <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2, marginBottom: 1}}>
         <Typography variant="h5" component="h2">
           Total de las Ventas: 
         </Typography>
-        <Typography variant="h5" color="primary">
+        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
           ${sumaTotal.toFixed(2)}
         </Typography>
 
-        <br />
-        
+      </Box>
+      
+    
+    <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2,marginBottom: 1}}>
          <Typography variant="h5" component="h2">
           Top Venta:
         </Typography>
-        <Typography variant="h5" color="primary">
+        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
           ${topVenta?.Total}
         </Typography>
-
-        <br />
-
+        
+        <Typography variant="h5" component="h2" sx={{marginLeft: 1}}>
+          hecha por:
+        </Typography>
+        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
+          {topVenta?.BusinessName}
+        </Typography>
+      </Box>
+    <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2}}>
          <Typography variant="h5" component="h2">
           Comprador mas Frecuente: 
         </Typography>
-        <Typography variant="h5" color="primary">
+        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
           {topComprador}
         </Typography>
-
-
-      </Box>
-      
-    </Box>
+        </Box>
     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1, marginRight: 3, marginTop: 2 }}>
         <Button variant='contained' onClick={filtrar}>
         Filtrar
