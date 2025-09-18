@@ -52,6 +52,9 @@ const AppAddCategory = Loadable(lazy(() => import('pages/apps/categories/addCate
 
 const AppInventoryList = Loadable(lazy(() => import('pages/apps/inventory/inventory-list')));
 
+const AppAddAcc = Loadable(lazy(() => import('pages/apps/SuperAdmin/SuperAuthRegister')));
+const AppAccList = Loadable(lazy(() => import('pages/apps/SuperAdmin/AccList')));
+
 // pages routing
 const AuthLogin = Loadable(lazy(() => import('pages/auth/login')));
 const AuthRegister = Loadable(lazy(() => import('pages/auth/register')));
@@ -211,6 +214,21 @@ const MainRoutes = {
                 }
               ]
             },
+             {
+              path: '',
+              children: [
+                {
+                  path: 'createAcc',
+                  element: <AppAddAcc />
+                },
+                {
+                  path: 'accList',
+                  element: <AppAccList />
+                }
+              
+              ]
+            },
+            
             {
               path: '',
               children: [

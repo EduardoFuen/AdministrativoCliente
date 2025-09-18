@@ -68,6 +68,9 @@ const NavItem = ({ item, level }: Props) => {
      if (pathname && pathname.includes('delivery') && actions) {
       dispatch(activeItem({ openItem: ['delivery'] }));
     }
+    if (pathname && pathname.includes('accList') && actions) {
+      dispatch(activeItem({ openItem: ['acc'] }));
+    }
   };
 
   // active menu item on page load

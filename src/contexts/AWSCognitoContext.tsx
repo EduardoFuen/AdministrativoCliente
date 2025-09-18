@@ -112,7 +112,7 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
 
   };
 
-  const register = (email: string, password: string, firstName: string, lastName: string, role: string) =>
+  const register = (email: string, password: string, firstName: string, lastName: string, role: string, company?: string, logo?: string) =>
     new Promise((success, rej) => {
       const data = {
         email,
@@ -120,6 +120,10 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
         firstName,
         role,
         lastName,
+        company,
+        logo
+      
+        
       }
       axios.post(`${HOST}/auth/register`, { ...data }, { ...HEADER })
       .then(function (response) {

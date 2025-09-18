@@ -1,7 +1,7 @@
 import { useEffect, useState, SyntheticEvent } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { UserRol } from 'config';
+import { HEADER, UserRol } from 'config';
 
 // material-ui
 import {
@@ -39,9 +39,10 @@ import { StringColorProps } from 'types/password';
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
+
 // ============================|| AWS CONGNITO - REGISTER ||============================ //
 
-const AuthRegister = () => {
+const SuperAuthRegister = () => {
   const { register } = useAuth();
   const scriptedRef = useScriptRef();
   const dispatch = useDispatch();
@@ -65,20 +66,23 @@ const AuthRegister = () => {
   useEffect(() => {
     changePassword('');
   }, []);
-
+  const head = HEADER
+console.log ('este es el:', head)
   return (
     <Grid container xs={10} item rowSpacing={7} columnSpacing={0} style={{ marginTop: '5%', marginLeft: '30%' }} alignSelf="center" className="cell-center">
       <Formik
         initialValues={{
+          company: '',
           firstname: '',
           lastname: '',
           email: '',
           password: '',
           role: '',
-          
+          logo:'',
           submit: null
         }}
         validationSchema={Yup.object().shape({
+          company: Yup.string().max(255).required('Company Name is required'),
           firstname: Yup.string().max(255).required('First Name is required'),
           lastname: Yup.string().max(255).required('Last Name is required'),
           email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -87,7 +91,7 @@ const AuthRegister = () => {
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
             console.log(values)
-            await register(values.email, values.password, values.firstname, values.lastname, values.role)
+            await register(values.email, values.password, values.firstname, values.lastname, values.company, values.role, values.logo);
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
@@ -154,6 +158,51 @@ const AuthRegister = () => {
                     onBlur={handleBlur}
                     onChange={handleChange}
                     placeholder="Doe"
+                    inputProps={{}}
+                  />
+                  {touched.lastname && errors.lastname && (
+                    <FormHelperText error id="helper-text-lastname-signup">
+                      {errors.lastname}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="company-signup">Compañia/Negocio</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.company && errors.company)}
+                    id="company-signup"
+                    type="company"
+                    value={values.company}
+                    name="company"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Ejemplo C.A"
+                    inputProps={{}}
+                  />
+                  {touched.lastname && errors.lastname && (
+                    <FormHelperText error id="helper-text-lastname-signup">
+                      {errors.lastname}
+                    </FormHelperText>
+                  )}
+                </Stack>
+              </Grid>
+           
+              <Grid item xs={12} md={6}>
+                <Stack spacing={1}>
+                  <InputLabel htmlFor="logo-signup">Logo</InputLabel>
+                  <OutlinedInput
+                    fullWidth
+                    error={Boolean(touched.logo && errors.logo)}
+                    id="logo-signup"
+                    type="logo"
+                    value={values.logo}
+                    name="logo"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    placeholder="Ejemplo C.A"
                     inputProps={{}}
                   />
                   {touched.lastname && errors.lastname && (
@@ -291,4 +340,4 @@ const AuthRegister = () => {
   );
 };
 
-export default AuthRegister;
+export default SuperAuthRegister;
