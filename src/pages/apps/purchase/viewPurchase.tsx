@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { addDays, format } from 'date-fns';
 
@@ -14,9 +14,15 @@ import {
   Table,
   TableBody,
   TableCell,
+
   TableHead,
-  TableRow
+  TableRow,
+  InputAdornment,
+  Tooltip,
+  IconButton,
+   
 } from '@mui/material';
+
 
 import { useFormik, Form, FormikProvider, FormikValues } from 'formik';
 // third-party
@@ -37,6 +43,9 @@ import { editPurchase, getIDPurchase } from 'store/reducers/purcharse';
 
 // assets
 import { SendOutlined } from '@ant-design/icons';
+import CustomEditIcon from 'themes/overrides/editIcon';
+
+
 
 // ==============================||VIEW PURCHASE - MAIN ||============================== //
 
@@ -57,7 +66,23 @@ const getInitialValues = (order: FormikValues | null) => {
   return newSubstance;
 };
 
+
+
+    
+  
 function ViewPurchase() {
+  
+  const [readOnly, setReadOnly] = useState<boolean>(true);
+  
+  const [iconColor, setIconColor] = useState<'primary' | 'error'>('primary');
+
+  const handleEditClick = () => {
+    
+    setReadOnly((prevReadOnly) => !prevReadOnly);
+
+   
+    setIconColor((prevColor) => (prevColor === 'primary' ? 'error' : 'primary'));
+  };
   const history = useNavigate();
   const dispatch = useDispatch();
   const [add, setAdd] = useState<boolean>(false);
@@ -140,7 +165,9 @@ function ViewPurchase() {
                           {...getFieldProps('BusinessName')}
                           placeholder=""
                           fullWidth
-                          disabled
+                          InputProps={{
+                          readOnly: true,
+                           }}
                         />
                       </Grid>
  
@@ -151,7 +178,9 @@ function ViewPurchase() {
                           {...getFieldProps('CreatedAt')}
                           placeholder=""
                           fullWidth
-                          disabled
+                          InputProps={{
+                          readOnly: true,
+                           }}
                         />
                       </Grid>
                     </Grid>
@@ -164,17 +193,28 @@ function ViewPurchase() {
                       }}
                     >
                       <Grid item xs={5}>
-                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
-                        <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
-                          multiline
-                          rows={2}
-                          placeholder="Ingresar Nota de compras"
-                          fullWidth
-                          disabled={orderPurchase?.Status !== 0}
-                          {...getFieldProps('Notes')}
-                        />
-                      </Grid>
+      <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
+      <TextField
+        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
+        multiline
+        rows={2}
+        placeholder="Ingresar Nota de compras"
+        fullWidth
+        InputProps={{
+          readOnly: readOnly,
+          endAdornment: (
+            <InputAdornment position="end">
+              <Tooltip title={readOnly ? "Editar" : "Guardar"}> 
+                <IconButton onClick={handleEditClick} color={iconColor}> 
+                  <CustomEditIcon />
+                </IconButton>
+              </Tooltip>
+            </InputAdornment>
+          ),
+        }}
+        {...getFieldProps('Notes')}
+      />
+    </Grid>
 
                     </Grid>
                   </MainCard>

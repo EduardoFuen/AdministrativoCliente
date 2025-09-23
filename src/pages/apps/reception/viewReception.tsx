@@ -131,7 +131,7 @@ function AddReception() {
                     </Typography>
                     <Grid container spacing={1} direction="row">
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Proveedor</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Proveedor</InputLabel>
                         <TextField placeholder="Seleccionar Proveedor" fullWidth select {...getFieldProps('SupplierID')} disabled>
                           {supplierList
                             .filter((item: Supplier) => item.Status === true)
@@ -143,7 +143,7 @@ function AddReception() {
                         </TextField>
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Bodega</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Bodega</InputLabel>
                         <TextField placeholder="Seleccionar Bodega" fullWidth select {...getFieldProps('WarehouseID')} disabled>
                           {warehouseList
                             .filter((item: Warehouse) => item.Status === true)
@@ -155,9 +155,9 @@ function AddReception() {
                         </TextField>
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Descuento</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Descuento</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('Discount')}
                           disabled
                           placeholder="Ingresa Descuento %"
@@ -165,41 +165,41 @@ function AddReception() {
                         />
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Fecha Orden</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Orden</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('CreatedAt')}
                           fullWidth
                           disabled
                         />
                       </Grid>
                       <Grid item xs={2}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>
                           Fecha Estimada para <br /> Bodega Bogota
                         </InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('EstimatedDeliveryDateBog')}
                           fullWidth
                           disabled
                         />
                       </Grid>
                       <Grid item xs={2}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>
                           Fecha Estimada para <br />
                           Bodega Barranquilla
                         </InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('EstimatedDeliveryDateBaq')}
                           fullWidth
                           disabled
                         />
                       </Grid>
                       <Grid item xs={2}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Fecha Recibo</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Recibo</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('UpdateAt')}
                           fullWidth
                           disabled
@@ -215,9 +215,9 @@ function AddReception() {
                       }}
                     >
                       <Grid item xs={3}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Notas</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           multiline
                           rows={2}
                           placeholder="Ingresar Nota de compras"
@@ -226,9 +226,9 @@ function AddReception() {
                         />
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Descuento pronto Pago</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Descuento pronto Pago</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('DiscountEarliyPay')}
                           placeholder="Descuento pronto Pago %"
                           fullWidth
@@ -236,16 +236,16 @@ function AddReception() {
                         />
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Fecha Pronto Pago</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Pronto Pago</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('CreatedAt')}
                           fullWidth
                           disabled
                         />
                       </Grid>
                       <Grid item xs={3} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5, textAlign: 'center' }}>Fecha Vencimiento Factura</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1, textAlign: 'center' }}>Fecha Vencimiento Factura</InputLabel>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                           <DesktopDatePicker
                             label=""
@@ -259,9 +259,9 @@ function AddReception() {
                         </LocalizationProvider>
                       </Grid>
                       <Grid item xs={2} alignSelf="center">
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Numero de Factura</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Numero de Factura</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('InvoiceNumber')}
                           type="text"
                           fullWidth
