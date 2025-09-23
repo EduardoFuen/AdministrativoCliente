@@ -134,9 +134,9 @@ function ViewPurchase() {
                     </Typography>
                     <Grid container spacing={1} direction="row">
                       <Grid item xs={4}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Cliente</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Cliente</InputLabel>
                          <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('BusinessName')}
                           placeholder=""
                           fullWidth
@@ -145,9 +145,9 @@ function ViewPurchase() {
                       </Grid>
  
                       <Grid item xs={3}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Fecha Pedido</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Pedido</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('CreatedAt')}
                           placeholder=""
                           fullWidth
@@ -164,9 +164,9 @@ function ViewPurchase() {
                       }}
                     >
                       <Grid item xs={5}>
-                        <InputLabel sx={{ mb: 1, opacity: 0.5 }}>Notas</InputLabel>
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
                         <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 0.5 } }}
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           multiline
                           rows={2}
                           placeholder="Ingresar Nota de compras"

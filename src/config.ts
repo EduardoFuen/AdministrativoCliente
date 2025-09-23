@@ -12,9 +12,10 @@ export const AWS_API = {
 };
 export const AMZSECURITYTOKEN = '';
 
+const userToken = localStorage.getItem('serviceToken')
 export const HEADER = {
   headers: {
-    'X-Amz-Security-Token': ''
+    'X-Amz-Security-Token': userToken || ''
   }
 };
 // eslint-disable-next-line

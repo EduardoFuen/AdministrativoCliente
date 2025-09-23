@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from 'react';
-import axios from 'axios';
+import axiosInstance from './axiosInstance';
 import { HOST, HEADER } from 'config';
 // third-party
 import { CognitoUser, CognitoUserPool,AuthenticationDetails } from 'amazon-cognito-identity-js';
@@ -12,6 +12,7 @@ import authReducer from 'store/reducers/auth';
 //import Loader from 'components/Loader';
 import { AWS_API } from 'config';
 import { AWSCognitoContextType, InitialLoginContextProps } from 'types/auth';
+import axios from 'axios';
 
 // constant
 const initialState: InitialLoginContextProps = {
@@ -53,6 +54,8 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
     init();
   }, []);
 
+  
+
   const login = async (email: string, password: string) => {
     dispatch({
       type: LOADING,
@@ -75,10 +78,17 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
       email,
       password
     }
-    const response = await axios.post(`${HOST}/auth`, { ...data }, { ...HEADER });
+    const response = await axiosInstance.post(`${HOST}/auth`, { ...data }, { ...HEADER });
       if(response.data.username){
         console.log("94")
-        dispatch({
+        
+          
+          
+
+        dispatch(
+          
+          {
+          
           type: LOGIN,
           payload: {
             isLoggedIn: true,
