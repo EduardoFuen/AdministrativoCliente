@@ -42,8 +42,7 @@ import { editPurchase, getIDPurchase } from 'store/reducers/purcharse';
 // types
 
 // assets
-import { SendOutlined } from '@ant-design/icons';
-import CustomEditIcon from 'themes/overrides/editIcon';
+import { EditTwoTone, SendOutlined } from '@ant-design/icons';
 
 
 
@@ -71,17 +70,19 @@ const getInitialValues = (order: FormikValues | null) => {
     
   
 function ViewPurchase() {
+
+  
   
   const [readOnly, setReadOnly] = useState<boolean>(true);
   
-  const [iconColor, setIconColor] = useState<'primary' | 'error'>('primary');
+  const [iconColor, setIconColor] = useState<'theme.palette.primary.main' | 'theme.palette.error.main'>('theme.palette.primary.main');
 
   const handleEditClick = () => {
     
     setReadOnly((prevReadOnly) => !prevReadOnly);
 
    
-    setIconColor((prevColor) => (prevColor === 'primary' ? 'error' : 'primary'));
+    setIconColor((prevColor) => (prevColor === 'theme.palette.primary.main' ? 'theme.palette.error.main' : 'theme.palette.primary.main'));
   };
   const history = useNavigate();
   const dispatch = useDispatch();
@@ -204,9 +205,9 @@ function ViewPurchase() {
           readOnly: readOnly,
           endAdornment: (
             <InputAdornment position="end">
-              <Tooltip title={readOnly ? "Editar" : "Guardar"}> 
-                <IconButton onClick={handleEditClick} color={iconColor}> 
-                  <CustomEditIcon />
+              <Tooltip title= {readOnly ? "Editar" : "Guardar"}> 
+                <IconButton onClick={handleEditClick} > 
+                  <EditTwoTone color= {iconColor}  />
                 </IconButton>
               </Tooltip>
             </InputAdornment>
