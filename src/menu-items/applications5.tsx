@@ -1,11 +1,11 @@
 // assets
-
+import { UsergroupAddOutlined, BarsOutlined } from '@ant-design/icons';
 
 // type
 import { NavItemType } from 'types/menu';
 
 // icons
-
+const icons = { UsergroupAddOutlined, BarsOutlined };
 
 // ==============================|| MENU ITEMS - APPLICATIONS ||============================== //
 
@@ -20,6 +20,7 @@ const applications5: NavItemType = {
       title: 'Crear Cuenta',
       url: '/createAcc',
       param: true,
+      icon: icons.UsergroupAddOutlined,
       mainTitle: 'createAcc'
     },
      {
@@ -28,6 +29,7 @@ const applications5: NavItemType = {
       title: 'Lista de Cuentas',
       url: '/accList',
       param: true,
+      icon: icons.BarsOutlined,
       mainTitle: 'accList'
     },
      

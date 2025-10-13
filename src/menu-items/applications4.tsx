@@ -1,11 +1,11 @@
 // assets
-import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined } from '@ant-design/icons';
+import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined } from '@ant-design/icons';
 
 // type
 import { NavItemType } from 'types/menu';
 
 // icons
-const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined };
+const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined };
 
 // ==============================|| MENU ITEMS - APPLICATIONS ||============================== //
 
@@ -182,7 +182,8 @@ const applications4: NavItemType = {
       title: 'Lista Usuarios',
       url: '/user',
       param: true,
-                hide: true,
+      hide: true,
+      icon: icons.UsergroupAddOutlined,
       mainTitle: 'Registro Usuario',
       mainUrl: '/user'
     },
@@ -194,15 +195,16 @@ const applications4: NavItemType = {
           url: '/reception'
         },
          {
-      id: 'edit',
+      id: 'cambios',
       type: 'item',
       title: 'Precio Dolar',
       url: '/cambios',
       param: true,
+      icon: icons.BankOutlined,
       mainTitle: 'Precio Dolar'
     },
      {
-      id: 'edit',
+      id: 'cambios',
       type: 'item',
       title: 'Tasa de Cambio',
       url: 'cambios/edit/:id',
@@ -226,6 +228,7 @@ const applications4: NavItemType = {
       url: 'delivery/add',
       hide: true,
       param: true,
+      icon: icons.CarOutlined,
       mainTitle: 'Delivery',
       mainUrl: '/delivery'
     },

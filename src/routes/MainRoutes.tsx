@@ -218,6 +218,20 @@ const MainRoutes = {
               path: '',
               children: [
                 {
+                  path: 'cambios',
+                  element: <AppCambiosList />
+                },
+                {
+                  path: 'cambios/edit/:id',
+                  element: <AppCambiosEdit />
+                },
+              
+              ]
+            },
+             {
+              path: '',
+              children: [
+                {
                   path: 'createAcc',
                   element: <AppAddAcc />
                 },

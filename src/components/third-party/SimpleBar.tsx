@@ -18,6 +18,8 @@ const RootStyle = styled(BrowserView)({
 // scroll bar wrapper
 const SimpleBarStyle = styled(SimpleBar)(({ theme }) => ({
   maxHeight: '100%',
+
+  paddingTop: '60px',
   '& .simplebar-scrollbar': {
     '&:before': {
       backgroundColor: alpha(theme.palette.grey[500], 0.48)
@@ -27,7 +29,7 @@ const SimpleBarStyle = styled(SimpleBar)(({ theme }) => ({
     }
   },
   '& .simplebar-track.simplebar-vertical': {
-    width: 10
+    width: 12
   },
   '& .simplebar-track.simplebar-horizontal .simplebar-scrollbar': {
     height: 6

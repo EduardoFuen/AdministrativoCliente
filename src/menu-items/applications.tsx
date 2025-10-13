@@ -1,11 +1,11 @@
 // assets
-import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined } from '@ant-design/icons';
+import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined } from '@ant-design/icons';
 
 // type
 import { NavItemType } from 'types/menu';
 
 // icons
-const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined };
+const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined };
 
 // ==============================|| MENU ITEMS - APPLICATIONS ||============================== //
 
@@ -173,15 +173,16 @@ const applications: NavItemType = {
       mainTitle: 'Recepción',
       mainUrl: '/reception'
     } ,{
-      id: 'edit',
+      id: 'cambios',
       type: 'item',
       title: 'Precio Dolar',
       url: '/cambios',
       param: true,
+      icon: icons.BankOutlined,
       mainTitle: 'Precio Dolar'
     },
      {
-      id: 'edit',
+      id: 'cambios',
       type: 'item',
       title: 'Tasa de Cambio',
       url: 'cambios/edit/:id',
@@ -196,6 +197,7 @@ const applications: NavItemType = {
       title: 'Delivery',
       url: '/delivery',
       param: true,
+      icon: icons.CarOutlined,
       mainTitle: 'Delivery'
     },
      {
