@@ -21,6 +21,7 @@ import purchase from './purcharse';
 import inventory from './inventory';
 import reception from './reception';
 import delivery from './delivery';
+import collections from './collections'
 
 import { REDUCERVERSION } from 'config';
 
@@ -76,6 +77,14 @@ const reducers = combineReducers({
       keyPrefix: REDUCERVERSION
     },
     supplier
+  ),
+   collection: persistReducer(
+    {
+      key: 'collections',
+      storage,
+      keyPrefix: REDUCERVERSION
+    },
+    collections
   ),
     user: persistReducer(
     {

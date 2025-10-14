@@ -13,6 +13,10 @@ const AppPurchaseList = Loadable(lazy(() => import('pages/apps/purchase/purchase
 const AppAddPurchase = Loadable(lazy(() => import('pages/apps/purchase/addPurchase')));
 const AppViewPurchase = Loadable(lazy(() => import('pages/apps/purchase/viewPurchase')));
 
+const AppCollectionList = Loadable(lazy(() => import('pages/apps/collections/collection-list')));
+const AppAddCollection = Loadable(lazy(() => import('pages/apps/collections/addcollection')));
+const AppViewCollection = Loadable(lazy(() => import('pages/apps/collections/viewCollection')));
+
 const AppStoreList = Loadable(lazy(() => import('pages/apps/almacen/products-list')));
 const AppStoreAdd = Loadable(lazy(() => import('pages/apps/almacen/addProduct')));
 const AppStoreEdit = Loadable(lazy(() => import('pages/apps/almacen/editProduct')));
@@ -156,6 +160,22 @@ const MainRoutes = {
              {
               path: 'provider-list/edit/:id',
               element: <AppProviderEdit />
+            },
+              ]
+            },{
+              path: '',
+              children: [
+                    {
+              path: 'collections',
+              element: <AppCollectionList />
+            },
+            {
+              path: 'collections/add',
+              element: <AppAddCollection />
+            },
+            {
+              path: 'collections/view/:id',
+              element: <AppViewCollection />
             },
               ]
             },

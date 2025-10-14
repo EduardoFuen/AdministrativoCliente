@@ -123,6 +123,7 @@ const applications2: NavItemType = {
       mainTitle: 'Compras',
       mainUrl: '/purchase'
     },
+   
     {
       id: 'recepcion',
       title: 'Totales',
@@ -176,6 +177,22 @@ const applications2: NavItemType = {
       param: true,
       mainTitle: 'Productos',
       mainUrl: '/product-list'
+    },
+     {
+      id: 'collections',
+      title: 'Cobranzas',
+      type: 'item',
+      url: '/collections',
+      icon: icons.ReconciliationOutlined
+    },
+    {
+      id: 'addCollection',
+      type: 'item',
+      title: 'Generar nueva orden de Cobranzas',
+      url: '/collection/add',
+      hide: true,
+      mainTitle: 'Cobranzas',
+      mainUrl: '/collections'
     },
     {
       id: 'edit',

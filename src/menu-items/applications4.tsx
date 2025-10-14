@@ -177,6 +177,22 @@ const applications4: NavItemType = {
       mainUrl: '/reception'
     },
     {
+          id: 'collections',
+          title: 'Cobranzas',
+          type: 'item',
+          url: '/collections',
+          icon: icons.ReconciliationOutlined
+        },
+        {
+          id: 'addCollection',
+          type: 'item',
+          title: 'Generar nueva orden de Cobranzas',
+          url: '/collection/add',
+          hide: true,
+          mainTitle: 'Cobranzas',
+          mainUrl: '/collections'
+        },
+    {
       id: 'edit',
       type: 'item',
       title: 'Lista Usuarios',
