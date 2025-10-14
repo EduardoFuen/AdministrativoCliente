@@ -1,11 +1,11 @@
 // assets
-import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined } from '@ant-design/icons';
+import { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 
 // type
 import { NavItemType } from 'types/menu';
 
 // icons
-const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined };
+const icons = { TeamOutlined, ReconciliationOutlined, DiffOutlined, HddOutlined, ApartmentOutlined, BankOutlined, UsergroupAddOutlined, CarOutlined, MoneyCollectOutlined };
 
 // ==============================|| MENU ITEMS - APPLICATIONS ||============================== //
 
@@ -178,7 +178,7 @@ const applications: NavItemType = {
           title: 'Cobranzas',
           type: 'item',
           url: '/collections',
-          icon: icons.ReconciliationOutlined
+          icon: icons.MoneyCollectOutlined
         },
         {
           id: 'addCollection',
