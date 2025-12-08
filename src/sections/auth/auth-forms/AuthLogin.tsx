@@ -54,23 +54,23 @@ const AuthLogin = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-             await login(values.email, values.password).then(
+            await login(values.email, values.password).then(
               (pave: any) => {
                 // WARNING: do not set any formik state here as formik might be already destroyed here. You may get following error by doing so.
                 // Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application.
                 // To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
                 // github issue: https://github.com/formium/formik/issues/2430
-                if(pave.pk){
-                  console.log("entro")
-                  console.log(pave)
-                }else{
+                if (pave.pk) {
+                  console.log('entro');
+                  console.log(pave);
+                } else {
                   setStatus({ success: false });
-                  setErrors({ submit: "Datos malos o Inexistente" });
+                  setErrors({ submit: 'Datos malos o Inexistente' });
                   setSubmitting(false);
                 }
               },
               (err: any) => {
-                console.log("mal")
+                console.log('mal');
                 setStatus({ success: false });
                 setErrors({ submit: err.message });
                 setSubmitting(false);

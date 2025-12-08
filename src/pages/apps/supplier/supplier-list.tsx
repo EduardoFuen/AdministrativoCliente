@@ -42,7 +42,6 @@ const SupplierListPage = () => {
     history(`/supplier/edit/${id}`);
   };
 
-
   const handleAddSupplier = () => {
     history(`/supplier/add`);
   };
@@ -66,7 +65,7 @@ const SupplierListPage = () => {
       {
         Header: 'Descripción',
         accessor: 'BusinessName',
-        className: 'cell-center font-size',
+        className: 'cell-center font-size'
       },
       {
         Header: 'Email',
@@ -76,7 +75,7 @@ const SupplierListPage = () => {
       {
         Header: 'Teléfono',
         className: 'cell-center font-size',
-        accessor: 'PhoneContact',
+        accessor: 'PhoneContact'
       },
       {
         Header: 'Nombre Contacto',
@@ -90,11 +89,8 @@ const SupplierListPage = () => {
         Cell: ({ row }: any) => {
           const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
-
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-      
               <Tooltip title="Edit">
                 <IconButton
                   color="primary"
@@ -138,9 +134,7 @@ const SupplierListPage = () => {
 
   return (
     <MainCard content={false}>
-       
       <ScrollX>
-        
         <ReactTable
           columns={columns}
           handleImport={handleImport}

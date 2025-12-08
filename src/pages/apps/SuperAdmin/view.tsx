@@ -1,10 +1,9 @@
 // material-ui
 
 import {
-
   Grid,
   Divider,
-  
+
   /*   ListItemSecondaryAction, */
   Stack,
   TableCell,
@@ -25,8 +24,6 @@ import { PhoneOutlined } from '@ant-design/icons';
 // ==============================|| VIEW SUPPLIER - MAIN ||============================== //
 
 const UserView = ({ data }: any) => {
-
-
   return (
     <TableRow sx={{ '&:hover': { bgcolor: `transparent !important` } }}>
       <TableCell colSpan={8} sx={{ p: 2.5 }}>
@@ -38,7 +35,6 @@ const UserView = ({ data }: any) => {
                   <Stack spacing={2.5} alignItems="center">
                     <Stack spacing={0.5} alignItems="center">
                       <Typography variant="h5">{capitalize(data?.NameContact)}</Typography>
-                     
                     </Stack>
                   </Stack>
                 </Grid>
@@ -48,7 +44,6 @@ const UserView = ({ data }: any) => {
                 <Grid item xs={12}>
                   <Stack spacing={2.5} alignItems="center">
                     <Stack spacing={0.5} alignItems="center">
-                     
                       <Typography align="right">
                         <PhoneOutlined />{' '}
                         <NumberFormat displayType="text" format="+57 (###) ###-####" mask="_" defaultValue={data?.PhoneContact} />

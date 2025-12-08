@@ -17,8 +17,8 @@ const Navigation = () => {
   const { drawerOpen } = menu;
   //rol 1 secretaria, rol 2 asistente, rol3
   const { user } = useAuth();
-  console.log(user)
-  if(user?.role == "1"){
+  console.log(user);
+  if (user?.role == '1') {
     const navGroups = menuItem.items2.map((item) => {
       switch (item.type) {
         case 'group':
@@ -32,7 +32,7 @@ const Navigation = () => {
       }
     });
     return <Box sx={{ pt: drawerOpen ? 2 : 0, '& > ul:first-of-type': { mt: 0 } }}>{navGroups}</Box>;
-  }else if(user?.role == "2"){
+  } else if (user?.role == '2') {
     const navGroups = menuItem.items.map((item) => {
       switch (item.type) {
         case 'group':
@@ -46,7 +46,7 @@ const Navigation = () => {
       }
     });
     return <Box sx={{ pt: drawerOpen ? 2 : 0, '& > ul:first-of-type': { mt: 0 } }}>{navGroups}</Box>;
-  }else if(user?.role == "3"){
+  } else if (user?.role == '3') {
     const navGroups = menuItem.items3.map((item) => {
       switch (item.type) {
         case 'group':
@@ -60,7 +60,7 @@ const Navigation = () => {
       }
     });
     return <Box sx={{ pt: drawerOpen ? 2 : 0, '& > ul:first-of-type': { mt: 0 } }}>{navGroups}</Box>;
-  }else if(user?.role == "4"){
+  } else if (user?.role == '4') {
     const navGroups = menuItem.items4.map((item) => {
       switch (item.type) {
         case 'group':
@@ -89,7 +89,6 @@ const Navigation = () => {
     });
     return <Box sx={{ pt: drawerOpen ? 2 : 0, '& > ul:first-of-type': { mt: 0 } }}>{navGroups}</Box>;
   }
-
 };
 
 export default Navigation;

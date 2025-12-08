@@ -66,11 +66,8 @@ const SupplierListPage = () => {
         Cell: ({ row }: any) => {
           const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  
-
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-
               <Tooltip title="Edit">
                 <IconButton
                   color="primary"
@@ -108,8 +105,6 @@ const SupplierListPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]
   );
-
-
 
   return (
     <MainCard content={false}>

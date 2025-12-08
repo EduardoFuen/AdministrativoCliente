@@ -30,8 +30,7 @@ const ProductView = ({ data }: Props) => {
                   <Grid item xs={3}>
                     <Typography color="textSecondary">Cantidad</Typography>
                   </Grid>
-                  <Grid item xs={9}>
-                  </Grid>
+                  <Grid item xs={9}></Grid>
                 </Grid>
               </Box>
             </Stack>

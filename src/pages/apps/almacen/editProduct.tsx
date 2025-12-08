@@ -3,16 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 // material-ui
 
-import {
-  Button,
-  Grid,
-  InputLabel,
-
-  Stack,
-  TextField,
-  Typography,
-
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -23,12 +14,10 @@ import { useSelector, useDispatch } from 'store';
 import MainCard from 'components/MainCard';
 import { editProduct } from 'store/reducers/store';
 
-
 // types
 import { Store } from 'types/store';
 
 // assets
-
 
 // ==============================|| EDIT PRODUCT - MAIN ||============================== //
 
@@ -39,7 +28,6 @@ const getInitialValues = (store: FormikValues | Store) => {
     Quantity: store?.Quantity,
     IdProvider: store?.IdProvider,
     Exist: 0
-
   };
   return newProduct;
 };
@@ -48,11 +36,10 @@ function UpdateProduct() {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-
   const { id } = useParams();
-const { stores } = useSelector((state) => state.store);
-  console.log(stores)
- const store = useMemo(() => {
+  const { stores } = useSelector((state) => state.store);
+  console.log(stores);
+  const store = useMemo(() => {
     if (id) {
       return stores.find((item) => item.ID === String(id));
     }
@@ -64,10 +51,8 @@ const { stores } = useSelector((state) => state.store);
   };
 
   const SubstSchema = Yup.object().shape({
-    Name: Yup.string().max(255).required('Nombre es requerido'),
-
+    Name: Yup.string().max(255).required('Nombre es requerido')
   });
-
 
   const formik = useFormik({
     initialValues: getInitialValues(store!),
@@ -77,7 +62,7 @@ const { stores } = useSelector((state) => state.store);
         let data = {
           ...values
         };
-        console.log(values)
+        console.log(values);
         await dispatch(editProduct(Number(id), data));
         history(`/store-list`);
         setSubmitting(false);
@@ -87,7 +72,6 @@ const { stores } = useSelector((state) => state.store);
     }
   });
 
-
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   return (
@@ -95,10 +79,10 @@ const { stores } = useSelector((state) => state.store);
       <MainCard>
         <FormikProvider value={formik}>
           <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-            <Grid container spacing={2} >
-              <Grid item xs={12} sm={6} >
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
                 <MainCard>
-                  <Typography variant="h5" component="div" sx={{ mb: 3 }} >
+                  <Typography variant="h5" component="div" sx={{ mb: 3 }}>
                     Sumar al Almacen
                   </Typography>
                   <Grid container spacing={1} direction="row">
@@ -125,26 +109,22 @@ const { stores } = useSelector((state) => state.store);
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
-                   
                     </Grid>
 
-   <TextField
-                        sx={{ '& .MuiOutlinedInput-input': { opacity: 0 }, opacity: 0}}
-                        {...getFieldProps('Quantity')}
-                        placeholder="Ingresar Cantidad"
-                        defaultValue={0}
-  disabled
-                        fullWidth
-                        
-                      />
+                    <TextField
+                      sx={{ '& .MuiOutlinedInput-input': { opacity: 0 }, opacity: 0 }}
+                      {...getFieldProps('Quantity')}
+                      placeholder="Ingresar Cantidad"
+                      defaultValue={0}
+                      disabled
+                      fullWidth
+                    />
                   </Grid>
                 </MainCard>
               </Grid>
-    
 
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="right" alignItems="center" sx={{ mt: 6 }}>
-               
                   <Button variant="outlined" color="secondary" onClick={handleCancel}>
                     Cancel
                   </Button>

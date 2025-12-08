@@ -2,14 +2,7 @@ import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -20,12 +13,8 @@ import { useSelector, useDispatch } from 'store';
 import MainCard from 'components/MainCard';
 import { editProduct } from 'store/reducers/product';
 
-
 // types
-import {
-  Product,
-} from 'types/products';
-
+import { Product } from 'types/products';
 
 // ==============================|| EDIT PRODUCT - MAIN ||============================== //
 
@@ -42,32 +31,23 @@ function UpdateProduct() {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-
   const { id } = useParams();
 
-
-
- 
-
-
   const { products } = useSelector((state) => state.product);
-  
+
   const product = useMemo(() => {
     if (id) {
       return products.find((item: Product) => item.ID === Number(id));
     }
   }, [id, products]);
 
-
-
   const handleCancel = () => {
     history(`/product-list`);
   };
 
   const SubstSchema = Yup.object().shape({
-    Name: Yup.string().max(255).required('Nombre es requerido'),
+    Name: Yup.string().max(255).required('Nombre es requerido')
   });
-
 
   const formik = useFormik({
     initialValues: getInitialValues(product!),
@@ -100,9 +80,9 @@ function UpdateProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -113,9 +93,9 @@ function UpdateProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Referencia</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Referencia</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Sku')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}
@@ -124,9 +104,9 @@ function UpdateProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Precio</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Precio</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Price')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}
@@ -134,7 +114,6 @@ function UpdateProduct() {
                         fullWidth
                       />
                     </Grid>
-
                   </Grid>
                 </MainCard>
               </Grid>

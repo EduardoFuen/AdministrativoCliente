@@ -154,7 +154,7 @@ export function addProduct(data: Provider) {
       );
       //window.location.href = `/product-list`;
     } catch (error: any) {
-      console.log('errpr')
+      console.log('errpr');
       dispatch(slice.actions.hasError(error));
     }
   };

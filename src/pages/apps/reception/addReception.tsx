@@ -175,9 +175,9 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
               <Grid container direction="row" spacing={2}>
                 <Stack direction="row" justifyContent="end" spacing={2} alignItems="end" sx={{ p: 3 }}>
                   <Grid item xs={4}>
-                    <InputLabel sx={{ mb: 1,  }}>Faltantes</InputLabel>
+                    <InputLabel sx={{ mb: 1 }}>Faltantes</InputLabel>
                     <TextField
-                      sx={{ '& .MuiOutlinedInput-input': {  } }}
+                      sx={{ '& .MuiOutlinedInput-input': {} }}
                       type="number"
                       InputProps={{ inputProps: { min: 0 } }}
                       placeholder="Ingresar Cantidad Faltantes"
@@ -187,9 +187,9 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
                     />
                   </Grid>
                   <Grid item xs={4}>
-                    <InputLabel sx={{ mb: 1,  }}>Devolución</InputLabel>
+                    <InputLabel sx={{ mb: 1 }}>Devolución</InputLabel>
                     <TextField
-                      sx={{ '& .MuiOutlinedInput-input': {  } }}
+                      sx={{ '& .MuiOutlinedInput-input': {} }}
                       type="number"
                       InputProps={{ inputProps: { min: 0 } }}
                       placeholder="Ingresar Cantidad Devolución"
@@ -198,7 +198,7 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
                     />
                   </Grid>
                   <Grid item xs={4}>
-                    <InputLabel sx={{ mb: 1,  }}>Motivo Devolución</InputLabel>
+                    <InputLabel sx={{ mb: 1 }}>Motivo Devolución</InputLabel>
                     <TextField placeholder="Seleccionar Tipo Producto" fullWidth select {...getFieldProps('Reason')}>
                       <MenuItem value="1">Mal Estado</MenuItem>
                       <MenuItem value="2">Fecha Corta</MenuItem>
@@ -244,9 +244,9 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
                                 }}
                               >
                                 <Grid item xs={3}>
-                                  <InputLabel sx={{ mb: 1,  }}>Cantidad</InputLabel>
+                                  <InputLabel sx={{ mb: 1 }}>Cantidad</InputLabel>
                                   <TextField
-                                    sx={{ '& .MuiOutlinedInput-input': {  } }}
+                                    sx={{ '& .MuiOutlinedInput-input': {} }}
                                     type="number"
                                     InputProps={{ inputProps: { min: 0, max: product?.Count } }}
                                     placeholder="Ingresar Cantidad"
@@ -274,9 +274,9 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
                                   />
                                 </Grid>
                                 <Grid item xs={3}>
-                                  <InputLabel sx={{ mb: 1,  }}>Lote</InputLabel>
+                                  <InputLabel sx={{ mb: 1 }}>Lote</InputLabel>
                                   <TextField
-                                    sx={{ '& .MuiOutlinedInput-input': {  } }}
+                                    sx={{ '& .MuiOutlinedInput-input': {} }}
                                     placeholder="Ingresar Lote"
                                     fullWidth
                                     name={`Articles[${i}].Batch`}
@@ -302,7 +302,7 @@ const AddReception = ({ onCancel, reception, product, id }: Props) => {
                                   />
                                 </Grid>
                                 <Grid item xs={4}>
-                                  <InputLabel sx={{ mb: 1,  }}>Fecha Vencimiento</InputLabel>
+                                  <InputLabel sx={{ mb: 1 }}>Fecha Vencimiento</InputLabel>
                                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                                     <DesktopDatePicker
                                       value={x.Date}

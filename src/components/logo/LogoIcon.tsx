@@ -23,7 +23,6 @@ const LogoIcon = () => {
      *
      */
     <img src={theme.palette.mode === 'dark' ? logoIconDark : logoIcon} alt="Mantis" width="50" />
-    
   );
 };
 

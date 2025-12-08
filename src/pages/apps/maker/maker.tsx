@@ -17,7 +17,6 @@ import { getMakerList, deleteMaker } from 'store/reducers/maker';
 import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 // types
 
-
 // ==============================|| MAKER - MAKER LIST ||============================== //
 
 const MakersList = () => {
@@ -27,8 +26,6 @@ const MakersList = () => {
   const [maker, setWarehouse] = useState<any>(null);
   const [add, setAdd] = useState<boolean>(false);
   const [addImport, setActiveImport] = useState<boolean>(false);
-
-
 
   useEffect(() => {
     dispatch(getMakerList());
@@ -42,7 +39,6 @@ const MakersList = () => {
   const handleImport = () => {
     setActiveImport(!addImport);
   };
-
 
   const columns = useMemo(
     () => [
@@ -118,11 +114,10 @@ const MakersList = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]
   );
-console.log(columns)
+  console.log(columns);
   return (
     <MainCard content={false}>
-      <ScrollX>
-      </ScrollX>
+      <ScrollX></ScrollX>
       {/* add Maker Dialog */}
       <Dialog maxWidth="sm" fullWidth onClose={handleAdd} open={add} sx={{ '& .MuiDialog-paper': { p: 0 } }}>
         {add && <AddMaker maker={maker} onCancel={handleAdd} />}

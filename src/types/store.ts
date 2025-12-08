@@ -8,7 +8,6 @@ export type Store = {
   Exist?: string | number | undefined;
 };
 
-
 export type Provider = {
   idProvider?: string | number | undefined;
   Name?: string;
@@ -19,7 +18,7 @@ export type Provider = {
 export interface StoreStateProps {
   stores: Store[];
   store: Store | null;
-   providers: Provider[];
+  providers: Provider[];
   provider: Provider | null;
   cambios: Cambios[];
   cambio: Cambios | null;
@@ -40,7 +39,7 @@ export type Cambios = {
 export interface CambiosStateProps {
   cambios: Store[];
   cambio: Store | null;
-   providers: Provider[];
+  providers: Provider[];
   provider: Provider | null;
   error: object | string | null | any;
   page: number | undefined;
@@ -48,7 +47,6 @@ export interface CambiosStateProps {
   totalPages?: number | undefined;
   isLoading?: boolean;
 }
-
 
 export interface ProviderStateProps {
   providers: Provider[];
@@ -60,12 +58,9 @@ export interface ProviderStateProps {
   isLoading?: boolean;
 }
 
-
 export interface DefaultRootStateProps {
   product: StoreStateProps;
 }
-
-
 
 // Pack
 export type Pack = {

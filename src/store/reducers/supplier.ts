@@ -13,7 +13,7 @@ import { SupplierStateProps, Supplier } from 'types/supplier';
 // initial state
 const initialState: SupplierStateProps = {
   error: null,
-  supplierList: [],
+  supplierList: []
 };
 
 // ==============================||  SUPPLIER  REDUCER ||============================== //
@@ -42,7 +42,7 @@ const slice = createSlice({
     //ADD EXCEL SUPPLIER
     excelSuccess(state, action) {
       state.supplierList = [...state.supplierList, ...action.payload];
-    },
+    }
   }
 });
 // Reducer
@@ -64,7 +64,6 @@ export function getSupplierList() {
     }
   };
 }
-
 
 export function createSupplier(data: Supplier) {
   return async () => {

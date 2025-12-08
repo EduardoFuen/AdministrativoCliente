@@ -30,7 +30,6 @@ const SelectLinePurchase = ({ onCancel }: PropsSelect) => {
 
   const { products, page, totalPages, isLoading } = useSelector((state) => state.product);
 
-
   const handleSelect = (row: any) => {
     const index = itemsNew.findIndex((item) => item?.ID === row?.original?.ID);
     if (index > -1) {
@@ -98,7 +97,7 @@ const SelectLinePurchase = ({ onCancel }: PropsSelect) => {
             </Stack>
           );
         }
-      },
+      }
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]

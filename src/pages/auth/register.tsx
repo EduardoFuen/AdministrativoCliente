@@ -12,7 +12,7 @@ import {
   Grid,
   Link,
   Select,
-   MenuItem,
+  MenuItem,
   InputAdornment,
   InputLabel,
   OutlinedInput,
@@ -67,7 +67,16 @@ const AuthRegister = () => {
   }, []);
 
   return (
-    <Grid container xs={10} item rowSpacing={7} columnSpacing={0} style={{ marginTop: '5%', marginLeft: '30%' }} alignSelf="center" className="cell-center">
+    <Grid
+      container
+      xs={10}
+      item
+      rowSpacing={7}
+      columnSpacing={0}
+      style={{ marginTop: '5%', marginLeft: '30%' }}
+      alignSelf="center"
+      className="cell-center"
+    >
       <Formik
         initialValues={{
           firstname: '',
@@ -75,7 +84,7 @@ const AuthRegister = () => {
           email: '',
           password: '',
           role: '',
-          
+
           submit: null
         }}
         validationSchema={Yup.object().shape({
@@ -86,8 +95,8 @@ const AuthRegister = () => {
         })}
         onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
           try {
-            console.log(values)
-            await register(values.email, values.password, values.firstname, values.lastname, values.role)
+            console.log(values);
+            await register(values.email, values.password, values.firstname, values.lastname, values.role);
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
@@ -185,32 +194,31 @@ const AuthRegister = () => {
                   )}
                 </Stack>
               </Grid>
-                   <Grid item xs={12} >
+              <Grid item xs={12}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="role-signup">Rol de usuario*</InputLabel>
-                     <Select
-                        fullWidth
-                        error={Boolean(touched.lastname && errors.lastname)}
-                        id="role-signup"
-                        type="role"
-                        value={values.role}
-                        name="role"
-                        onBlur={handleBlur}
-                        onChange={handleChange}
-                        inputProps={{ 'aria-label': 'Without label' }}
-                      >
-                        <MenuItem value="" sx={{ color: 'text.secondary' }}>
-                          Seleccionar el rol
+                  <Select
+                    fullWidth
+                    error={Boolean(touched.lastname && errors.lastname)}
+                    id="role-signup"
+                    type="role"
+                    value={values.role}
+                    name="role"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    inputProps={{ 'aria-label': 'Without label' }}
+                  >
+                    <MenuItem value="" sx={{ color: 'text.secondary' }}>
+                      Seleccionar el rol
+                    </MenuItem>
+                    {UserRol.map((option: any) => {
+                      return (
+                        <MenuItem key={option.id} value={option.id}>
+                          {option.title}
                         </MenuItem>
-                        {UserRol.map((option: any) => {
-                          return (
-                            <MenuItem key={option.id} value={option.id}>
-                              {option.title}
-                            </MenuItem>
-                          );
-                        })}
-                      </Select>
-           
+                      );
+                    })}
+                  </Select>
                 </Stack>
               </Grid>
               <Grid item xs={12}>

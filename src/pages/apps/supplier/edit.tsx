@@ -3,17 +3,7 @@ import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
-  FormControlLabel,
-  Switch,
-
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography, FormControlLabel, Switch } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -24,7 +14,6 @@ import { useDispatch, useSelector } from 'store';
 import MainCard from 'components/MainCard';
 import { openSnackbar } from 'store/reducers/snackbar';
 import { editSupplier, deleteSupplier } from 'store/reducers/supplier';
-
 
 // types
 import { Supplier } from 'types/supplier';
@@ -45,10 +34,10 @@ const getInitialValues = (supplier: FormikValues | Supplier) => {
     DaysPayment: supplier?.DaysPayment,
     Cupo: supplier?.Cupo,
     Status: supplier?.Status,
-    Rif : supplier?.Rif,
+    Rif: supplier?.Rif,
     DesT: supplier?.DesT,
     Zona: supplier?.Zona,
-    ZonaDes: supplier?.ZonaDes,
+    ZonaDes: supplier?.ZonaDes
   };
   return newSubstance;
 };
@@ -106,7 +95,7 @@ function UpdateSuplier() {
   });
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
-console.log(touched)
+  console.log(touched);
   return (
     <>
       <MainCard>

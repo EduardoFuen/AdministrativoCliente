@@ -14,7 +14,7 @@ import { Delivery, DeliveryStateProps } from 'types/delivery';
 // initial state
 const initialState: DeliveryStateProps = {
   error: null,
-  deliveryList: [],
+  deliveryList: []
 };
 
 // ==============================||  SUPPLIER  REDUCER ||============================== //
@@ -43,7 +43,7 @@ const slice = createSlice({
     //ADD EXCEL SUPPLIER
     excelSuccess(state, action) {
       state.deliveryList = [...state.deliveryList, ...action.payload];
-    },
+    }
   }
 });
 // Reducer
@@ -65,7 +65,6 @@ export function getDeliveryList() {
     }
   };
 }
-
 
 export function createDelivery(data: Delivery) {
   return async () => {

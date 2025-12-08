@@ -18,7 +18,6 @@ import { getTrademarkList, deleteTrademark } from 'store/reducers/trademark';
 
 // types
 
-
 // assets
 import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 
@@ -41,9 +40,6 @@ const TradeMarkList = () => {
   };
 
   const { tradeMarkList } = useSelector((state) => state.trademark);
-
-
-
 
   useEffect(() => {
     dispatch(getMakerList());

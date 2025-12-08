@@ -14,15 +14,12 @@ import {
   Table,
   TableBody,
   TableCell,
-
   TableHead,
   TableRow,
   InputAdornment,
   Tooltip,
-  IconButton,
-   
+  IconButton
 } from '@mui/material';
-
 
 import { useFormik, Form, FormikProvider, FormikValues } from 'formik';
 // third-party
@@ -44,8 +41,6 @@ import { editCollection, getIDCollection } from 'store/reducers/collections';
 // assets
 import { EditTwoTone, SendOutlined } from '@ant-design/icons';
 
-
-
 // ==============================||VIEW Collection - MAIN ||============================== //
 
 const getInitialValues = (order: FormikValues | null) => {
@@ -65,23 +60,14 @@ const getInitialValues = (order: FormikValues | null) => {
   return newSubstance;
 };
 
-
-
-    
-  
 function ViewCollection() {
-
-  
-  
   const [readOnly, setReadOnly] = useState<boolean>(true);
-  
+
   const [iconColor, setIconColor] = useState<'theme.palette.primary.main' | 'theme.palette.error.main'>('theme.palette.primary.main');
 
   const handleEditClick = () => {
-    
     setReadOnly((prevReadOnly) => !prevReadOnly);
 
-   
     setIconColor((prevColor) => (prevColor === 'theme.palette.primary.main' ? 'theme.palette.error.main' : 'theme.palette.primary.main'));
   };
   const history = useNavigate();
@@ -102,7 +88,6 @@ function ViewCollection() {
   const handleCancel = () => {
     history(`/Collection`);
   };
-
 
   const handleAdd = () => {
     setAdd(!add);
@@ -143,7 +128,7 @@ function ViewCollection() {
   });
 
   const { handleSubmit, isSubmitting, getFieldProps } = formik;
-  
+
   return (
     <>
       {isLoading ? (
@@ -161,17 +146,17 @@ function ViewCollection() {
                     <Grid container spacing={1} direction="row">
                       <Grid item xs={4}>
                         <InputLabel sx={{ mb: 1, opacity: 1 }}>Cliente</InputLabel>
-                         <TextField
+                        <TextField
                           sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
                           {...getFieldProps('BusinessName')}
                           placeholder=""
                           fullWidth
                           InputProps={{
-                          readOnly: true,
-                           }}
+                            readOnly: true
+                          }}
                         />
                       </Grid>
- 
+
                       <Grid item xs={3}>
                         <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Pedido</InputLabel>
                         <TextField
@@ -180,8 +165,8 @@ function ViewCollection() {
                           placeholder=""
                           fullWidth
                           InputProps={{
-                          readOnly: true,
-                           }}
+                            readOnly: true
+                          }}
                         />
                       </Grid>
                     </Grid>
@@ -194,29 +179,28 @@ function ViewCollection() {
                       }}
                     >
                       <Grid item xs={5}>
-      <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
-      <TextField
-        sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
-        multiline
-        rows={2}
-        placeholder="Ingresar Nota de compras"
-        fullWidth
-        InputProps={{
-          readOnly: readOnly,
-          endAdornment: (
-            <InputAdornment position="end">
-              <Tooltip title= {readOnly ? "Editar" : "Guardar"}> 
-                <IconButton onClick={handleEditClick} > 
-                  <EditTwoTone color= {iconColor}  />
-                </IconButton>
-              </Tooltip>
-            </InputAdornment>
-          ),
-        }}
-        {...getFieldProps('Notes')}
-      />
-    </Grid>
-
+                        <InputLabel sx={{ mb: 1, opacity: 1 }}>Notas</InputLabel>
+                        <TextField
+                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
+                          multiline
+                          rows={2}
+                          placeholder="Ingresar Nota de compras"
+                          fullWidth
+                          InputProps={{
+                            readOnly: readOnly,
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <Tooltip title={readOnly ? 'Editar' : 'Guardar'}>
+                                  <IconButton onClick={handleEditClick}>
+                                    <EditTwoTone color={iconColor} />
+                                  </IconButton>
+                                </Tooltip>
+                              </InputAdornment>
+                            )
+                          }}
+                          {...getFieldProps('Notes')}
+                        />
+                      </Grid>
                     </Grid>
                   </MainCard>
                 </Grid>
@@ -248,9 +232,8 @@ function ViewCollection() {
                                       <Typography className="font-size">{x.Name}</Typography>
                                       <Typography variant="caption" color="textSecondary">
                                         SKU {x.Sku}
-                                        
                                       </Typography>
-                                      <Typography variant="caption" color="textSecondary" > 
+                                      <Typography variant="caption" color="textSecondary">
                                         EAN :{x.Ean}
                                       </Typography>
                                     </Stack>
@@ -309,7 +292,6 @@ function ViewCollection() {
                         Comprobar y Despachar
                       </Button>
                     )}
-
                   </Stack>
                 </Grid>
               </Grid>

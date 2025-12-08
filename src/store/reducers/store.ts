@@ -14,7 +14,7 @@ const initialState: DefaultRootStateProps['product'] = {
   error: null,
   stores: [],
   store: null,
-   cambios: [],
+  cambios: [],
   cambio: null,
   providers: [],
   provider: null,
@@ -23,8 +23,6 @@ const initialState: DefaultRootStateProps['product'] = {
   totalPages: 0,
   isLoading: false
 };
-
-
 
 // ==============================||  PRODUCT  REDUCER ||============================== //
 
@@ -52,7 +50,7 @@ const slice = createSlice({
       state.totalPages = totalPages;
       state.isLoading = false;
     },
-     getDolarSuccess(state, action) {
+    getDolarSuccess(state, action) {
       const { Rows, totalRows, totalPages, page } = action.payload;
       state.cambios = Rows;
       state.page = page;
@@ -60,7 +58,7 @@ const slice = createSlice({
       state.totalPages = totalPages;
       state.isLoading = false;
     },
-     getProviderSuccess(state, action) {
+    getProviderSuccess(state, action) {
       const { Rows, totalRows, totalPages, page } = action.payload;
       state.providers = Rows;
       state.page = page;
@@ -332,7 +330,7 @@ export function addProduct(data: Store) {
       );
       //window.location.href = `/product-list`;
     } catch (error: any) {
-      console.log('errpr')
+      console.log('errpr');
       dispatch(slice.actions.hasError(error));
     }
   };

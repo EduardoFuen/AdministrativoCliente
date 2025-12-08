@@ -23,7 +23,6 @@ import { DeliveryExport } from 'utils/DeliveryTransform';
 import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 import { deleteDelivery, getDeliveryList } from 'store/reducers/delivery';
 
-
 // ==============================|| SUPPLIER - LIST ||============================== //
 
 const DeliveryListPage = () => {
@@ -53,8 +52,6 @@ const DeliveryListPage = () => {
 
   const columns = useMemo(
     () => [
-      
-     
       {
         Header: 'Nombre',
         className: 'cell-center font-size',
@@ -63,9 +60,9 @@ const DeliveryListPage = () => {
       {
         Header: 'Teléfono',
         className: 'cell-center font-size',
-        accessor: 'PhoneContact',
+        accessor: 'PhoneContact'
       },
-    
+
       {
         Header: 'Acciones',
         className: 'cell-center font-size',
@@ -73,11 +70,8 @@ const DeliveryListPage = () => {
         Cell: ({ row }: any) => {
           const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
-
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-      
               <Tooltip title="Edit">
                 <IconButton
                   color="primary"

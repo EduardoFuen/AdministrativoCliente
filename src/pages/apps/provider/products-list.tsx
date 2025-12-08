@@ -17,13 +17,11 @@ import { useDispatch, useSelector } from 'store';
 import { getProducts, deleteProduct } from 'store/reducers/provider';
 import { openSnackbar } from 'store/reducers/snackbar';
 
-
 import { ProductDefault } from 'config';
 
 // assets
-import {EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
+import { EditTwoTone, DeleteTwoTone } from '@ant-design/icons';
 import { Store } from 'types/store';
-
 
 // ==============================|| PRODUCT LIST - MAIN ||============================== //
 
@@ -36,7 +34,6 @@ const ProductList = () => {
   const [valueSearch, setvalueSearch] = useState<any>('');
 
   const { stores, error, page, totalPages, isLoading } = useSelector((state) => state.store);
-
 
   useEffect(() => {
     dispatch(getProducts());
@@ -58,8 +55,6 @@ const ProductList = () => {
     }
   }, [error, dispatch]);
 
-
-
   const handleAddProduct = () => {
     history(`/provider-list/add`);
   };
@@ -79,14 +74,13 @@ const ProductList = () => {
         accessor: 'idProvider',
         className: 'cell-center font-size'
       },
-            {
+      {
         Header: 'Proveedor',
         accessor: 'Name',
         Cell: ({ row }: any) => {
           const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
-            
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.Name}</Typography>
               </Stack>
@@ -102,7 +96,7 @@ const ProductList = () => {
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0} alignItems="center">
-                <Typography  className="cell-center font-size">{original?.ContactName}</Typography>
+                <Typography className="cell-center font-size">{original?.ContactName}</Typography>
               </Stack>
             </Stack>
           );
@@ -112,13 +106,13 @@ const ProductList = () => {
       {
         Header: 'Telefono',
         accessor: 'PhoneNumber',
-           Cell: ({ row }: any) => {
-             const { original } = row;
+        Cell: ({ row }: any) => {
+          const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.PhoneNumber}</Typography>
-                </Stack>
+              </Stack>
             </Stack>
           );
         }
@@ -132,7 +126,6 @@ const ProductList = () => {
 
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-        
               <Tooltip title="Edit">
                 <IconButton
                   color="primary"
@@ -214,12 +207,10 @@ const ProductList = () => {
           totalRows={totalPages}
         />
       </ScrollX>
- 
-          
+
       <Dialog maxWidth="sm" fullWidth onClose={handleImport} open={addImport} sx={{ '& .MuiDialog-paper': { p: 0 } }}>
         {addImport && <Import onCancel={handleImport} />}
       </Dialog>
-      
     </MainCard>
   );
 };

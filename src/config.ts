@@ -1,5 +1,11 @@
 // types
-import { DefaultConfigProps, DayPaymentPropsOption, ClientTypePropsOption, ClientContribuPropsOption, UserRolPropsOption } from 'types/config';
+import {
+  DefaultConfigProps,
+  DayPaymentPropsOption,
+  ClientTypePropsOption,
+  ClientContribuPropsOption,
+  UserRolPropsOption
+} from 'types/config';
 import { Supplier } from 'types/supplier';
 import { Product } from 'types/products';
 import { DefaultArticle } from 'types/purchase';
@@ -12,7 +18,7 @@ export const AWS_API = {
 };
 export const AMZSECURITYTOKEN = '';
 
-const userToken = localStorage.getItem('serviceToken')
+const userToken = localStorage.getItem('serviceToken');
 export const HEADER = {
   headers: {
     'X-Amz-Security-Token': userToken || ''
@@ -34,7 +40,6 @@ export const DATEFORMAT = 'dd-MM-yyyy';
 
 export const ProductDefault: Product[] = [
   {
-  
     ID: '',
     Name: '',
     Sku: '',

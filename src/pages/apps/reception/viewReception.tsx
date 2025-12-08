@@ -198,12 +198,7 @@ function AddReception() {
                       </Grid>
                       <Grid item xs={2}>
                         <InputLabel sx={{ mb: 1, opacity: 1 }}>Fecha Recibo</InputLabel>
-                        <TextField
-                          sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
-                          {...getFieldProps('UpdateAt')}
-                          fullWidth
-                          disabled
-                        />
+                        <TextField sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }} {...getFieldProps('UpdateAt')} fullWidth disabled />
                       </Grid>
                     </Grid>
                     <Grid

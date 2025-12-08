@@ -3,17 +3,7 @@ import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
-  FormControlLabel,
-  Switch,
-
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography, FormControlLabel, Switch } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -25,7 +15,6 @@ import MainCard from 'components/MainCard';
 import { openSnackbar } from 'store/reducers/snackbar';
 import { editSupplier, deleteSupplier } from 'store/reducers/supplier';
 
-
 // types
 
 import { Delivery } from 'types/delivery';
@@ -36,7 +25,7 @@ const getInitialValues = (delivery: FormikValues | Delivery) => {
   const newSubstance = {
     NameContact: delivery?.NameContact,
     PhoneContact: delivery?.PhoneContact,
-    vehicle:delivery?.vehicle
+    vehicle: delivery?.vehicle
   };
   return newSubstance;
 };
@@ -61,8 +50,7 @@ function UpdateDelivery() {
 
   const SubstSchema = Yup.object().shape({
     NameContact: Yup.string().max(255).required('Nombre de Contacto es requerido'),
-    PhoneContact: Yup.string().max(255).required('Teléfono es requerido'),
-    
+    PhoneContact: Yup.string().max(255).required('Teléfono es requerido')
   });
 
   const formik = useFormik({
@@ -91,7 +79,7 @@ function UpdateDelivery() {
   });
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
-console.log(touched)
+  console.log(touched);
   return (
     <>
       <MainCard>
@@ -105,9 +93,9 @@ console.log(touched)
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre y Apellido</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre y Apellido</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         error={Boolean(touched.NameContact && errors.NameContact)}
                         helperText={
                           !Boolean(touched.NameContact && errors.NameContact) ? '' : String(touched.NameContact && errors.NameContact)
@@ -119,9 +107,9 @@ console.log(touched)
                     </Grid>
 
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Numero Telefonico</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Numero Telefonico</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={
                           !Boolean(touched.PhoneContact && errors.PhoneContact) ? '' : String(touched.PhoneContact && errors.PhoneContact)
@@ -131,7 +119,6 @@ console.log(touched)
                         {...getFieldProps('NameContact')}
                       />
                     </Grid>
-                 
                   </Grid>
                 </MainCard>
               </Grid>

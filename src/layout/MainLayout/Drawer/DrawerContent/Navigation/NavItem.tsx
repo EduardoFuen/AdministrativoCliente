@@ -65,7 +65,7 @@ const NavItem = ({ item, level }: Props) => {
     if (pathname && pathname.includes('reception') && actions) {
       dispatch(activeItem({ openItem: ['recepcion'] }));
     }
-     if (pathname && pathname.includes('delivery') && actions) {
+    if (pathname && pathname.includes('delivery') && actions) {
       dispatch(activeItem({ openItem: ['delivery'] }));
     }
     if (pathname && pathname.includes('accList') && actions) {

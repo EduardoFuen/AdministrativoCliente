@@ -16,14 +16,12 @@ import {
   Tooltip,
   FormControlLabel,
   Switch,
-
   Select,
   SelectChangeEvent
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-
 
 // third-party
 import { merge } from 'lodash';
@@ -135,9 +133,7 @@ const AddTrademark = ({ tradeMark, onCancel }: Props) => {
                   <Grid item xs={12} md={9}>
                     <Stack spacing={1.25}>
                       <InputLabel htmlFor="personal-experience">Maker</InputLabel>
-                      <Select fullWidth id="tradeMark-maker" {...getFieldProps('MakerID')} value={MakerID} onChange={handleChange}>
-                   
-                      </Select>
+                      <Select fullWidth id="tradeMark-maker" {...getFieldProps('MakerID')} value={MakerID} onChange={handleChange}></Select>
                     </Stack>
                   </Grid>
                 </Grid>

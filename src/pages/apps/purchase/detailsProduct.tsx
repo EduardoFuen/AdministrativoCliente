@@ -74,7 +74,7 @@ const DetailsPurchase = ({ product }: any) => {
       list[index]['Bonus'] = Number(value);
     }
     list[index]['SubTotal'] = list[index]?.Count * list[index]?.Price * ((100 - list[index]?.DiscountNegotiated) / 100) || 0;
-    list[index]['Total'] =  list[index]?.Count * list[index]?.Price * ((100 - list[index]?.DiscountNegotiated) / 100) || 0;
+    list[index]['Total'] = list[index]?.Count * list[index]?.Price * ((100 - list[index]?.DiscountNegotiated) / 100) || 0;
     setInputList(list);
     dispatch(editItemsPurchase(list));
   };
@@ -85,7 +85,7 @@ const DetailsPurchase = ({ product }: any) => {
         <Table sx={{ minWidth: 650 }} size="small">
           <TableHead>
             <TableRow>
-              <TableCell sx={{ minWidth: 300 }} >PRODUCTO</TableCell>
+              <TableCell sx={{ minWidth: 300 }}>PRODUCTO</TableCell>
               <TableCell align="center">CANTIDAD</TableCell>
               <TableCell align="center">PRECIO BASE</TableCell>
               <TableCell align="center">TOTAL</TableCell>

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect} from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
@@ -40,7 +40,7 @@ const getInitialValues = () => {
   return newSubstance;
 };
 
-function AddCollection () {
+function AddCollection() {
   const history = useNavigate();
   const dispatch = useDispatch();
   const [add, setAdd] = useState<boolean>(false);
@@ -71,7 +71,7 @@ function AddCollection () {
   };
 
   const SubstSchema = Yup.object().shape({
-    SupplierID: Yup.string().required('Proveedor es requerido'),
+    SupplierID: Yup.string().required('Proveedor es requerido')
   });
 
   const data = useMemo(
@@ -85,7 +85,7 @@ function AddCollection () {
     onSubmit: async (values, { setSubmitting }) => {
       try {
         setSubmitting(true);
-        const sk = Date.now().toString()
+        const sk = Date.now().toString();
         if (detailsCollection.length > 0) {
           const newValue: Collection = {
             ...values,
@@ -96,7 +96,7 @@ function AddCollection () {
             Discount: values?.Discount,
             DiscountEarliyPay: Number(values?.DiscountEarliyPay)
           };
-          await dispatch( addCollection(newValue));
+          await dispatch(addCollection(newValue));
         }
         setSubmitting(false);
         history(`/collection/view/${sk}`);
@@ -122,7 +122,7 @@ function AddCollection () {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={4}>
-                      <InputLabel sx={{ mb: 1,  }}>Cliente</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Cliente</InputLabel>
                       <Autocomplete
                         id="supplier-list"
                         renderOption={(props, option) => {
@@ -170,10 +170,10 @@ function AddCollection () {
                       marginTop: 20
                     }}
                   >
-                    <Grid item xs={5} >
-                      <InputLabel sx={{ mb: 1,  }}>Notas</InputLabel>
+                    <Grid item xs={5}>
+                      <InputLabel sx={{ mb: 1 }}>Notas</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         multiline
                         rows={2}
                         placeholder="Ingresar Nota de compras"
@@ -244,4 +244,4 @@ function AddCollection () {
   );
 }
 
-export default AddCollection ;
+export default AddCollection;

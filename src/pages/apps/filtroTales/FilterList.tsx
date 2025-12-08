@@ -1,8 +1,8 @@
-import { useMemo, useEffect, useState} from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Chip, Stack, Tooltip, Typography, CircularProgress, Box, Button} from '@mui/material';
+import { Chip, Stack, Tooltip, Typography, CircularProgress, Box, Button } from '@mui/material';
 // third-party
 import NumberFormat from 'react-number-format';
 // project import
@@ -25,33 +25,22 @@ import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 import { useFilterContext } from 'contexts/Filter.context';
 import { findTopComprador, findTopVenta } from './filter';
 
-
-
-
-
-
-
-
 // ==============================|| RECEPTION - LIST VIEW ||============================== //
 
-const ReceptionList = () => { const theme = useTheme();
+const ReceptionList = () => {
+  const theme = useTheme();
   const dispatch = useDispatch();
   const history = useNavigate();
-  
 
+  const context = useFilterContext();
+  const { lista } = context;
 
-const context = useFilterContext ();
-const { lista } = context;
+  const topComprador = findTopComprador(lista);
+  console.log(topComprador);
 
+  const topVenta = findTopVenta(lista);
+  console.log(topVenta?.Total);
 
-const topComprador = findTopComprador(lista)
-  
-
-
-console.log (topComprador)
-const topVenta = findTopVenta (lista)
-console.log (topVenta?.Total)
-  
   useEffect(() => {
     dispatch(getPurchaseList());
     dispatch(getProducts());
@@ -67,7 +56,9 @@ console.log (topVenta?.Total)
     history(`/purchase/view/${id}`);
   };
 
-  const filtrar = () => {history("/filter")}
+  const filtrar = () => {
+    history('/filter');
+  };
 
   const columns = useMemo(
     () => [
@@ -78,33 +69,31 @@ console.log (topVenta?.Total)
           </Stack>
         ),
         accessor: 'BusinessName',
-         Cell: ({ value }: any) => {
-           return (
-             <Stack direction="row" spacing={1.5} alignItems="center">
-               <Stack spacing={0}>
-                 <Typography variant="subtitle1" className="font-size">
-                 {value || 'N/A'}
-          </Typography>
-        </Stack>
-      </Stack>
+        Cell: ({ value }: any) => {
+          return (
+            <Stack direction="row" spacing={1.5} alignItems="center">
+              <Stack spacing={0}>
+                <Typography variant="subtitle1" className="font-size">
+                  {value || 'N/A'}
+                </Typography>
+              </Stack>
+            </Stack>
           );
         }
       },
       {
-  Header: 'Fecha OC',
-  accessor: 'CreatedAt',
-  Cell: ({ value }: any) => {
- 
-  
-    return (
-      <Stack direction="row" spacing={1.5} alignItems="center">
-        <Stack spacing={0}>
-          <Typography className="cell-center font-size">{value}</Typography>
-        </Stack>
-      </Stack>
-    );
-  }
-},
+        Header: 'Fecha OC',
+        accessor: 'CreatedAt',
+        Cell: ({ value }: any) => {
+          return (
+            <Stack direction="row" spacing={1.5} alignItems="center">
+              <Stack spacing={0}>
+                <Typography className="cell-center font-size">{value}</Typography>
+              </Stack>
+            </Stack>
+          );
+        }
+      },
       {
         Header: 'Sin verificar',
         accessor: 'Total1',
@@ -159,23 +148,23 @@ console.log (topVenta?.Total)
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete">
-              <IconButton
-                    color="error"
-                    onClick={async (e: any) => {
-                      e.stopPropagation();
-                      setIsLoadingDelete(true);
-                      await dispatch(deletePurchase(Number(row?.original?.sk)));
-                      setIsLoadingDelete(false);
-                    }}
-                  >
-                    {!isLoadingDelete ? (
-                      <DeleteTwoTone twoToneColor={theme.palette.error.main} />
-                    ) : (
-                      <Box sx={{ display: 'flex' }}>
-                        <CircularProgress color="success" size={20} />
-                      </Box>
-                    )}
-                  </IconButton>
+                <IconButton
+                  color="error"
+                  onClick={async (e: any) => {
+                    e.stopPropagation();
+                    setIsLoadingDelete(true);
+                    await dispatch(deletePurchase(Number(row?.original?.sk)));
+                    setIsLoadingDelete(false);
+                  }}
+                >
+                  {!isLoadingDelete ? (
+                    <DeleteTwoTone twoToneColor={theme.palette.error.main} />
+                  ) : (
+                    <Box sx={{ display: 'flex' }}>
+                      <CircularProgress color="success" size={20} />
+                    </Box>
+                  )}
+                </IconButton>
               </Tooltip>
               {row.original?.ReceptionStatus === 0 && (
                 <Tooltip title="Cancelar">
@@ -208,55 +197,54 @@ console.log (topVenta?.Total)
   );
 
   let list: Purchase[] = lista && lista.length > 0 ? lista : [];
-const sumaTotal = list.reduce((acumulador, pedido) => {
-  return (acumulador + (pedido.Total ?? 0));
-}, 0);
 
+  console.log(list);
+
+  const sumaTotal = list.reduce((acumulador, pedido) => {
+    const valorActual = Number(pedido.Total) || 0;
+    return acumulador + valorActual;
+  }, 0);
 
   return (
     <MainCard content={false}>
-  
       <ScrollX>
-         
-      <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2, marginBottom: 1}}>
-        <Typography variant="h5" component="h2">
-          Total de las Ventas: 
-        </Typography>
-        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
-          ${sumaTotal.toFixed(2)}
-        </Typography>
-
-      </Box>
-      
-    
-    <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2,marginBottom: 1}}>
-         <Typography variant="h5" component="h2">
-          Top Venta:
-        </Typography>
-        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
-          ${topVenta?.Total}
-        </Typography>
-        
-        <Typography variant="h5" component="h2" sx={{marginLeft: 1}}>
-          hecha por:
-        </Typography>
-        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
-          {topVenta?.BusinessName}
-        </Typography>
-      </Box>
-    <Box sx={{display: "flex", justifyContent: "flex-start", marginLeft: 2}}>
-         <Typography variant="h5" component="h2">
-          Comprador mas Frecuente: 
-        </Typography>
-        <Typography variant="h5" color="primary" sx={{marginLeft: 1}}>
-          {topComprador}
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start', marginLeft: 2, marginBottom: 1 }}>
+          <Typography variant="h5" component="h2">
+            Total de las Ventas:
+          </Typography>
+          <Typography variant="h5" color="primary" sx={{ marginLeft: 1 }}>
+            ${sumaTotal.toFixed(2)}
+          </Typography>
         </Box>
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1, marginRight: 3, marginTop: 2 }}>
-        <Button variant='contained' onClick={filtrar}>
-        Filtrar
-      </Button>
-      </Box>
+
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start', marginLeft: 2, marginBottom: 1 }}>
+          <Typography variant="h5" component="h2">
+            Top Venta:
+          </Typography>
+          <Typography variant="h5" color="primary" sx={{ marginLeft: 1 }}>
+            ${topVenta?.Total}
+          </Typography>
+
+          <Typography variant="h5" component="h2" sx={{ marginLeft: 1 }}>
+            hecha por:
+          </Typography>
+          <Typography variant="h5" color="primary" sx={{ marginLeft: 1 }}>
+            {topVenta?.BusinessName}
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start', marginLeft: 2 }}>
+          <Typography variant="h5" component="h2">
+            Comprador mas Frecuente:
+          </Typography>
+          <Typography variant="h5" color="primary" sx={{ marginLeft: 1 }}>
+            {topComprador}
+          </Typography>
+        </Box>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1, marginRight: 3, marginTop: 2 }}>
+          <Button variant="contained" onClick={filtrar}>
+            Filtrar
+          </Button>
+        </Box>
         <ReactTable
           columns={columns}
           data={list as []}
@@ -271,11 +259,10 @@ const sumaTotal = list.reduce((acumulador, pedido) => {
           }} */
           getHeaderProps={(column: any) => column.getSortByToggleProps()}
           /*        isLoading={isLoading}
-          numberPage={page}
-          totalRows={totalPages} */
+        numberPage={page}
+        totalRows={totalPages} */
         />
       </ScrollX>
-      
     </MainCard>
   );
 };

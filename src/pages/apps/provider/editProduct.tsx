@@ -36,17 +36,7 @@ import { getSubsList } from 'store/reducers/activeSubst';
 import { getWarehouseList } from 'store/reducers/warehouse';
 
 // types
-import {
-  Product,
-  Pack,
-  TypeProduct,
-  Warehouse,
-  Trademark,
-  Substances,
-  CategoryOne,
-  CategoryTwo,
-  CategoryThree
-} from 'types/products';
+import { Product, Pack, TypeProduct, Warehouse, Trademark, Substances, CategoryOne, CategoryTwo, CategoryThree } from 'types/products';
 
 // assets
 import { CameraOutlined } from '@ant-design/icons';
@@ -71,7 +61,7 @@ function UpdateProduct() {
   const [avatar, setAvatar] = useState<string | undefined>();
   const [selectedImage, setSelectedImage] = useState<File | undefined>(undefined);
   const [maker_ID, setIsMakerID] = useState<string | number>();
-console.log(maker_ID)
+  console.log(maker_ID);
   useEffect(() => {
     dispatch(getTrademarkList());
     dispatch(getCategoryListOne());
@@ -89,12 +79,11 @@ console.log(maker_ID)
     }
   }, [selectedImage]);
 
-
   const { tradeMarkList } = useSelector((state) => state.trademark);
   const { packList } = useSelector((state) => state.pack);
   const { typeProductList } = useSelector((state) => state.typeProduct);
   const { products, error } = useSelector((state) => state.product);
-  console.log(error)
+  console.log(error);
   const { todoListSubs } = useSelector((state) => state.substances);
   const { warehouseList } = useSelector((state) => state.warehouse);
   const { categoryListThree, categoryListOne, categoryListTwo } = useSelector((state) => state.category);
@@ -104,8 +93,6 @@ console.log(maker_ID)
       return products.find((item: Product) => item.ID === Number(id));
     }
   }, [id, products]);
-
-
 
   const handleCancel = () => {
     history(`/product-list`);
@@ -133,7 +120,7 @@ console.log(maker_ID)
     onSubmit: async (values, { setSubmitting }) => {
       try {
         let data = {
-          ...values,
+          ...values
         };
         await dispatch(editProduct(Number(id), data));
         setSubmitting(false);
@@ -158,9 +145,9 @@ console.log(maker_ID)
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -171,9 +158,9 @@ console.log(maker_ID)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>SKU</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>SKU</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Sku')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}
@@ -182,26 +169,19 @@ console.log(maker_ID)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>EAN</InputLabel>
-                      <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
-                        {...getFieldProps('Ean')}
-                        placeholder="Ingresar EAN"
-                        fullWidth
-                      />
+                      <InputLabel sx={{ mb: 1 }}>EAN</InputLabel>
+                      <TextField sx={{ '& .MuiOutlinedInput-input': {} }} {...getFieldProps('Ean')} placeholder="Ingresar EAN" fullWidth />
                     </Grid>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Registro Sanitario (INVIMA)</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Registro Sanitario (INVIMA)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Healt')}
- 
                         placeholder="Ingresar Registro Sanitario (INVIMA)"
                         fullWidth
                       />
                     </Grid>
-                 
-           
+
                     <Grid item xs={6}>
                       <Stack alignItems="center" sx={{ mt: 1 }}>
                         <Typography>Agregar imagen</Typography>
@@ -258,7 +238,7 @@ console.log(maker_ID)
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Maker</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Maker</InputLabel>
                       <TextField
                         placeholder="Seleccionar Maker"
                         fullWidth
@@ -268,30 +248,21 @@ console.log(maker_ID)
                           setIsMakerID(event.target.value);
                           setFieldValue('MakerID', event.target.value);
                         }}
-                      >
-                      
-                      </TextField>
+                      ></TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Trademark</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Trademark</InputLabel>
                       <TextField placeholder="Seleccionar Trademark" {...getFieldProps('TrademarkID')} fullWidth select>
-                        {tradeMarkList
-                          .map((option: Trademark) => (
-                            <MenuItem key={option.ID} value={option.ID}>
-                              {option.Name}
-                            </MenuItem>
-                          ))}
+                        {tradeMarkList.map((option: Trademark) => (
+                          <MenuItem key={option.ID} value={option.ID}>
+                            {option.Name}
+                          </MenuItem>
+                        ))}
                       </TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Tipo de Producto</InputLabel>
-                      <TextField
-                        placeholder="Seleccionar Tipo Producto"
-                        {...getFieldProps('TypesProductID')}
-
-                        fullWidth
-                        select
-                      >
+                      <InputLabel sx={{ mb: 1 }}>Tipo de Producto</InputLabel>
+                      <TextField placeholder="Seleccionar Tipo Producto" {...getFieldProps('TypesProductID')} fullWidth select>
                         {typeProductList
                           .filter((item: TypeProduct) => item.Status === true)
                           .map((option: TypeProduct) => (
@@ -302,7 +273,7 @@ console.log(maker_ID)
                       </TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Bodega</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Bodega</InputLabel>
                       <Autocomplete
                         multiple
                         id="warehouse-list"
@@ -332,16 +303,16 @@ console.log(maker_ID)
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Variación</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Variación</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Variation')}
                         placeholder="Ingresar Variación"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Categoria</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Categoria</InputLabel>
                       <TextField placeholder="Seleccionar Categoria" fullWidth select {...getFieldProps('CategoryOneID')}>
                         {categoryListOne
                           .filter((item: CategoryOne) => item.Status === true)
@@ -353,7 +324,7 @@ console.log(maker_ID)
                       </TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Categoria 2</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Categoria 2</InputLabel>
                       <TextField placeholder="Seleccionar Categoria" fullWidth select {...getFieldProps('CategoryTwoID')}>
                         {categoryListTwo
                           .filter((item: CategoryTwo) => item.Status === true)
@@ -365,7 +336,7 @@ console.log(maker_ID)
                       </TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Categoria 3</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Categoria 3</InputLabel>
                       <TextField placeholder="Seleccionar Categoria" {...getFieldProps('CategoryThreeID')} fullWidth select>
                         {categoryListThree
                           .filter((item: CategoryThree) => item.Status === true)
@@ -387,14 +358,8 @@ console.log(maker_ID)
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Envase</InputLabel>
-                      <TextField
-                        placeholder="Selecconar Envase"
-                        {...getFieldProps('PackID')}
-    
-                        select
-                        fullWidth
-                      >
+                      <InputLabel sx={{ mb: 1 }}>Envase</InputLabel>
+                      <TextField placeholder="Selecconar Envase" {...getFieldProps('PackID')} select fullWidth>
                         {packList
                           .filter((item: Pack) => item.Status === true)
                           .map((option: Pack) => (
@@ -405,18 +370,18 @@ console.log(maker_ID)
                       </TextField>
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Cantidad</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Cantidad</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Quantity')}
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Maker Unit</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Maker Unit</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('MakerUnit')}
                         placeholder="Ingresar Maker Unit"
                         fullWidth
@@ -424,18 +389,18 @@ console.log(maker_ID)
                     </Grid>
 
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Weight(grams)</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Weight(grams)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Weight')}
                         placeholder="Ingresar Weight(grams)"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Width(cm)</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Width(cm)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Width')}
                         placeholder="Ingresar Width(cm)"
                         fullWidth
@@ -443,36 +408,36 @@ console.log(maker_ID)
                     </Grid>
 
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Pack</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Pack</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Wrapper')}
                         placeholder="Ingresar Pack"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Height(cm) </InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Height(cm) </InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Height')}
                         placeholder="Ingresar Height(cm)"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}> Pack Unit</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}> Pack Unit</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('WrapperUnit')}
                         placeholder="Ingresar Pack Unit"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Depth(cm)</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Depth(cm)</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Depth')}
                         placeholder="Ingresar Depth(cm)"
                         fullWidth
@@ -496,7 +461,6 @@ console.log(maker_ID)
                             id="substances-list"
                             options={todoListSubs.filter((item: Substances) => item.Status === true)}
                             getOptionLabel={(option: Substances) => option.Name ?? ''}
-
                             filterSelectedOptions
                             onChange={(event, newValue) => {
                               setFieldValue('SubstancesIDS', newValue === null ? '' : newValue);
@@ -532,9 +496,9 @@ console.log(maker_ID)
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Keywords</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Keywords</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         multiline
                         rows={3}
                         placeholder="Ingresar Keywords del Producto"
@@ -543,21 +507,14 @@ console.log(maker_ID)
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Sustitutos</InputLabel>
-              
-                   
+                      <InputLabel sx={{ mb: 1 }}>Sustitutos</InputLabel>
                     </Grid>
                   </Grid>
                 </MainCard>
               </Grid>
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="right" alignItems="center" sx={{ mt: 6 }}>
-                  <FormControlLabel
-                    control={<Switch sx={{ mt: 0 }} />}
-                    label=""
-                    {...getFieldProps('Status')}
-                    labelPlacement="top"
-                  />
+                  <FormControlLabel control={<Switch sx={{ mt: 0 }} />} label="" {...getFieldProps('Status')} labelPlacement="top" />
                   <Button variant="outlined" color="secondary" onClick={handleCancel}>
                     Cancel
                   </Button>

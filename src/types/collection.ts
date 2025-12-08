@@ -29,7 +29,7 @@ export type Article = {
 
 export type Collection = {
   BusinessName: any;
- 
+
   ID?: string | number | undefined;
   SupplierID?: number;
   Supplier?: Supplier;

@@ -25,7 +25,6 @@ const AppStoreExitList = Loadable(lazy(() => import('pages/apps/almacenexit/prod
 
 const AppStoreEntryList = Loadable(lazy(() => import('pages/apps/almacenentry/products-list')));
 
-
 const AppCambiosList = Loadable(lazy(() => import('pages/apps/cambio/products-list')));
 const AppCambiosEdit = Loadable(lazy(() => import('pages/apps/cambio/editProduct')));
 
@@ -81,15 +80,13 @@ const MainRoutes = {
           element: <DashboardDefault />
         },
         {
-
-          
           path: '',
           children: [
             {
               path: 'reception',
               element: <AppReceptionList />
             },
-              {
+            {
               path: 'filter',
               element: <AppFilter />
             },
@@ -109,7 +106,7 @@ const MainRoutes = {
               path: 'reception/view/:id',
               element: <AppReceptionView />
             },
-             {
+            {
               path: 'reception/view/:id',
               element: <AppReceptionView />
             },
@@ -129,67 +126,68 @@ const MainRoutes = {
               path: 'inventario',
               element: <AppInventoryList />
             },
-             {
+            {
               path: '',
               children: [
-                     {
-              path: 'store-list',
-              element: <AppStoreList />
-            },
-             {
-              path: 'store-list/add',
-              element: <AppStoreAdd />
-            },
-             {
-              path: 'store-list/edit/:id',
-              element: <AppStoreEdit />
-            },
+                {
+                  path: 'store-list',
+                  element: <AppStoreList />
+                },
+                {
+                  path: 'store-list/add',
+                  element: <AppStoreAdd />
+                },
+                {
+                  path: 'store-list/edit/:id',
+                  element: <AppStoreEdit />
+                }
               ]
-            },
-               {
-              path: '',
-              children: [
-                     {
-              path: 'provider-list',
-              element: <AppProviderList />
-            },
-             {
-              path: 'provider-list/add',
-              element: <AppProviderAdd />
-            },
-             {
-              path: 'provider-list/edit/:id',
-              element: <AppProviderEdit />
-            },
-              ]
-            },{
-              path: '',
-              children: [
-                    {
-              path: 'collections',
-              element: <AppCollectionList />
             },
             {
-              path: 'collections/add',
-              element: <AppAddCollection />
-            },
-            {
-              path: 'collections/view/:id',
-              element: <AppViewCollection />
-            },
-              ]
-            },
-                 {
               path: '',
               children: [
-                     {
-              path: '/store-list/exit',
-              element: <AppStoreExitList />
+                {
+                  path: 'provider-list',
+                  element: <AppProviderList />
+                },
+                {
+                  path: 'provider-list/add',
+                  element: <AppProviderAdd />
+                },
+                {
+                  path: 'provider-list/edit/:id',
+                  element: <AppProviderEdit />
+                }
+              ]
             },
-             {
-              path: '/store-list/entry',
-              element: <AppStoreEntryList />
-            }
+            {
+              path: '',
+              children: [
+                {
+                  path: 'collections',
+                  element: <AppCollectionList />
+                },
+                {
+                  path: 'collections/add',
+                  element: <AppAddCollection />
+                },
+                {
+                  path: 'collections/view/:id',
+                  element: <AppViewCollection />
+                }
+              ]
+            },
+            {
+              path: '',
+              children: [
+                {
+                  path: '/store-list/exit',
+                  element: <AppStoreExitList />
+                },
+                {
+                  path: '/store-list/entry',
+                  element: <AppStoreEntryList />
+                }
               ]
             },
             {
@@ -234,7 +232,7 @@ const MainRoutes = {
                 }
               ]
             },
-             {
+            {
               path: '',
               children: [
                 {
@@ -244,11 +242,10 @@ const MainRoutes = {
                 {
                   path: 'cambios/edit/:id',
                   element: <AppCambiosEdit />
-                },
-              
+                }
               ]
             },
-             {
+            {
               path: '',
               children: [
                 {
@@ -259,10 +256,9 @@ const MainRoutes = {
                   path: 'accList',
                   element: <AppAccList />
                 }
-              
               ]
             },
-            
+
             {
               path: '',
               children: [

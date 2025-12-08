@@ -3,14 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // material-ui
 
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -20,23 +13,16 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { useSelector, useDispatch } from 'store';
 import MainCard from 'components/MainCard';
 
-
 import { addProduct } from 'store/reducers/provider';
 import { openSnackbar } from 'store/reducers/snackbar';
 import { getMakerList } from 'store/reducers/maker';
 
-
 // types
-import {
-  Product,
-} from 'types/products';
+import { Product } from 'types/products';
 
-import {
-  Store,
-} from 'types/store';
+import { Store } from 'types/store';
 
 // assets
-
 
 // ==============================|| ADD NEW PRODUCT - MAIN ||============================== //
 
@@ -59,15 +45,11 @@ function AddNewProduct() {
   const { stores, error } = useSelector((state) => state.store);
   //const { warehouseList } = useSelector((state) => state.warehouse);
   //const { categoryListThree, categoryListOne, categoryListTwo } = useSelector((state) => state.category);
-  console.log(stores)
-
- 
+  console.log(stores);
 
   useEffect(() => {
     dispatch(getMakerList());
   }, [dispatch]);
-
-
 
   useEffect(() => {
     if (error?.response?.data?.Error) {
@@ -89,9 +71,8 @@ function AddNewProduct() {
     history(`/provider-list`);
   };
 
-
   const SubstSchema = Yup.object().shape({
-    Name: Yup.string().max(255).required('Nombre es requerido'),
+    Name: Yup.string().max(255).required('Nombre es requerido')
   });
 
   const formik = useFormik({
@@ -100,7 +81,7 @@ function AddNewProduct() {
     onSubmit: async (values, { setSubmitting }) => {
       try {
         let data: Product = {
-          ...values,
+          ...values
         };
 
         await dispatch(addProduct(data));
@@ -127,9 +108,9 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Proveedor</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Proveedor</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -138,30 +119,28 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Persona de Contacto</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Persona de Contacto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('ContactName')}
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Telefono</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Telefono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('PhoneNumber')}
-
                         placeholder="Ingresar Codigo Correlativo"
                         fullWidth
                       />
                     </Grid>
-                      <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Dirreccion</InputLabel>
+                    <Grid item xs={6}>
+                      <InputLabel sx={{ mb: 1 }}>Dirreccion</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Adress')}
-
                         placeholder="Ingresar Codigo Correlativo"
                         fullWidth
                       />
@@ -169,11 +148,9 @@ function AddNewProduct() {
                   </Grid>
                 </MainCard>
               </Grid>
-    
-  
+
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="right" alignItems="center" sx={{ mt: 6 }}>
-        
                   <Button variant="outlined" color="secondary" onClick={handleCancel}>
                     Cancel
                   </Button>

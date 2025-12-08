@@ -13,7 +13,6 @@ const applications5: NavItemType = {
   id: 'group-applications',
   type: 'group',
   children: [
-    
     {
       id: 'createAcc',
       type: 'item',
@@ -23,7 +22,7 @@ const applications5: NavItemType = {
       icon: icons.UsergroupAddOutlined,
       mainTitle: 'createAcc'
     },
-     {
+    {
       id: 'accList',
       type: 'item',
       title: 'Lista de Cuentas',
@@ -32,7 +31,7 @@ const applications5: NavItemType = {
       icon: icons.BarsOutlined,
       mainTitle: 'accList'
     },
-     
+
     {
       id: 'accList',
       type: 'item',

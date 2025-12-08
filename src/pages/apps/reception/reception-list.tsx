@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useState} from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -23,23 +23,15 @@ import { Purchase } from 'types/purchase';
 // assets
 import { DeleteTwoTone, EyeTwoTone } from '@ant-design/icons';
 
-
-
-
-
-
 // ==============================|| RECEPTION - LIST VIEW ||============================== //
 
-const ReceptionList = () => { const theme = useTheme();
+const ReceptionList = () => {
+  const theme = useTheme();
   const dispatch = useDispatch();
   const history = useNavigate();
 
   const { listPurchase } = useSelector((state) => state.purchase);
 
-
-
-
-  
   useEffect(() => {
     dispatch(getPurchaseList());
     dispatch(getProducts());
@@ -55,7 +47,9 @@ const ReceptionList = () => { const theme = useTheme();
     history(`/purchase/view/${id}`);
   };
 
-  const filtrar = () => {history("/filter")}
+  const filtrar = () => {
+    history('/filter');
+  };
 
   const columns = useMemo(
     () => [
@@ -66,7 +60,7 @@ const ReceptionList = () => { const theme = useTheme();
           </Stack>
         ),
         accessor: 'NumberOrder',
-        Cell: ({  }: any) => {
+        Cell: ({}: any) => {
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
@@ -145,23 +139,23 @@ const ReceptionList = () => { const theme = useTheme();
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete">
-              <IconButton
-                    color="error"
-                    onClick={async (e: any) => {
-                      e.stopPropagation();
-                      setIsLoadingDelete(true);
-                      await dispatch(deletePurchase(Number(row?.original?.sk)));
-                      setIsLoadingDelete(false);
-                    }}
-                  >
-                    {!isLoadingDelete ? (
-                      <DeleteTwoTone twoToneColor={theme.palette.error.main} />
-                    ) : (
-                      <Box sx={{ display: 'flex' }}>
-                        <CircularProgress color="success" size={20} />
-                      </Box>
-                    )}
-                  </IconButton>
+                <IconButton
+                  color="error"
+                  onClick={async (e: any) => {
+                    e.stopPropagation();
+                    setIsLoadingDelete(true);
+                    await dispatch(deletePurchase(Number(row?.original?.sk)));
+                    setIsLoadingDelete(false);
+                  }}
+                >
+                  {!isLoadingDelete ? (
+                    <DeleteTwoTone twoToneColor={theme.palette.error.main} />
+                  ) : (
+                    <Box sx={{ display: 'flex' }}>
+                      <CircularProgress color="success" size={20} />
+                    </Box>
+                  )}
+                </IconButton>
               </Tooltip>
               {row.original?.ReceptionStatus === 0 && (
                 <Tooltip title="Cancelar">
@@ -195,13 +189,14 @@ const ReceptionList = () => { const theme = useTheme();
 
   let list: Purchase[] = listPurchase && listPurchase.length > 0 ? listPurchase : [];
 
-
   return (
     <MainCard content={false}>
-  
       <ScrollX>
-        <Box sx={{ display: 'flex', justifyContent: 'right' }}> 
-            <Button variant='contained' sx={{marginTop: 2, marginRight: 3}} onClick={filtrar}> Filtrar </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+          <Button variant="contained" sx={{ marginTop: 2, marginRight: 3 }} onClick={filtrar}>
+            {' '}
+            Filtrar{' '}
+          </Button>
         </Box>
         <ReactTable
           columns={columns}
@@ -221,7 +216,6 @@ const ReceptionList = () => { const theme = useTheme();
           totalRows={totalPages} */
         />
       </ScrollX>
-      
     </MainCard>
   );
 };

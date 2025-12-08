@@ -2,10 +2,10 @@ import React, { createContext, useEffect, useReducer } from 'react';
 import axiosInstance from './axiosInstance';
 import { HOST, HEADER } from 'config';
 // third-party
-import { CognitoUser, CognitoUserPool,AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { CognitoUser, CognitoUserPool, AuthenticationDetails } from 'amazon-cognito-identity-js';
 
 // action - state management
-import { LOGIN, LOGOUT, LOADING} from 'store/reducers/actions';
+import { LOGIN, LOGOUT, LOADING } from 'store/reducers/actions';
 import authReducer from 'store/reducers/auth';
 
 // project imports
@@ -45,7 +45,7 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
 
   useEffect(() => {
     const init = async () => {
-      console.log("pave47")
+      console.log('pave47');
       dispatch({
         type: LOGOUT
       });
@@ -53,8 +53,6 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
 
     init();
   }, []);
-
-  
 
   const login = async (email: string, password: string) => {
     dispatch({
@@ -77,49 +75,42 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
     const data = {
       email,
       password
-    }
+    };
     const response = await axiosInstance.post(`${HOST}/auth`, { ...data }, { ...HEADER });
-      if(response.data.username){
-        console.log("94")
-        
-          
-          
+    if (response.data.username) {
+      console.log('94');
 
-        dispatch(
-          
-          {
-          
-          type: LOGIN,
-          payload: {
-            isLoggedIn: true,
-            user: {
-              email: response.data.username,
-              name: response.data.username,
-              role: response.data.userRol
-            }
+      dispatch({
+        type: LOGIN,
+        payload: {
+          isLoggedIn: true,
+          user: {
+            email: response.data.username,
+            name: response.data.username,
+            role: response.data.userRol
           }
-        });
-        return response.data
-      }else{
-        dispatch({
-          type: LOGIN,
-          payload: {
-            isLoggedIn: false,
-            user: null
-          }
-        });
-        dispatch({
-          type: LOADING,
-          payload: {
-            isLoggedIn: false,
-            isLoading: false
-          }
-        });
-        dispatch({ type: LOGOUT });
-        
-        return null
-      }
+        }
+      });
+      return response.data;
+    } else {
+      dispatch({
+        type: LOGIN,
+        payload: {
+          isLoggedIn: false,
+          user: null
+        }
+      });
+      dispatch({
+        type: LOADING,
+        payload: {
+          isLoggedIn: false,
+          isLoading: false
+        }
+      });
+      dispatch({ type: LOGOUT });
 
+      return null;
+    }
   };
 
   const register = (email: string, password: string, firstName: string, lastName: string, role: string, company?: string, logo?: string) =>
@@ -132,19 +123,17 @@ export const AWSCognitoProvider = ({ children }: { children: React.ReactElement 
         lastName,
         company,
         logo
-      
-        
-      }
-      axios.post(`${HOST}/auth/register`, { ...data }, { ...HEADER })
-      .then(function (response) {
-        console.log(response);
-        success(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-        rej(error);
-      });
-  
+      };
+      axios
+        .post(`${HOST}/auth/register`, { ...data }, { ...HEADER })
+        .then(function (response) {
+          console.log(response);
+          success(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+          rej(error);
+        });
     });
 
   const logout = () => {

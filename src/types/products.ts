@@ -16,7 +16,6 @@ export interface MakerStateProps {
   error: object | string | null;
 }
 
-
 export interface ProductStateProps {
   products: Product[];
   product: Product | null;
@@ -26,8 +25,6 @@ export interface ProductStateProps {
   totalPages?: number | undefined;
   isLoading?: boolean;
 }
-
-
 
 export interface DefaultRootStateProps {
   product: ProductStateProps;
@@ -65,9 +62,9 @@ export type Provider = {
   ID?: string | number | undefined;
   Name?: string;
   Adress?: string;
-   PhoneNumber?: string;
-   idProvider?: string | number | undefined;
-   ContactName?: string;
+  PhoneNumber?: string;
+  idProvider?: string | number | undefined;
+  ContactName?: string;
 };
 
 export interface ProviderStateProps {

@@ -2,14 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -22,11 +15,8 @@ import MainCard from 'components/MainCard';
 import { addProduct } from 'store/reducers/product';
 import { openSnackbar } from 'store/reducers/snackbar';
 
-
 // types
-import {
-  Product
-} from 'types/products';
+import { Product } from 'types/products';
 
 // assets
 
@@ -36,7 +26,7 @@ const getInitialValues = () => {
   const newProduct: Product = {
     Name: '',
     Sku: '',
-    Price: 0,
+    Price: 0
   };
   return newProduct;
 };
@@ -45,10 +35,7 @@ function AddNewProduct() {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-
   const { error } = useSelector((state) => state.product);
-
-
 
   useEffect(() => {
     if (error?.response?.data?.Error) {
@@ -69,7 +56,6 @@ function AddNewProduct() {
   const handleCancel = () => {
     history(`/product-list`);
   };
-
 
   const SubstSchema = Yup.object().shape({
     Name: Yup.string().max(255).required('Nombre es requerido')
@@ -101,16 +87,16 @@ function AddNewProduct() {
         <FormikProvider value={formik}>
           <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
             <Grid container spacing={2} justifyContent="center">
-              <Grid item xs={12} sm={6} >
+              <Grid item xs={12} sm={6}>
                 <MainCard>
                   <Typography variant="h5" component="div" sx={{ mb: 3 }}>
                     Datos Básicos
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -121,10 +107,10 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                    <InputLabel sx={{ mb: 1,  }}>Referencia</InputLabel>
-                      <InputLabel sx={{ mb: 1,  }}></InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Referencia</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}></InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Sku')}
                         error={Boolean(touched.Sku && errors.Sku)}
                         helperText={touched.Sku && errors.Sku}
@@ -133,9 +119,9 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Precio Unitario</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Precio Unitario</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Price')}
                         error={Boolean(touched.Price && errors.Price)}
                         helperText={touched.Price && errors.Price}

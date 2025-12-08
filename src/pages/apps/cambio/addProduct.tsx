@@ -3,17 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // material-ui
 
-import {
-  Button,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Stack,
-  TextField,
-  Typography,
-  FormControlLabel,
-  Switch,
-} from '@mui/material';
+import { Button, Grid, InputLabel, MenuItem, Stack, TextField, Typography, FormControlLabel, Switch } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -23,24 +13,16 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { useSelector, useDispatch } from 'store';
 import MainCard from 'components/MainCard';
 
-
 import { addProduct } from 'store/reducers/store';
 import { openSnackbar } from 'store/reducers/snackbar';
 import { getMakerList } from 'store/reducers/maker';
 
-
 // types
-import {
-  Product,
-  Provider,
-} from 'types/products';
+import { Product, Provider } from 'types/products';
 
-import {
-  Store,
-} from 'types/store';
+import { Store } from 'types/store';
 
 // assets
-
 
 // ==============================|| ADD NEW PRODUCT - MAIN ||============================== //
 
@@ -64,16 +46,14 @@ function AddNewProduct() {
   const { stores, error } = useSelector((state) => state.store);
   //const { warehouseList } = useSelector((state) => state.warehouse);
   //const { categoryListThree, categoryListOne, categoryListTwo } = useSelector((state) => state.category);
-  console.log(stores)
+  console.log(stores);
 
   const [maker_ID, setIsMakerID] = useState<string | number>();
-  console.log(maker_ID)
+  console.log(maker_ID);
 
   useEffect(() => {
     dispatch(getMakerList());
   }, [dispatch]);
-
-
 
   useEffect(() => {
     if (error?.response?.data?.Error) {
@@ -95,7 +75,6 @@ function AddNewProduct() {
     history(`/store-list`);
   };
 
-
   const SubstSchema = Yup.object().shape({
     Name: Yup.string().max(255).required('Nombre es requerido'),
     Sku: Yup.string().max(255).required('Sku es requerido')
@@ -107,7 +86,7 @@ function AddNewProduct() {
     onSubmit: async (values, { setSubmitting }) => {
       try {
         let data: Product = {
-          ...values,
+          ...values
         };
 
         await dispatch(addProduct(data));
@@ -134,9 +113,9 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={12}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre Producto</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre Producto</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Name')}
                         error={Boolean(touched.Name && errors.Name)}
                         helperText={touched.Name && errors.Name}
@@ -147,20 +126,19 @@ function AddNewProduct() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Cantidad a comprar </InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Cantidad a comprar </InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Quantity')}
                         placeholder="Ingresar Cantidad"
                         fullWidth
                       />
                     </Grid>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Codigo</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Codigo</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('Sku')}
-
                         placeholder="Ingresar Codigo Correlativo"
                         fullWidth
                       />
@@ -175,7 +153,7 @@ function AddNewProduct() {
                   </Typography>
                   <Grid container direction="row" spacing={2}>
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Proveedor</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Proveedor</InputLabel>
                       <TextField
                         placeholder="Seleccionar Maker"
                         fullWidth
@@ -186,19 +164,17 @@ function AddNewProduct() {
                           setFieldValue('IdProvider', event.target.value);
                         }}
                       >
-                        {providerList
-                          .map((option: Provider) => (
-                            <MenuItem key={option.Name} value={option.Name}>
-                              {option.Name}
-                            </MenuItem>
-                          ))}
+                        {providerList.map((option: Provider) => (
+                          <MenuItem key={option.Name} value={option.Name}>
+                            {option.Name}
+                          </MenuItem>
+                        ))}
                       </TextField>
                     </Grid>
-                  
                   </Grid>
                 </MainCard>
               </Grid>
-  
+
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="right" alignItems="center" sx={{ mt: 6 }}>
                   <FormControlLabel control={<Switch sx={{ mt: 0 }} />} label="" labelPlacement="top" {...getFieldProps('Status')} />

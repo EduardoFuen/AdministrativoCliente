@@ -12,7 +12,6 @@ export type Delivery = {
   NameContact?: string;
   PhoneContact?: number;
   vehicle?: string;
-
 };
 
 export type User = {
@@ -24,12 +23,10 @@ export type User = {
 
 /* Defining the state of the component. */
 export interface DeliveryStateProps {
-  deliveryList: 
-  Delivery[];
+  deliveryList: Delivery[];
   error: object | string | null;
 }
 export interface UserStateProps {
   userList: User[];
   error: object | string | null;
 }
-

@@ -171,7 +171,7 @@ const ReactTable = ({
             {dataExport && dataExport.length > 0 && (
               <Export excelData={dataExport && dataExport.length > 0 ? dataExport : data} fileName={FileName} />
             )}
-           
+
             <Stack direction="row" alignItems="center" spacing={1}>
               <SortingSelect sortBy={sortBy.id} setSortBy={setSortBy} allColumns={allColumns} />
               {TitleButton !== '' && (

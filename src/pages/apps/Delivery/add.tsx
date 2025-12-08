@@ -1,15 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Typography,
- 
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -19,8 +11,6 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { useDispatch } from 'store';
 import MainCard from 'components/MainCard';
 import { openSnackbar } from 'store/reducers/snackbar';
-
-
 
 // types
 
@@ -32,8 +22,7 @@ import { createDelivery } from 'store/reducers/delivery';
 const getInitialValues = () => {
   const newSubstance: Delivery = {
     NameContact: '',
-    PhoneContact: 0,
-    
+    PhoneContact: 0
   };
   return newSubstance;
 };
@@ -50,17 +39,16 @@ function AddDelivery() {
   const SubstSchema = Yup.object().shape({
     NameContact: Yup.string().max(255).required('Nombre es requerido'),
     PhoneContact: Yup.string()
-    .matches(/^[0-9]+$/, 'El teléfono solo debe contener dígitos') 
-    .length(11, 'Por favor, revise el numero de telefono')
-    .required('El número de teléfono es requerido'),
-});
+      .matches(/^[0-9]+$/, 'El teléfono solo debe contener dígitos')
+      .length(11, 'Por favor, revise el numero de telefono')
+      .required('El número de teléfono es requerido')
+  });
 
- 
   const formik = useFormik({
     initialValues: getInitialValues(),
     validationSchema: SubstSchema,
     onSubmit: async (values, { setSubmitting }) => {
-      console.log('TEST66')
+      console.log('TEST66');
       try {
         await dispatch(createDelivery(values));
         dispatch(
@@ -97,9 +85,9 @@ function AddDelivery() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Nombre del Delivery</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Nombre del Delivery</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('NameContact')}
                         error={Boolean(touched.NameContact && errors.NameContact)}
                         helperText={touched.NameContact && errors.NameContact}
@@ -108,10 +96,10 @@ function AddDelivery() {
                       />
                     </Grid>
 
-                     <Grid item xs={6}>
-                      <InputLabel sx={{ mb: 1,  }}>Numero de telefono</InputLabel>
+                    <Grid item xs={6}>
+                      <InputLabel sx={{ mb: 1 }}>Numero de telefono</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         {...getFieldProps('PhoneContact')}
                         error={Boolean(touched.PhoneContact && errors.PhoneContact)}
                         helperText={touched.PhoneContact && errors.PhoneContact}
@@ -119,12 +107,9 @@ function AddDelivery() {
                         fullWidth
                       />
                     </Grid>
-                                    
                   </Grid>
-
                 </MainCard>
               </Grid>
-
 
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="center" alignItems="center" sx={{ mt: 6 }}>

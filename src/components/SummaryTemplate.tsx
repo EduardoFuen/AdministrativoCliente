@@ -19,8 +19,6 @@ interface Props {
 
 const SummaryTemplate = ({ data }: Props) => (
   <MainCard>
-
-
     <Stack direction="row" spacing={2} justifyContent="end" alignItems="rigth" sx={{ mt: 1 }}>
       <Typography variant="subtitle1">Total: $ {data?.Total || 0}</Typography>
     </Stack>

@@ -19,10 +19,10 @@ const App = () => (
         <ScrollTop>
           <AuthProvider>
             <FilterProvider>
-            <>
-              <Routes />
-              <Snackbar />
-            </>
+              <>
+                <Routes />
+                <Snackbar />
+              </>
             </FilterProvider>
           </AuthProvider>
         </ScrollTop>

@@ -32,7 +32,7 @@ const auth = (state = initialState, action: AuthActionProps) => {
       };
     }
     case LOGIN: {
-      console.log("auth.ts35")
+      console.log('auth.ts35');
       const { user } = action.payload!;
       return {
         ...state,

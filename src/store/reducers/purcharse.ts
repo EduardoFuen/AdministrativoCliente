@@ -96,54 +96,53 @@ export function getPurchaseList(page: number = 1) {
       if (response.data instanceof Object) {
         //const { Rows, totalRows, totalPages, page }: any = response.data;
 
-        if(response.data.length > 0){
-          console.log("compra100")
-          console.log(response.data.length)
+        if (response.data.length > 0) {
+          console.log('compra100');
+          console.log(response.data.length);
           let rowsNew: any = response.data
-          .map((item: any) => ({
-            ...item,
-            NumberOrder: `DrAgua-${item.sk}`,
-            BusinessName: item?.BusinessName,
-            CreatedAt: format(new Date(item?.CreatedAt), DATEFORMAT)
-          }))
-          .sort((a: any, b: any) => a.sk - b.sk);
+            .map((item: any) => ({
+              ...item,
+              NumberOrder: `DrAgua-${item.sk}`,
+              BusinessName: item?.BusinessName,
+              CreatedAt: format(new Date(item?.CreatedAt), DATEFORMAT)
+            }))
+            .sort((a: any, b: any) => a.sk - b.sk);
 
-        if (rowsNew.length > 0) {
-          let dataPurchase: any = {
-            Rows: rowsNew,
-            // totalRows,
-            // totalPages,
-            page
-          };
-          dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
-          dispatch(slice.actions.hasError(null));
-        }
-        }else{
-          console.log("compra122")
-          console.log(response.data.length)
+          if (rowsNew.length > 0) {
+            let dataPurchase: any = {
+              Rows: rowsNew,
+              // totalRows,
+              // totalPages,
+              page
+            };
+            dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
+            dispatch(slice.actions.hasError(null));
+          }
+        } else {
+          console.log('compra122');
+          console.log(response.data.length);
           let rowsNew: any = []
-          .map((item: any) => ({
-            ...item,
-            NumberOrder: `0`,
-            BusinessName: 0,
-            CreatedAt: 0
-          }))
-          .sort((a: any, b: any) => a.sk - b.sk);
+            .map((item: any) => ({
+              ...item,
+              NumberOrder: `0`,
+              BusinessName: 0,
+              CreatedAt: 0
+            }))
+            .sort((a: any, b: any) => a.sk - b.sk);
 
-        if (rowsNew) {
-          let dataPurchase: any = {
-            Rows: rowsNew,
-            // totalRows,
-            // totalPages,
-            page
-          };
-          console.log("137")
-          console.log(dataPurchase)
-          dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
-          dispatch(slice.actions.hasError(null));
+          if (rowsNew) {
+            let dataPurchase: any = {
+              Rows: rowsNew,
+              // totalRows,
+              // totalPages,
+              page
+            };
+            console.log('137');
+            console.log(dataPurchase);
+            dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
+            dispatch(slice.actions.hasError(null));
+          }
         }
-        }
-
       }
     } catch (error: any) {
       if (error?.response?.status === 404) {
@@ -162,54 +161,53 @@ export function getTotalPurchaseList(page: number = 1) {
       if (response.data instanceof Object) {
         //const { Rows, totalRows, totalPages, page }: any = response.data;
 
-        if(response.data.length > 0){
-          console.log("compra100")
-          console.log(response.data.length)
+        if (response.data.length > 0) {
+          console.log('compra100');
+          console.log(response.data.length);
           let rowsNew: any = response.data
-          .map((item: any) => ({
-            ...item,
-            NumberOrder: `DrAgua-${item.sk}`,
-            BusinessName: item?.BusinessName,
-            CreatedAt: format(new Date(item?.CreatedAt), DATEFORMAT)
-          }))
-          .sort((a: any, b: any) => a.sk - b.sk);
+            .map((item: any) => ({
+              ...item,
+              NumberOrder: `DrAgua-${item.sk}`,
+              BusinessName: item?.BusinessName,
+              CreatedAt: format(new Date(item?.CreatedAt), DATEFORMAT)
+            }))
+            .sort((a: any, b: any) => a.sk - b.sk);
 
-        if (rowsNew.length > 0) {
-          let dataPurchase: any = {
-            Rows: rowsNew,
-            // totalRows,
-            // totalPages,
-            page
-          };
-          dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
-          dispatch(slice.actions.hasError(null));
-        }
-        }else{
-          console.log("compra122")
-          console.log(response.data.length)
+          if (rowsNew.length > 0) {
+            let dataPurchase: any = {
+              Rows: rowsNew,
+              // totalRows,
+              // totalPages,
+              page
+            };
+            dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
+            dispatch(slice.actions.hasError(null));
+          }
+        } else {
+          console.log('compra122');
+          console.log(response.data.length);
           let rowsNew: any = []
-          .map((item: any) => ({
-            ...item,
-            NumberOrder: `0`,
-            BusinessName: 0,
-            CreatedAt: 0
-          }))
-          .sort((a: any, b: any) => a.sk - b.sk);
+            .map((item: any) => ({
+              ...item,
+              NumberOrder: `0`,
+              BusinessName: 0,
+              CreatedAt: 0
+            }))
+            .sort((a: any, b: any) => a.sk - b.sk);
 
-        if (rowsNew) {
-          let dataPurchase: any = {
-            Rows: rowsNew,
-            // totalRows,
-            // totalPages,
-            page
-          };
-          console.log("137")
-          console.log(dataPurchase)
-          dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
-          dispatch(slice.actions.hasError(null));
+          if (rowsNew) {
+            let dataPurchase: any = {
+              Rows: rowsNew,
+              // totalRows,
+              // totalPages,
+              page
+            };
+            console.log('137');
+            console.log(dataPurchase);
+            dispatch(slice.actions.getPurchaseSuccess(dataPurchase));
+            dispatch(slice.actions.hasError(null));
+          }
         }
-        }
-
       }
     } catch (error: any) {
       if (error?.response?.status === 404) {
@@ -264,7 +262,7 @@ export function getIDPurchase(id: number) {
 
       const response = await axios.get(`${HOST}/purchase/byid?ID=${id}`, HEADER);
       if (response.data) {
-        console.log(response.data)
+        console.log(response.data);
         let Articles: Article[] = TransformsArticles(response.data?.Articles, response.data?.Products);
         await dispatch(addItemsPurchase(Articles));
         dispatch(
@@ -323,7 +321,6 @@ export function editPurchase(id: number, data: Purchase) {
 export function deletePurchase(id: number) {
   return async () => {
     try {
-
       const response = await axios.delete(`${HOST}/purchase`, { ...HEADER, data: { ID: id } });
       if (response) {
         dispatch(getPurchaseList());

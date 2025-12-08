@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Stack, Typography, Dialog,  Button } from '@mui/material';
+import { Stack, Typography, Dialog, Button } from '@mui/material';
 
 // project import
 import ProductView from './viewProduct';
@@ -17,13 +17,11 @@ import { useDispatch, useSelector } from 'store';
 import { getProductsEntry } from 'store/reducers/store';
 import { openSnackbar } from 'store/reducers/snackbar';
 
-
 import { ProductDefault } from 'config';
 
 // assets
 
 import { Store } from 'types/store';
-
 
 // ==============================|| PRODUCT LIST - MAIN ||============================== //
 
@@ -57,7 +55,7 @@ const ProductList = () => {
     }
   }, [error, dispatch]);
 
- const handleCancel = () => {
+  const handleCancel = () => {
     history(`/store-list/exit`);
   };
 
@@ -65,11 +63,9 @@ const ProductList = () => {
     history(`/store-list/entry`);
   };
 
-
   const handleAddProduct = () => {
     history(`/store-list/add`);
   };
-
 
   const handleImport = () => {
     setActiveImport(!addImport);
@@ -80,15 +76,14 @@ const ProductList = () => {
       {
         Header: 'Fecha de la entrada',
         accessor: 'ID',
-           Cell: ({ row }: any) => {
+        Cell: ({ row }: any) => {
           const { original } = row;
-          let fecha = original?.ID
-          fecha = parseInt(fecha)
+          let fecha = original?.ID;
+          fecha = parseInt(fecha);
           fecha = new Date(fecha);
-          
+
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
-            
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{fecha.toLocaleString()}</Typography>
               </Stack>
@@ -96,14 +91,13 @@ const ProductList = () => {
           );
         }
       },
-            {
+      {
         Header: 'Nombre Producto',
         accessor: 'Name',
         Cell: ({ row }: any) => {
           const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
-            
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.Name}</Typography>
               </Stack>
@@ -119,7 +113,7 @@ const ProductList = () => {
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0} alignItems="center">
-                <Typography  className="cell-center font-size">{original?.Quantity}</Typography>
+                <Typography className="cell-center font-size">{original?.Quantity}</Typography>
               </Stack>
             </Stack>
           );
@@ -129,32 +123,31 @@ const ProductList = () => {
       {
         Header: 'Proveedor',
         accessor: 'IdProvider',
-           Cell: ({ row }: any) => {
-             const { original } = row;
+        Cell: ({ row }: any) => {
+          const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.Provider}</Typography>
-                </Stack>
+              </Stack>
             </Stack>
           );
         }
       },
-        {
+      {
         Header: 'Observacion',
         accessor: 'Observation',
-           Cell: ({ row }: any) => {
-             const { original } = row;
+        Cell: ({ row }: any) => {
+          const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.Observation}</Typography>
-                </Stack>
+              </Stack>
             </Stack>
           );
         }
-      },
-   
+      }
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [theme]
@@ -201,17 +194,16 @@ const ProductList = () => {
           totalRows={totalPages}
         />
       </ScrollX>
-      <Button variant="contained"  color="primary" onClick={handleCancel2}>
-                          Ver Entradas
-                        </Button>
-                           ------<Button variant="contained" color="primary" onClick={handleCancel}>
-                          Ver Salidas
-                        </Button>     
-          
+      <Button variant="contained" color="primary" onClick={handleCancel2}>
+        Ver Entradas
+      </Button>
+      ------
+      <Button variant="contained" color="primary" onClick={handleCancel}>
+        Ver Salidas
+      </Button>
       <Dialog maxWidth="sm" fullWidth onClose={handleImport} open={addImport} sx={{ '& .MuiDialog-paper': { p: 0 } }}>
         {addImport && <Import onCancel={handleImport} />}
       </Dialog>
-      
     </MainCard>
   );
 };

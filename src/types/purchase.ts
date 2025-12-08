@@ -29,7 +29,7 @@ export type Article = {
 
 export type Purchase = {
   BusinessName: any;
- 
+
   ID?: string | number | undefined;
   SupplierID?: number;
   Supplier?: Supplier;

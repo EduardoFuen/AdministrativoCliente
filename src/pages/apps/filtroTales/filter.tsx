@@ -1,24 +1,19 @@
-
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker } from '@mui/x-date-pickers';
 import { Grid, TextField } from '@mui/material';
-import {Button} from "@mui/material"
+import { Button } from '@mui/material';
 import { useFilterContext } from 'contexts/Filter.context';
 import React, { useState } from 'react';
 import { Purchase } from 'types/purchase';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'store';
 
-
-
-
 const parseDDMMYYYY = (dateString: string): Date | null => {
-   
     const parts = dateString.split(/[\/-]/);
-    
+
     if (parts.length !== 3) {
-        return null; 
+        return null;
     }
 
     const day = parseInt(parts[0], 10);
@@ -28,26 +23,24 @@ const parseDDMMYYYY = (dateString: string): Date | null => {
     if (isNaN(day) || isNaN(month) || isNaN(year)) {
         return null;
     }
-    
+
     const dateObject = new Date(Date.UTC(year, month - 1, day));
-    
+
     if (dateObject.getUTCFullYear() !== year || dateObject.getUTCMonth() !== month - 1 || dateObject.getUTCDate() !== day) {
         return null;
     }
-    
+
     return dateObject;
 };
 
-
-
-export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number, max: number }): Purchase[] => {
-    return data.filter(item => {
+export const filterByRange = (data: Purchase[], property: keyof Purchase, range: { min: number; max: number }): Purchase[] => {
+    return data.filter((item) => {
         const value = item[property];
         let numericValue: number | undefined;
 
         if (typeof value === 'string') {
             const customDate = parseDDMMYYYY(value);
-            
+
             if (customDate) {
                 numericValue = customDate.getTime();
             }
@@ -66,44 +59,40 @@ export function Filter() {
     const { listPurchase } = useSelector((state) => state.purchase);
     const history = useNavigate();
     const { setLista } = useFilterContext();
-    
-    
+
     const [dataForm, setDataForm] = useState<{
-        dateFrom: Date | null,
-        dateTo: Date | null,
+        dateFrom: Date | null;
+        dateTo: Date | null;
     }>({
         dateFrom: new Date(),
-        dateTo: new Date(),
+        dateTo: new Date()
     });
 
-   
-const handleFilter = () => {
-   
-    if (!dataForm.dateFrom || !dataForm.dateTo) {
-        alert("'Desde' y 'Hasta', son necesarios.");
-        return; 
-    }
+    const handleFilter = () => {
+        if (!dataForm.dateFrom || !dataForm.dateTo) {
+            alert("'Desde' y 'Hasta', son necesarios.");
+            return;
+        }
 
-    const fromDate = dataForm.dateFrom;
-    const toDate = dataForm.dateTo;
-    
-   
-    const min = new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()).getTime();
-    
-    const max = new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999).getTime();
-    
-    const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
-    setLista(filteredData);
-    
-    history("/filter/list");
-};
-      return (
+        const fromDate = dataForm.dateFrom;
+        const toDate = dataForm.dateTo;
+
+        const min = new Date(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()).getTime();
+
+        const max = new Date(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999).getTime();
+
+        const filteredData = filterByRange(listPurchase, 'CreatedAt', { min, max });
+        setLista(filteredData);
+
+        history('/filter/list');
+    };
+    return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <Grid container spacing={3}>
                 <Grid item xs={8}>
                     <DatePicker
                         disableFuture
-                        label='Desde'
+                        label="Desde"
                         value={dataForm.dateFrom}
                         onChange={(newValue: Date | null) => {
                             setDataForm({ ...dataForm, dateFrom: newValue });
@@ -114,9 +103,9 @@ const handleFilter = () => {
                 <Grid item xs={8}>
                     <DatePicker
                         disableFuture
-                        label='Hasta'
+                        label="Hasta"
                         value={dataForm.dateTo}
-                        minDate={dataForm.dateFrom ?? undefined} 
+                        minDate={dataForm.dateFrom ?? undefined}
                         onChange={(newValue: Date | null) => {
                             setDataForm({ ...dataForm, dateTo: newValue });
                         }}
@@ -124,7 +113,9 @@ const handleFilter = () => {
                     />
                 </Grid>
                 <Grid item xs={8}>
-                    <Button variant='contained' onClick={handleFilter}>Filtrar</Button>
+                    <Button variant="contained" onClick={handleFilter}>
+                        Filtrar
+                    </Button>
                 </Grid>
             </Grid>
         </LocalizationProvider>
@@ -132,59 +123,40 @@ const handleFilter = () => {
 }
 export default Filter;
 
-
- 
-
 export function findTopComprador(lista: Purchase[]) {
-  if (lista.length === 0) {
-    return null;
-  }
-
-  const contador: { [key: string]: number } = {};
-  let compradorMasFrecuente: string | null = null;
-  let maxCount = 0;
-
-  lista.forEach(venta => {
-    
-    
-      const nombreComprador = venta.BusinessName;
-      
-      
-      contador[nombreComprador] = (contador[nombreComprador] || 0) + 1;
-
-      if (contador[nombreComprador] > maxCount) {
-        maxCount = contador[nombreComprador];
-        compradorMasFrecuente = nombreComprador;
-      
+    if (lista.length === 0) {
+        return null;
     }
-  });
 
-  return compradorMasFrecuente;
+    const contador: { [key: string]: number } = {};
+    let compradorMasFrecuente: string | null = null;
+    let maxCount = 0;
+
+    lista.forEach((venta) => {
+        const nombreComprador = venta.BusinessName;
+
+        contador[nombreComprador] = (contador[nombreComprador] || 0) + 1;
+
+        if (contador[nombreComprador] > maxCount) {
+            maxCount = contador[nombreComprador];
+            compradorMasFrecuente = nombreComprador;
+        }
+    });
+
+    return compradorMasFrecuente;
 }
 
 export function findTopVenta(lista: Purchase[]): Purchase | null {
-  if (lista.length === 0) {
-    return null;
-  }
+    if (!lista || lista.length === 0) return null;
 
- 
-  const primeraVentaValida = lista.find(venta => typeof venta.Total === 'number');
+    return lista.reduce((top: Purchase | null, actual: Purchase) => {
+        const valorActual = Number(actual.Total);
+        const valorTop = top !== null ? Number(top.Total) : -Infinity;
 
-  if (!primeraVentaValida) {
-    return null;
-  }
+        if (!isNaN(valorActual) && valorActual > valorTop) {
+            return actual;
+        }
 
-  let topVenta: Purchase = primeraVentaValida;
-
- 
-  for (let i = 0; i < lista.length; i++) {
-    const ventaActual = lista[i];
-
-    
-    if (typeof ventaActual.Total === 'number' && ventaActual.Total > (topVenta.Total ?? -Infinity)) {
-      topVenta = ventaActual;
-    }
-  }
-
-  return topVenta;
+        return top;
+    }, null);
 }

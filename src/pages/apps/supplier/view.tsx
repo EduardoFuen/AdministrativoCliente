@@ -79,7 +79,7 @@ const UserView = ({ data }: any) => {
                       </Grid>
                     </Grid>
                   </ListItem>
-            
+
                   <ListItem divider={!matchDownMD}>
                     <Grid container spacing={3}>
                       {data.PaymenTerm && (

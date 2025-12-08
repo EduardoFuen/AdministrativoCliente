@@ -17,13 +17,11 @@ import { useDispatch, useSelector } from 'store';
 import { getDolar } from 'store/reducers/store';
 import { openSnackbar } from 'store/reducers/snackbar';
 
-
 import { ProductDefault } from 'config';
 
 // assets
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Cambios } from 'types/store';
-
 
 // ==============================|| PRODUCT LIST - MAIN ||============================== //
 
@@ -36,7 +34,6 @@ const ProductList = () => {
   const [valueSearch, setvalueSearch] = useState<any>('');
 
   const { cambios, error, page, totalPages, isLoading } = useSelector((state) => state.store);
-
 
   useEffect(() => {
     dispatch(getDolar());
@@ -58,9 +55,6 @@ const ProductList = () => {
     }
   }, [error, dispatch]);
 
-
-
-
   const handleEditProduct = (id: any) => {
     history(`/cambios/edit/${id}`);
   };
@@ -76,14 +70,13 @@ const ProductList = () => {
         accessor: 'ID',
         className: 'cell-center font-size'
       },
-            {
+      {
         Header: 'Dolar',
         accessor: 'Base',
         Cell: ({ row }: any) => {
           const { original } = row;
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
-            
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{original?.Base}</Typography>
               </Stack>
@@ -99,7 +92,7 @@ const ProductList = () => {
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0} alignItems="center">
-                <Typography  className="cell-center font-size">{original?.BCV}</Typography>
+                <Typography className="cell-center font-size">{original?.BCV}</Typography>
               </Stack>
             </Stack>
           );
@@ -109,16 +102,16 @@ const ProductList = () => {
       {
         Header: 'Ultima Actualizacion',
         accessor: 'Date',
-           Cell: ({ row }: any) => {
-             const { original } = row;
-          let fecha = original?.Date
-          fecha = parseInt(fecha)
+        Cell: ({ row }: any) => {
+          const { original } = row;
+          let fecha = original?.Date;
+          fecha = parseInt(fecha);
           fecha = new Date(fecha);
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
                 <Typography className="cell-center font-size">{fecha.toLocaleString()}</Typography>
-                </Stack>
+              </Stack>
             </Stack>
           );
         }
@@ -128,12 +121,9 @@ const ProductList = () => {
         className: 'cell-center font-size',
         disableSortBy: true,
         Cell: ({ row }: any) => {
-      
-
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-            
-                <Tooltip title="Comprar">
+              <Tooltip title="Comprar">
                 <IconButton
                   color="primary"
                   onClick={(e: any) => {
@@ -144,7 +134,6 @@ const ProductList = () => {
                   <PlusCircleOutlined twoToneColor={theme.palette.primary.main} />
                 </IconButton>
               </Tooltip>
-
             </Stack>
           );
         }
@@ -194,11 +183,10 @@ const ProductList = () => {
           totalRows={totalPages}
         />
       </ScrollX>
-   
+
       <Dialog maxWidth="sm" fullWidth onClose={handleImport} open={addImport} sx={{ '& .MuiDialog-paper': { p: 0 } }}>
         {addImport && <Import onCancel={handleImport} />}
       </Dialog>
-      
     </MainCard>
   );
 };

@@ -1,17 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
-import {
-  Button,
-  Grid,
-  InputLabel,
-  Stack,
-  TextField,
-  Select,
-  MenuItem,
-  Typography,
-  FormHelperText
-} from '@mui/material';
+import { Button, Grid, InputLabel, Stack, TextField, Select, MenuItem, Typography, FormHelperText } from '@mui/material';
 
 // third-party
 import * as Yup from 'yup';
@@ -58,7 +48,7 @@ function AddSupplier() {
     initialValues: getInitialValues(),
     validationSchema: SubstSchema,
     onSubmit: async (values, { setSubmitting }) => {
-      console.log('TEST66')
+      console.log('TEST66');
       try {
         await dispatch(createSupplier(values));
         dispatch(
@@ -105,7 +95,7 @@ function AddSupplier() {
                         fullWidth
                       />
                     </Grid>
-                                     <Grid item xs={6}>
+                    <Grid item xs={6}>
                       <InputLabel sx={{ mb: 1, opacity: 1 }}>Tipo Cliente</InputLabel>
                       <Select
                         fullWidth
@@ -129,9 +119,9 @@ function AddSupplier() {
                   </Grid>
 
                   <Grid container spacing={1} direction="row">
-                      <Grid item xs={6}>
+                    <Grid item xs={6}>
                       <InputLabel sx={{ mb: 1, opacity: 1 }}>-</InputLabel>
-                        <Select
+                      <Select
                         fullWidth
                         {...getFieldProps('rif2')}
                         inputProps={{ 'aria-label': 'Without label' }}
@@ -158,7 +148,7 @@ function AddSupplier() {
                         fullWidth
                       />
                     </Grid>
-   
+
                     <Grid item xs={12}>
                       <InputLabel sx={{ mb: 1, opacity: 1 }}>Direccion Empresa</InputLabel>
                       <TextField
@@ -181,7 +171,7 @@ function AddSupplier() {
                       />
                     </Grid>
                     <Grid item xs={6}>
-                    <InputLabel sx={{ mb: 1, opacity: 1 }}>Contribuyente Especial</InputLabel>
+                      <InputLabel sx={{ mb: 1, opacity: 1 }}>Contribuyente Especial</InputLabel>
                       <Select
                         fullWidth
                         {...getFieldProps('PaymenTerm')}
@@ -211,7 +201,6 @@ function AddSupplier() {
                       />
                     </Grid>
                   </Grid>
-           
                 </MainCard>
               </Grid>
 
@@ -262,7 +251,7 @@ function AddSupplier() {
                         fullWidth
                       />
                     </Grid>
-                                        <Grid item xs={6}>
+                    <Grid item xs={6}>
                       <InputLabel sx={{ mb: 1, opacity: 1 }}>Latitud (GOOGLEMAPS)</InputLabel>
                       <TextField
                         sx={{ '& .MuiOutlinedInput-input': { opacity: 1 } }}
@@ -292,7 +281,6 @@ function AddSupplier() {
                   </Grid>
                 </MainCard>
               </Grid>
-
 
               <Grid item xs={12}>
                 <Stack direction="row" spacing={2} justifyContent="center" alignItems="center" sx={{ mt: 6 }}>

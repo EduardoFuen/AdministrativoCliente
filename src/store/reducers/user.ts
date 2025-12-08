@@ -6,7 +6,6 @@ import axios from 'axios';
 import { HOST, HEADER } from 'config';
 import { dispatch } from '../index';
 
-
 // types
 import { UserStateProps } from 'types/supplier';
 
@@ -30,13 +29,11 @@ const slice = createSlice({
 
     getUserSuccess(state, action) {
       state.userList = action.payload;
-    },
+    }
   }
 });
 // Reducer
 export default slice.reducer;
-
-
 
 export function getUserList() {
   return async () => {
@@ -53,4 +50,3 @@ export function getUserList() {
     }
   };
 }
-

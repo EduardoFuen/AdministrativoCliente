@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect} from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // material-ui
@@ -71,7 +71,7 @@ function AddPurchase() {
   };
 
   const SubstSchema = Yup.object().shape({
-    SupplierID: Yup.string().required('Proveedor es requerido'),
+    SupplierID: Yup.string().required('Proveedor es requerido')
   });
 
   const data = useMemo(
@@ -85,7 +85,7 @@ function AddPurchase() {
     onSubmit: async (values, { setSubmitting }) => {
       try {
         setSubmitting(true);
-        const sk = Date.now().toString()
+        const sk = Date.now().toString();
         if (detailsPurchase.length > 0) {
           const newValue: Purchase = {
             ...values,
@@ -122,7 +122,7 @@ function AddPurchase() {
                   </Typography>
                   <Grid container spacing={1} direction="row">
                     <Grid item xs={4}>
-                      <InputLabel sx={{ mb: 1,  }}>Cliente</InputLabel>
+                      <InputLabel sx={{ mb: 1 }}>Cliente</InputLabel>
                       <Autocomplete
                         id="supplier-list"
                         renderOption={(props, option) => {
@@ -170,10 +170,10 @@ function AddPurchase() {
                       marginTop: 20
                     }}
                   >
-                    <Grid item xs={5} >
-                      <InputLabel sx={{ mb: 1,  }}>Notas</InputLabel>
+                    <Grid item xs={5}>
+                      <InputLabel sx={{ mb: 1 }}>Notas</InputLabel>
                       <TextField
-                        sx={{ '& .MuiOutlinedInput-input': {  } }}
+                        sx={{ '& .MuiOutlinedInput-input': {} }}
                         multiline
                         rows={2}
                         placeholder="Ingresar Nota de compras"

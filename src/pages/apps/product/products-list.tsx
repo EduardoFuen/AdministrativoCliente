@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {Stack, Tooltip, Box, CircularProgress } from '@mui/material';
+import { Stack, Tooltip, Box, CircularProgress } from '@mui/material';
 
 // project import
 import ProductView from './viewProduct';
@@ -11,7 +11,6 @@ import IconButton from 'components/@extended/IconButton';
 import MainCard from 'components/MainCard';
 import ReactTable from 'components/ReactTable';
 import ScrollX from 'components/ScrollX';
-
 
 import { useDispatch, useSelector } from 'store';
 import { getProducts, deleteProduct } from 'store/reducers/product';
@@ -34,7 +33,6 @@ const ProductList = () => {
 
   const { products, error, page, totalPages, isLoading } = useSelector((state) => state.product);
 
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -55,7 +53,6 @@ const ProductList = () => {
     }
   }, [error, dispatch]);
 
-
   const handleAddProduct = () => {
     history(`/product-list/add`);
   };
@@ -63,7 +60,7 @@ const ProductList = () => {
   const handleEditProduct = (id: any) => {
     history(`/product-list/edit/${id}`);
   };
- 
+
   const columnsProducts = useMemo(
     () => [
       {
@@ -78,7 +75,7 @@ const ProductList = () => {
       },
       {
         Header: 'Nombre Producto',
-        accessor: 'Name',
+        accessor: 'Name'
       },
       {
         Header: 'Precio',
@@ -92,10 +89,8 @@ const ProductList = () => {
         Cell: ({ row }: any) => {
           const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
           return (
             <Stack direction="row" alignItems="center" justifyContent="center" spacing={0}>
-    
               <Tooltip title="Edit">
                 <IconButton
                   color="primary"

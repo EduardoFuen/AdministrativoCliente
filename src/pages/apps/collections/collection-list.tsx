@@ -47,7 +47,6 @@ const CollectionList = () => {
     history(`/Collection/view/${id}`);
   };
 
-
   const columns = useMemo(
     () => [
       {
@@ -87,8 +86,8 @@ const CollectionList = () => {
         accessor: 'BusinessName',
         Cell: ({ row }: any) => {
           const { original } = row;
-          console.log('LISTA 101')
-          console.log(original)
+          console.log('LISTA 101');
+          console.log(original);
           return (
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Stack spacing={0}>
@@ -149,23 +148,23 @@ const CollectionList = () => {
                 </IconButton>
               </Tooltip>
               <Tooltip title="Delete">
-              <IconButton
-                    color="error"
-                    onClick={async (e: any) => {
-                      e.stopPropagation();
-                      setIsLoadingDelete(true);
-                      await dispatch(deleteCollection(Number(row?.original?.sk)));
-                      setIsLoadingDelete(false);
-                    }}
-                  >
-                    {!isLoadingDelete ? (
-                      <DeleteTwoTone twoToneColor={theme.palette.error.main} />
-                    ) : (
-                      <Box sx={{ display: 'flex' }}>
-                        <CircularProgress color="success" size={20} />
-                      </Box>
-                    )}
-                  </IconButton>
+                <IconButton
+                  color="error"
+                  onClick={async (e: any) => {
+                    e.stopPropagation();
+                    setIsLoadingDelete(true);
+                    await dispatch(deleteCollection(Number(row?.original?.sk)));
+                    setIsLoadingDelete(false);
+                  }}
+                >
+                  {!isLoadingDelete ? (
+                    <DeleteTwoTone twoToneColor={theme.palette.error.main} />
+                  ) : (
+                    <Box sx={{ display: 'flex' }}>
+                      <CircularProgress color="success" size={20} />
+                    </Box>
+                  )}
+                </IconButton>
               </Tooltip>
               {row.original?.ReceptionStatus === 0 && (
                 <Tooltip title="Cancelar">

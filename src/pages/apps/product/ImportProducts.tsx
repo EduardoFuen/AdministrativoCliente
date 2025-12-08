@@ -5,7 +5,6 @@ import { addExcel } from 'store/reducers/product';
 import ContainerModal from 'components/ContainerModal';
 import { useDispatch } from 'store';
 
-
 // types
 import { Product } from 'types/products';
 
@@ -20,14 +19,13 @@ const Import = ({ onCancel }: Props) => {
   const [data, setData] = useState<any>([]);
   const [Submitting, setSubmitting] = useState<boolean>(false);
 
-
   const onSubmit = async () => {
     try {
       setSubmitting(true);
       const newData: Product[] = data?.map((item: Product) => ({
         Name: item?.Name?.toString(),
         Sku: item?.Sku?.toString(),
-        Price: item?.Price?.toString(),
+        Price: item?.Price?.toString()
       }));
       await dispatch(addExcel(newData));
       onCancel();
